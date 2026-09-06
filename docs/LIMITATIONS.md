@@ -17,8 +17,25 @@
   this fixed benchmark; it is not a confidence interval over independent datasets.
 - CPU deterministic replay is tested on the recorded environment. Bitwise equality
   across other operating systems, BLAS builds or library versions is not promised.
-- Phase 1 has no interactive UI, latency guarantee, research integration, public
-  deployment or submission PDFs. These remain explicitly gated future phases.
+- Phase 2 provides the interactive UI. Research integration, public deployment and
+  submission PDFs remain explicitly gated to later phases.
+- The lab fixes 3 classes, 30 queries and a support pool of 10 images/class; it
+  starts at one shot/class. Its nested-prefix sampling differs from the Phase 1
+  five-shot benchmark. Adding shots need not monotonically improve accuracy.
+- The shot slider rebuilds clean memory, removing conflicts. Teach retains existing
+  conflicts; repeated conflict clicks append the same wrong-label association.
+  This is a controlled interference example, not a comprehensive robustness study.
+- Browser reload discards temporary state. Shared cached embeddings/model are
+  read-only application resources; session memory is isolated. No persistence,
+  accounts or multi-worker load testing is implemented.
+- Historical matrix snapshots are explicitly labelled and may differ from the
+  current query scores. Actions switch the matrix view back to Current.
+- Local core/AppTest timings and three browser observations are recorded separately.
+  No remote latency, cold-start deployment guarantee or universal subsecond claim
+  is made. AppTest excludes browser rendering and network transport.
+- Text labels, numeric alternatives, keyboard slider/controls and 390 px responsive
+  layout were checked. Full screen-reader/WCAG conformance and learning outcomes
+  with human participants have not been established.
 - Dataset attribution/license is recorded from the original UCI source. The team
   has not selected a license for project code or generated model weights.
   Final provenance review and the portal's blog-PDF versus concept-summary-PDF

@@ -1,6 +1,6 @@
-# Provenance — Phase 1
+# Provenance — Phases 1 and 2
 
-Evidence checked 2026-09-06. This is an implementation provenance record, not
+Evidence checked 2026-09-06 (core/data) and 2026-09-07 (UI dependencies/assets). This is an implementation provenance record, not
 the Phase 3 research integration. No papers or figures are reused in this phase.
 
 ## Dataset
@@ -26,7 +26,7 @@ copied into this repository; it ships inside the scikit-learn dependency.
 
 | Item | Source/evidence | License/status | Modification/location |
 |---|---|---|---|
-| MemoryForge code | Original Phase 1 implementation with Codex assistance | Project license NOT SELECTED; team decision needed | `src/`, `scripts/`, `tests/` |
+| MemoryForge code | Original Phases 1–2 implementation with Codex assistance | Project license NOT SELECTED; team decision needed | `src/`, `scripts/`, `tests/` |
 | Initial repository | Remote commit `fd433b4` from the user-designated repository | No license file present | Existing `html` preserved verbatim; README expanded |
 | Encoder and head weights | Locally trained from seeded random initialization using this repository | Generated-weight license NOT SELECTED; training-data attribution above | `artifacts/encoder.pt`; no third-party pretrained weights |
 | Evaluation evidence | Computed by this repository | Project-generated output; data attribution above | `artifacts/*.json` |
@@ -35,10 +35,21 @@ copied into this repository; it ships inside the scikit-learn dependency.
 | scikit-learn 1.6.1 | Installed distribution LICENSE metadata; [source](https://github.com/scikit-learn/scikit-learn/tree/1.6.1) | Core BSD-3-Clause; wheel includes runtime notices | Imported dependency; unmodified; dataset license tracked separately |
 | pytest 8.3.5 | Installed distribution metadata; [source](https://github.com/pytest-dev/pytest/tree/8.3.5) | MIT | Test dependency; unmodified |
 | SciPy, joblib, threadpoolctl | Installed dependencies recorded in `artifacts/environment.json` | Full transitive/wheel notice review deferred to Phase 4 | Imported numerical dependencies; unmodified |
-| Streamlit and Plotly | Planned only | Not used yet; verify when introduced | Phase 2 |
-| Fonts, icons, external images, research figures | None added | Not applicable in Phase 1 | No assets |
+| Streamlit 1.45.1 | Installed distribution metadata | Apache License 2.0 | Imported UI dependency; unmodified |
+| Plotly 6.1.2 | Installed distribution metadata | MIT | Imported chart dependency; unmodified |
+| pandas 2.2.3 | Installed distribution metadata | BSD-3-Clause | Imported table dependency; unmodified |
+| UI CSS, brand mark and text | Original with Codex assistance | Project license NOT SELECTED | `assets/lab.css`, `src/ui.py`; no downloaded assets |
+| Fonts and icons | Local system font stack; textual M/Unicode mark and native Streamlit controls | No font or icon files redistributed | System fonts and dependency rendering |
+| Digit display images | Dataset above, nearest-neighbor enlargement | Dataset attribution above | `src/visualization.py`; no generated or external artwork |
+| Research papers and figures | None reused yet | Phase 3 pending | Transition placeholder only |
 
 Package metadata was read using `importlib.metadata`. Package license names do
 not replace full wheel notices or determine dataset rights. No third-party
 package source or wheels are vendored here. Final provenance review must cover
 the dependencies/assets actually used by the finished product.
+
+Phase 2 metadata and the installed package inventory are saved in
+`artifacts/phase2_environment.json`. License names were read from installed
+Streamlit, Plotly and pandas distributions. Full transitive and wheel notice
+review remains a Phase 4 item. No image-generation model, remote font service,
+third-party template or copied website was used for the UI.

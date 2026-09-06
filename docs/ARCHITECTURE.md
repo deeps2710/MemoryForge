@@ -1,4 +1,4 @@
-# Architecture — Phase 1
+# Architecture — Phases 1 and 2
 
 MemoryForge's ML logic lives in `src/`; scripts are explicit command-line entry
 points. No module trains or loads a dataset merely by being imported.
@@ -97,4 +97,37 @@ records. Timestamps and runtime durations are excluded from deterministic result
 | `fast_memory.py` | Write, query, snapshots, statistics and reset |
 | `evaluation.py` | Clean/conflict/reset experiments and actual aggregate evidence |
 
-Phase 2 will call these modules from Streamlit; it has not been implemented.
+## Interactive application
+
+`app.py` loads the checkpoint with `st.cache_resource`, keyed by its path, size
+and modification time. `LabResources` holds the frozen encoder, original tensor
+copies, data partition and precomputed embeddings for all 450 held-out rows.
+Training rows cannot be looked up as lab keys. No optimizer or training call is
+on the app path. An exact parameter audit runs on each action and rendered view.
+
+`LabSession` lives in `st.session_state`; it is never globally cached. It owns
+the episode, `FastMemory`, query cursor, clean shot count, conflicts, copied
+historical snapshots and observed clean-shot accuracies. Shared resources are
+read-only by convention and guarded by exact tensor comparisons. Clearing one
+session cannot clear another session's memory. Browser reload creates a new
+session; navigating learning pages preserves the current one.
+
+The UI uses `generate_episode(3, 10, 10, seed)` once to fix a support pool of
+10/class and 30 distinct queries. Shot counts select nested support prefixes;
+they do not resample queries. This differs from Phase 1's five-shot sampling.
+New Episode advances the seed and starts with one support/class. Teach appends
+one support/class. The slider rebuilds clean memory and removes conflicts.
+Conflict appends support zero under the next symbolic label. Query only advances
+the displayed held-out image. Clear removes all sums/counts and resets shots.
+
+`ui.py` routes native widget callbacks to this session before rendering. Every
+number is derived from the current view or a labelled copied snapshot. The
+headline memory delta is measured against empty memory; transition deltas refer
+to the preceding action. A smaller norm after another write is possible because
+retrieval uses class means. Charts and precise numeric alternatives come from
+`visualization.py`; `learning.py` supplies three feedback questions.
+
+Resource loading and CPU actions have separate timing from Streamlit reruns and
+browser observations. `benchmark_lab.py` preserves samples and scopes each
+measurement. `record_lab.py` records actual deterministic preset transitions.
+Scoped CSS stacks the main panels below 1150 px and metrics on small screens.

@@ -1,38 +1,40 @@
 # Phase status
 
-Current phase: **Phase 1 — core ML foundation**.
-Completed phases: **Phase 1**.
-Current status: **COMPLETE — awaiting user instruction**.
-Last verification: 2026-09-06, full CPU training, 77 tests, smoke, 50-episode
-evaluation and exact comparison of two complete 50-episode replay reports.
+Current phase: **Phase 2 — interactive educational product and live demo**.
+Completed phases: **Phases 1 and 2**.
+Current status: **COMPLETE / PASS**.
+Last verification: 2026-09-07, 105 tests, pip check, smoke, unchanged complete
+50-episode evaluation, lab transition replay, repeated timings and browser QA.
 
 Phase 1: **COMPLETE**.
-Phase 2: NOT STARTED.
-Phase 3: NOT STARTED.
-Phase 4: NOT STARTED.
+Phase 2: **COMPLETE**.
+Phase 3: **NOT STARTED**.
+Phase 4: **NOT STARTED**.
 
-Known issues: no Phase 1 blockers. Python is available as a bundled runtime
-(3.12.14), not on PATH; the working environment is `.venv`. Source parses as
-Python 3.11 but actual 3.11 runtime execution and cross-platform replay are
-unverified. The original `html` file is preserved.
+Phase 2 was explicitly authorized by the user's next-phase instruction. Entry
+check: 77 Phase 1 tests passed in 5.78s; clean HEAD 21c9a5c. The existing ML core
+and checkpoint remain unchanged. Current full suite: 105 passed in 13.85s.
 
-Evidence: encoder sanity accuracy 437/450 (97.11%); 50-episode mean 97.53% vs
-33.33% chance; encoder delta exactly 0; minimum memory delta 1.51549; conflict
-mean accuracy 97.00%, 19 changed predictions. `artifacts/verification.json`
-records executed commands, and `docs/PHASE_1_REPORT.md` audits all 24 criteria.
+Implemented: real immediate preset, guided lab/playground, native one-click
+actions, measured frozen-weight and memory deltas, actual matrices and scores,
+fixed-query shot experiment, conflict/reset, and three-question learning check.
+Evidence: PHASE_2_REPORT.md, PHASE_2_WALKTHROUGH.md, REQUIREMENTS_MATRIX.md and
+artifacts/phase2_{demo,latency,verification,environment}.json.
 
-Unresolved requirements: future-phase UI, research, deployment and final PDFs;
-project-code/generated-weight license selection; final provenance review; actual
-competition portal verification and blog/concept-summary PDF distinction. The
-dataset's primary-source attribution and listed license are documented. These
-are not unresolved Phase 1 acceptance failures.
+Known issues: no Phase 2 acceptance blockers. Tested on Windows Python 3.12.14,
+CPU only. Python is available through .venv rather than PATH. Other OS/Python
+runtime execution, full assistive-technology audit, human learner testing and
+public-service performance remain unverified. Existing unrelated html preserved.
+
+Unresolved later-phase requirements: sourced BDH/research integration, evidence
+expansion, deployment, final PDFs, code/weight license selection, final provenance
+review, actual competition portal verification and the blog/concept-summary PDF
+distinction. These are not unresolved Phase 2 acceptance failures.
 
 Repository: https://github.com/deeps2710/MemoryForge (public), branch main.
-Implementation commit: `f46ae98092b9ddda70d8f2887af7e4df7050a797`.
-Delivery: pushed successfully to origin/main; remote branch hash matched local
-HEAD and the working tree was clean. A following documentation/evidence commit
-records this verification. See PHASE_1_REPORT.md and the final session response.
+Phase 1 delivery: f46ae98 implementation; 21c9a5c verified-delivery documentation.
+Phase 2 Git delivery: pending final commit/push verification.
 
-Next permitted phase: Phase 2, **only after Phase 1 passes and the user explicitly
-instructs “Initiate the next phase.”** No UI, research integration, PDFs or
-deployment is authorized in this run.
+Next permitted work: Phase 3, **only after a new explicit instruction to initiate
+the next phase**. No Phase 3 research integration, final PDFs or deployment was
+performed in Phase 2.

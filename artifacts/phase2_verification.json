@@ -1,0 +1,184 @@
+{
+  "browser": {
+    "mobile_document_width": 390,
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "observed_click_to_result_ms": {
+      "conflict": 338,
+      "query": 335,
+      "teach": 443
+    },
+    "scope": "Local browser observations include automation overhead; three samples, not a latency distribution.",
+    "walkthrough": "docs/PHASE_2_WALKTHROUGH.md"
+  },
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q",
+      "exit_code": 0,
+      "phase1_tests": 77,
+      "phase2_tests": 28,
+      "result": "105 passed in 13.85s"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pip check",
+      "exit_code": 0,
+      "result": "No broken requirements found."
+    },
+    {
+      "checks": {
+        "above_chance": true,
+        "conflict_changes_state": true,
+        "encoder_unchanged": true,
+        "memory_updated": true,
+        "reset_clears_memory": true
+      },
+      "command": ".venv/Scripts/python.exe scripts/smoke_test.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/evaluate_core.py --output .local/phase1_recheck.json",
+      "complete_report_equals_phase1": true,
+      "exit_code": 0,
+      "summary": {
+        "all_encoder_parameters_equal": true,
+        "chance": 0.3333333333333333,
+        "conflict_mean_accuracy": 0.97,
+        "conflict_mean_accuracy_change": -0.005333333333333332,
+        "conflict_memory_delta_min": 0.11409231108274769,
+        "conflict_predictions_changed": 19,
+        "encoder_parameter_delta_max": 0.0,
+        "episodes": 50,
+        "margin_over_chance": 0.6419999999999999,
+        "max_episode_accuracy": 1.0,
+        "mean_accuracy": 0.9753333333333333,
+        "memory_delta_mean": 1.591161575045208,
+        "memory_delta_min": 1.5154881739946258,
+        "min_episode_accuracy": 0.9,
+        "queries_total": 1500,
+        "reset_all_empty": true,
+        "std_accuracy_population": 0.031134118476894974
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/record_lab.py",
+      "evidence": "artifacts/phase2_demo.json",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/benchmark_lab.py",
+      "evidence": "artifacts/phase2_latency.json",
+      "exit_code": 0
+    }
+  ],
+  "git_delivery": "Pending commit/push verification; see phase report.",
+  "phase": 2,
+  "recorded_at_utc": "2026-09-06T22:49:51.361875+00:00",
+  "requirements": {
+    "P2-01": {
+      "evidence": "AppTest startup, missing-artifact handling; live localhost browser",
+      "status": "PASS"
+    },
+    "P2-02": {
+      "evidence": "test_app_opens_on_real_preset_with_truth_and_deltas; phase2_demo.json",
+      "status": "PASS"
+    },
+    "P2-03": {
+      "evidence": "Rendered hero and central-claim assertion in test_app.py",
+      "status": "PASS"
+    },
+    "P2-04": {
+      "evidence": "Teach callback and 3-to-6 real writes; test_lab.py write reconstruction",
+      "status": "PASS"
+    },
+    "P2-05": {
+      "evidence": "test_chart_payloads_match_actual_current_and_historical_matrices; browser",
+      "status": "PASS"
+    },
+    "P2-06": {
+      "evidence": "test_rendered_score_chart_and_table_agree_with_query",
+      "status": "PASS"
+    },
+    "P2-07": {
+      "evidence": "AppTest metrics equal real prediction/truth; desktop/mobile screenshots reviewed",
+      "status": "PASS"
+    },
+    "P2-08": {
+      "evidence": "Exact tensor audit each action/view; all recorded encoder deltas zero",
+      "status": "PASS"
+    },
+    "P2-09": {
+      "evidence": "Real snapshot norms in UI; reset zero; phase2_demo.json",
+      "status": "PASS"
+    },
+    "P2-10": {
+      "evidence": "Fixed query IDs and nested supports; keyboard 0\u201310; observed-only chart",
+      "status": "PASS"
+    },
+    "P2-11": {
+      "evidence": "Real wrong-label write; 5/30 predictions changed; 90.0% to 86.7%",
+      "status": "PASS"
+    },
+    "P2-12": {
+      "evidence": "Zero sums/counts/matrix, abstention, repeat clear and reteach tests",
+      "status": "PASS"
+    },
+    "P2-13": {
+      "evidence": "All 3 questions correct/incorrect AppTest; live immediate-feedback check",
+      "status": "PASS"
+    },
+    "P2-14": {
+      "evidence": "PHASE_2_WALKTHROUGH.md; desktop and 390\u00d7844; labelled controls and numeric views",
+      "status": "PASS"
+    },
+    "P2-15": {
+      "evidence": "phase2_latency.json; 30 core and 10 AppTest samples/action; scoped browser timings",
+      "status": "PASS"
+    },
+    "P2-16": {
+      "evidence": "All 77 unchanged Phase 1 tests pass; complete 50-episode report exactly equal",
+      "status": "PASS"
+    },
+    "P2-17": {
+      "evidence": "28 new lab/chart/AppTest checks pass; full suite 105 passed in 13.85s",
+      "status": "PASS"
+    },
+    "P2-18": {
+      "evidence": "Phase 2 report, matrix, ledger, README, architecture, decisions, limits and provenance",
+      "status": "PASS"
+    }
+  },
+  "source_sha256": {
+    ".streamlit/config.toml": "58160b4a11d262761162bc532926aaf8b53d67b608e02092619661d7de7c873b",
+    "app.py": "48ed8da80d2568a964c22e184cd27424348ec3ff7871118d99f2290f00398ccc",
+    "assets/lab.css": "d10bc641e85288620a7b0c6c239c0cb5948cbf0141c3a5960a2d7296b8e61542",
+    "requirements.txt": "05f50bcc75d01229fb327378234ca7299a32b5a3873a7489246ab0a2d08ae112",
+    "scripts/benchmark_lab.py": "5d33757d8151e6565b42e36e354520dd310d3a978f5b3e75431927f2a0d8c8f2",
+    "scripts/record_lab.py": "d9d01b459e17e5c8a4ebb10d7770801d4c9ba477e304ed606bcad495ffacb658",
+    "src/__init__.py": "6c2bcdd0a7b5797ff83a7a17589b9cbed1d53ce0ccdcb1a492cb82c9ee6157a4",
+    "src/config.py": "dd1f28842574c8bfb6b499e3ab4463c4204f08019c5c095bc766d9defacde750",
+    "src/data.py": "dc09ec0efb73cf3a37963b01075adf8ae379812ce2e2cbe8e10037f2edda6bb8",
+    "src/encoder.py": "4f1ef03b60fef83db9e0fbc7bca351c20cfdb76978a88aab727633b0da7159bd",
+    "src/episodes.py": "a82ad40ea4bd54ca48f10529007c0be530078bca70fc9492197bff7b2f0a73d6",
+    "src/evaluation.py": "e6679d1a645386f1e94f26e0347124488e145f112a6edb11f22bcedc273a4421",
+    "src/fast_memory.py": "9cd6b183b555438be7513fb5b8ff7bdb22363149fbe877e34a7882b14fd5ef73",
+    "src/lab.py": "1a8abcb0b35300d67d5caa2cb0cda34bebe636a170922964b00a3558a76679f7",
+    "src/learning.py": "5e4282ce31502845fffd46a83fb036ea469ff01e00d90c44dc0ea54c0d8f4229",
+    "src/reproducibility.py": "c756b0aade36e00d4b3ed4959d79e0eb5c02bcde70f77667926939f17fb73e17",
+    "src/training.py": "1c53c3e544bb11bbb50c71a13a2855492022c41dfc1400861996ddb3ef178403",
+    "src/ui.py": "0fbbdce366cfa805feef8b928f54f563a7c4dfb1a0dce141a9bd7000e3abc4cd",
+    "src/visualization.py": "e628ea3e8a27cbc9b68677b1d84872ee336ecfeaf2bbdcd12b6ba34082a01ae3",
+    "tests/conftest.py": "ebdb10a5232e243da8d17e88ea7c8396d3acceb2e4f5dfe539de2455fa0f174d",
+    "tests/test_app.py": "e8b88b97bbfaccb4212b8ef148cabacf5cf07c87a255bf88f7c5a2bd7d368f27",
+    "tests/test_data.py": "c1a6f607501ccf5c49f7798d14c6f24c68b469e805f7c087da1b8b7e28486cba",
+    "tests/test_encoder.py": "998055ef3478ef83601558d5b13d56119df09260291997f3c4e00b5d70e1bc98",
+    "tests/test_episode.py": "cf8062bad2cb40cd4a597bcf93e2d6fa1692c1b2b65e998f84a547e2e7115bcc",
+    "tests/test_evaluation.py": "7e22843bc6af5897a5b2c6c47471f6246d501b9a439b3e69382ff73cc1ee62dd",
+    "tests/test_fast_memory.py": "47f1f61ec0eabcd2c52e272046c2bdb89e16299da9031d6a81b6d104a74efe92",
+    "tests/test_lab.py": "8e39ad7c84dd25772ef1f38dd6ff49376a421b04981cb33cd569f52324b0070e",
+    "tests/test_reproducibility.py": "16f72eaf57ea765e2e8f4fd8d321ee11999401df4a151ab4c53ab4cd1c9bf8e6",
+    "tests/test_visualization.py": "b61805b53b3d806579c5a03faa42359c381d22995eb1c19ca54211f978803986"
+  },
+  "status": "PASS"
+}

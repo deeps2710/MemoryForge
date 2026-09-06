@@ -71,3 +71,42 @@ Alternatives considered: requiring 3.12 everywhere, modifying the shared runtime
 Consequences: actual 3.11 execution remains unverified; deterministic claims apply
 to the tested environment. Repeat final training/evaluation/tests after pinning.
 Phase introduced: 1.
+
+## D-07 — Session isolation and comparable shot experiments
+
+Decision: cache only the frozen model/data/450 held-out embeddings; keep all
+temporary memory and history in each Streamlit session. Audit exact tensors on
+every action/view. Load a fixed 10-support/class pool and 30 queries, then select
+nested prefixes for the 0–10 shot control. New episodes start with one shot/class.
+Reason: immediate real preset, inexpensive CPU feedback, fair within-episode shot
+comparisons and no cross-user memory sharing.
+Alternatives: regenerate queries when changing shots; cache the entire experiment.
+Consequences: the Phase 2 sampling protocol differs from Phase 1. The slider
+rebuilds clean memory and clears conflicts; Teach appends while retaining conflicts.
+Reload loses temporary state. Cached representations are disclosed in the UI.
+Phase introduced: 2. Earlier Phase 1 entries remain historical decisions.
+
+## D-08 — Native controls and truthful educational views
+
+Decision: Streamlit 1.45.1, Plotly 6.1.2 and pandas 2.2.3; guided lab, playground
+and three-question check. Native widgets operate real state. Fixed heatmap scale,
+raw dot-product scores, named historical snapshots, numeric alternatives and
+labelled images. Responsive cream/green CSS with local system fonts.
+Reason: minimal CPU-only presentation path with inspectable computation.
+Alternatives: React/API services, decorative animation, a prewritten shot curve.
+Consequences: only measured clean shot counts are plotted; accuracy may go down.
+Conflict reports the actual effect, including no change. The research transition
+explicitly defers the substantial BDH module to Phase 3.
+Phase introduced: 2.
+
+## D-09 — Verification and timing boundaries
+
+Decision: preserve all 77 core tests; add 28 lab/chart/AppTest checks, a browser
+walkthrough at desktop and 390×844 dimensions, real transition evidence and
+repeated CPU/AppTest timings. Re-evaluate Phase 1 against its complete old report.
+Reason: verify displayed data, isolation, actual weight equality and presentation.
+Consequences: AppTest cannot establish browser paint or remote service latency.
+Browser observations are a few measured local clicks including tool overhead.
+No universal latency, full assistive-technology audit or human learner study is
+claimed. Research, public deployment and PDFs remain gated.
+Phase introduced: 2.

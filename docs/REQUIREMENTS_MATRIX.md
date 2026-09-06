@@ -33,23 +33,49 @@ Phase 1K acceptance item; competition requirements span later phases.
 
 | ID | Requirement | Source/category | Target phase | Verification method | Current status | Notes |
 |---|---|---|---|---|---|---|
-| COMP-01 | Interactive artifact, few meaningful controls, guide then sandbox | Brief sections 3–5, 13 | 2 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
+| COMP-01 | Interactive artifact, few meaningful controls, guide then sandbox | Brief sections 3–5, 13 | 2 | P2-01–04, P2-10 and guided/playground browser walkthrough | PASS | Guided interaction and meaningful controls verified locally |
 | COMP-02 | Genuine computation tied to the central claim | Brief sections 3–5, 13 | 1 | P1-10 through P1-19 | PASS | Real core computation verified |
 | COMP-03 | One precise falsifiable claim and explicit audience/objectives | Brief sections 3–5, 13 | 1 | README; PROJECT_DECISIONS | PASS | Central claim, audience and intended learning objectives explicit |
-| COMP-04 | Visible frozen parameters, memory and retrieval | Brief sections 3–5, 13 | 2 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
-| COMP-05 | Truth beside prediction | Brief sections 3–5, 13 | 2 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
-| COMP-06 | Measured feedback approximately under 1 second after load | Brief sections 3–5, 13 | 2 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
+| COMP-04 | Visible frozen parameters, memory and retrieval | Brief sections 3–5, 13 | 2 | P2-05, P2-08 and P2-09 | PASS | Actual memory, scores and exact frozen-weight audit visible |
+| COMP-05 | Truth beside prediction | Brief sections 3–5, 13 | 2 | P2-07; test_app.py | PASS | Prediction and truth displayed together |
+| COMP-06 | Measured feedback approximately under 1 second after load | Brief sections 3–5, 13 | 2 | P2-15; artifacts/phase2_latency.json | PASS | Local measurements with scope limits; no universal guarantee |
 | COMP-07 | Substantial sourced BDH/BDH-CQ learning module; no equivalence | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-08 | At least 3 primary papers dated 2022–2026 beside claims | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-09 | Public artifact accessible without sign-in | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-10 | Public source repository | Brief sections 3–5, 13 | 4 | Unauthenticated GitHub API private=false; implementation commit f46ae98 pushed, remote main hash verified | PASS | Source repository delivery complete; this does not imply deployment/submission readiness |
-| COMP-11 | Complete README and reproduction instructions | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
-| COMP-12 | Verified data/code/weights/assets/licenses provenance | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
-| COMP-13 | AI disclosure and technical ownership | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
+| COMP-11 | Complete README and reproduction instructions | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
+| COMP-12 | Verified data/code/weights/assets/licenses provenance | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
+| COMP-13 | AI disclosure and technical ownership | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
 | COMP-14 | One-page concept summary PDF | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-15 | Blog/written PDF; resolve whether separate from summary | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | Portal clarification required |
-| COMP-16 | Learning check, accessible presentation, genuine failure/reset | Brief sections 3–5, 13 | 2 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
+| COMP-16 | Learning check, accessible presentation, genuine failure/reset | Brief sections 3–5, 13 | 2 | P2-11–14; PHASE_2_WALKTHROUGH.md | PASS | Quiz, labelled responsive UI and real conflict/reset; no full WCAG claim |
 | COMP-17 | Multi-seed, varying-shot, clean/corrupted evidence and charts | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-18 | Technical walkthrough, primary-source claim ledger | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-19 | Clean install, public deployment, demo script and rubric audit | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
-| COMP-20 | Honest limitations, CPU only, reproducibility | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Core support exists; remaining UI/final audit deferred |
+| COMP-20 | Honest limitations, CPU only, reproducibility | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
+
+
+## Phase 2 acceptance
+
+Authorized by the user's explicit next-phase instruction on 2026-09-06.
+
+| ID | Requirement | Source/category | Target phase | Verification method | Current status | Evidence / notes |
+|---|---|---|---|---|---|---|
+| P2-01 | App starts successfully | Brief Phase 2 gate | 2 | AppTest startup and live browser | PASS | AppTest startup, missing-artifact handling; live localhost browser |
+| P2-02 | Real preset appears immediately | Brief Phase 2 gate | 2 | Preset session state, real matrices and query | PASS | test_app_opens_on_real_preset_with_truth_and_deltas; phase2_demo.json |
+| P2-03 | Central claim visible | Brief Phase 2 gate | 2 | Rendered UI and content assertion | PASS | Rendered hero and central-claim assertion in test_app.py |
+| P2-04 | Live demonstrations can be added | Brief Phase 2 gate | 2 | Teach action, real keys and one-hot values | PASS | Teach callback and 3-to-6 real writes; test_lab.py write reconstruction |
+| P2-05 | Actual fast-memory state is visualized | Brief Phase 2 gate | 2 | Plotly z values match snapshots; visual check | PASS | test_chart_payloads_match_actual_current_and_historical_matrices; browser |
+| P2-06 | Query gives actual model output | Brief Phase 2 gate | 2 | Displayed values match FastMemory.query | PASS | test_rendered_score_chart_and_table_agree_with_query |
+| P2-07 | Ground truth shown beside prediction | Brief Phase 2 gate | 2 | UI integration and browser check | PASS | AppTest metrics equal real prediction/truth; desktop/mobile screenshots reviewed |
+| P2-08 | Measured encoder parameter delta shown | Brief Phase 2 gate | 2 | Exact tensor audit; UI values | PASS | Exact tensor audit each action/view; all recorded encoder deltas zero |
+| P2-09 | Measured memory delta shown | Brief Phase 2 gate | 2 | Snapshot delta; UI values | PASS | Real snapshot norms in UI; reset zero; phase2_demo.json |
+| P2-10 | Demonstration-count experiment works | Brief Phase 2 gate | 2 | Nested support, fixed queries, real scores | PASS | Fixed query IDs and nested supports; keyboard 0–10; observed-only chart |
+| P2-11 | Conflict experiment works | Brief Phase 2 gate | 2 | Actual wrong-label write and before/after comparison | PASS | Real wrong-label write; 5/30 predictions changed; 90.0% to 86.7% |
+| P2-12 | Reset clears associations | Brief Phase 2 gate | 2 | Zero matrix, abstention, unchanged encoder | PASS | Zero sums/counts/matrix, abstention, repeat clear and reteach tests |
+| P2-13 | Learner quiz gives immediate feedback | Brief Phase 2 gate | 2 | Correct/incorrect feedback for central concepts | PASS | All 3 questions correct/incorrect AppTest; live immediate-feedback check |
+| P2-14 | Presentation path is accessible and usable | Brief Phase 2 gate | 2 | Live desktop/mobile browser walkthrough | PASS | PHASE_2_WALKTHROUGH.md; desktop and 390×844; labelled controls and numeric views |
+| P2-15 | Feedback performance measured | Brief Phase 2 gate | 2 | Repeated core + app rerun timing; browser observation | PASS | phase2_latency.json; 30 core and 10 AppTest samples/action; scoped browser timings |
+| P2-16 | All Phase 1 tests still pass | Brief Phase 2 gate | 2 | Complete pytest suite | PASS | All 77 unchanged Phase 1 tests pass; complete 50-episode report exactly equal |
+| P2-17 | Phase 2 tests pass | Brief Phase 2 gate | 2 | Lab state, charts, AppTest, repeat/invalid/reload/isolation | PASS | 28 new lab/chart/AppTest checks pass; full suite 105 passed in 13.85s |
+| P2-18 | Requirement evidence and phase ledger updated | Brief Phase 2 gate | 2 | Report, matrix, decisions, limitations, disclosure | PASS | Phase 2 report, matrix, ledger, README, architecture, decisions, limits and provenance |
