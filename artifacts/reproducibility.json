@@ -1,0 +1,34 @@
+{
+  "compared": [
+    "seeds",
+    "mappings",
+    "sample_ids",
+    "metrics",
+    "parameter_deltas",
+    "keys",
+    "memory_tensors",
+    "query_scores",
+    "predictions",
+    "conflicts",
+    "resets"
+  ],
+  "encoder_sha256": "ed9a30543db793090e59d1e984d344ed96169a128deca5a45abf174453d8d2aa",
+  "environment": {
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "joblib": "1.4.2",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14",
+    "scikit_learn": "1.6.1",
+    "scipy": "1.15.3",
+    "torch": "2.6.0+cpu",
+    "torch_threads": 1
+  },
+  "episodes_per_run": 50,
+  "exact_report_equality": true,
+  "first_report_sha256": "ef1a50e0056a981138464813a8bca7fad66f35b471317015bc376181621f56e7",
+  "runs": 2,
+  "second_report_sha256": "ef1a50e0056a981138464813a8bca7fad66f35b471317015bc376181621f56e7",
+  "status": "PASS"
+}

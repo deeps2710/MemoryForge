@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "output": "No broken requirements found.\n"
+    },
+    {
+      "command": "python scripts/train_encoder.py",
+      "exit_code": 0,
+      "output": "{\n  \"artifact\": \"<repository>\\\\artifacts\\\\encoder.pt\",\n  \"heldout_accuracy\": 0.9711111111111111,\n  \"correct\": 437,\n  \"total\": 450,\n  \"encoder_sha256\": \"ed9a30543db793090e59d1e984d344ed96169a128deca5a45abf174453d8d2aa\"\n}\n"
+    },
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "output": "........................................................................ [ 93%]\n.....                                                                    [100%]\n77 passed in 6.26s\n"
+    },
+    {
+      "command": "python scripts/smoke_test.py",
+      "exit_code": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"checks\": {\n    \"above_chance\": true,\n    \"encoder_unchanged\": true,\n    \"memory_updated\": true,\n    \"conflict_changes_state\": true,\n    \"reset_clears_memory\": true\n  },\n  \"summary\": {\n    \"episodes\": 5,\n    \"queries_total\": 150,\n    \"mean_accuracy\": 0.9800000000000001,\n    \"std_accuracy_population\": 0.016329931618554516,\n    \"chance\": 0.3333333333333333,\n    \"margin_over_chance\": 0.6466666666666667,\n    \"min_episode_accuracy\": 0.9666666666666667,\n    \"max_episode_accuracy\": 1.0,\n    \"encoder_parameter_delta_max\": 0.0,\n    \"all_encoder_parameters_equal\": true,\n    \"memory_delta_min\": 1.5367472696942337,\n    \"memory_delta_mean\": 1.5803506797058298,\n    \"conflict_mean_accuracy\": 0.9800000000000001,\n    \"conflict_mean_accuracy_change\": 0.0,\n    \"conflict_predictions_changed\": 2,\n    \"conflict_memory_delta_min\": 0.1443859484602035,\n    \"reset_all_empty\": true\n  }\n}\n"
+    },
+    {
+      "command": "python scripts/evaluate_core.py",
+      "exit_code": 0,
+      "output": "{\n  \"episodes\": 50,\n  \"queries_total\": 1500,\n  \"mean_accuracy\": 0.9753333333333333,\n  \"std_accuracy_population\": 0.031134118476894974,\n  \"chance\": 0.3333333333333333,\n  \"margin_over_chance\": 0.6419999999999999,\n  \"min_episode_accuracy\": 0.9,\n  \"max_episode_accuracy\": 1.0,\n  \"encoder_parameter_delta_max\": 0.0,\n  \"all_encoder_parameters_equal\": true,\n  \"memory_delta_min\": 1.5154881739946258,\n  \"memory_delta_mean\": 1.591161575045208,\n  \"conflict_mean_accuracy\": 0.97,\n  \"conflict_mean_accuracy_change\": -0.005333333333333332,\n  \"conflict_predictions_changed\": 19,\n  \"conflict_memory_delta_min\": 0.11409231108274769,\n  \"reset_all_empty\": true\n}\nEvidence: <repository>\\artifacts\\evaluation.json\n"
+    },
+    {
+      "command": "python scripts/verify_replay.py",
+      "exit_code": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"episodes_per_run\": 50,\n  \"runs\": 2,\n  \"exact_report_equality\": true,\n  \"first_report_sha256\": \"ef1a50e0056a981138464813a8bca7fad66f35b471317015bc376181621f56e7\",\n  \"second_report_sha256\": \"ef1a50e0056a981138464813a8bca7fad66f35b471317015bc376181621f56e7\",\n  \"compared\": [\n    \"seeds\",\n    \"mappings\",\n    \"sample_ids\",\n    \"metrics\",\n    \"parameter_deltas\",\n    \"keys\",\n    \"memory_tensors\",\n    \"query_scores\",\n    \"predictions\",\n    \"conflicts\",\n    \"resets\"\n  ],\n  \"environment\": {\n    \"python\": \"3.12.14\",\n    \"platform\": \"Windows-11-10.0.26200-SP0\",\n    \"numpy\": \"2.2.6\",\n    \"scikit_learn\": \"1.6.1\",\n    \"scipy\": \"1.15.3\",\n    \"joblib\": \"1.4.2\",\n    \"torch\": \"2.6.0+cpu\",\n    \"device\": \"cpu\",\n    \"torch_threads\": 1,\n    \"deterministic_algorithms\": true\n  },\n  \"encoder_sha256\": \"ed9a30543db793090e59d1e984d344ed96169a128deca5a45abf174453d8d2aa\"\n}\n"
+    }
+  ],
+  "environment": {
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "joblib": "1.4.2",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14",
+    "scikit_learn": "1.6.1",
+    "scipy": "1.15.3",
+    "torch": "2.6.0+cpu",
+    "torch_threads": 1
+  },
+  "python_311_syntax_parse": "PASS (runtime execution tested on 3.12.14 only)",
+  "repository_audit": {
+    "existing_html_git_blob_identical": true,
+    "html_blob_sha1": "2ff40bbaae0efe1cb99270dd1ce30de3d966f88f",
+    "markdown_local_links": "PASS",
+    "no_future_phase_entry_points": true,
+    "public_repository": "Verified unauthenticated GitHub API: deeps2710/MemoryForge, private=false, default_branch=main"
+  },
+  "status": "PASS",
+  "verified_at_utc": "2026-09-06T18:08:47.462215+00:00"
+}
