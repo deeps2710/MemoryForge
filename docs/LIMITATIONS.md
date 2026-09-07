@@ -17,8 +17,9 @@
   this fixed benchmark; it is not a confidence interval over independent datasets.
 - CPU deterministic replay is tested on the recorded environment. Bitwise equality
   across other operating systems, BLAS builds or library versions is not promised.
-- Phases 2–3 provide the interactive UI, sourced research and evidence. Public
-  deployment and submission PDFs remain gated to Phase 4.
+- Phases 2–3 provide the interactive UI, sourced research and evidence. Both
+  requested PDFs are delivered. Phase 4 verifies deployment and submission
+  packaging; see SUBMISSION_READINESS_REPORT.md for the actual release status.
 - The lab fixes 3 classes, 30 queries and a support pool of 10 images/class; it
   starts at one shot/class. Its nested-prefix sampling differs from the Phase 1
   five-shot benchmark. Adding shots need not monotonically improve accuracy.
@@ -36,10 +37,11 @@
 - Text labels, numeric alternatives, keyboard slider/controls and 390 px responsive
   layout were checked. Full screen-reader/WCAG conformance and learning outcomes
   with human participants have not been established.
-- Dataset attribution/license is recorded from the original UCI source. The team
-  has not selected a license for project code or generated model weights.
-  Final provenance review and the portal's blog-PDF versus concept-summary-PDF
-  distinction remain unresolved.
+- Dataset attribution/license is recorded from the original UCI source. The owner
+  selected scoped MIT for original project code, documents and generated weights.
+  The supplied logo and pre-existing html retain separate, unresolved general
+  reuse rights. The portal requires a ZIP; the organizer has not specified a
+  separate blog format. Its four-page blog remains a submission-format draft.
 
 - The Phase 3 suite uses 50 fixed seeds, nested shots and repeated corruption of
   one support key. Absolute conflict counts are not equal corruption rates across
@@ -52,5 +54,5 @@
   by this digit toy.
 - Offline tests deny socket connections after installation with fresh app caches;
   this is not a complete air-gapped browser audit. External source links need
-  connectivity when opened. Full transitive inventory is recorded; only direct
-  and numerical dependencies are pinned, so future resolutions may differ.
+  connectivity when opened. Phase 4 adds transitive version constraints from the
+  verified environment; these are not hashes of platform-specific wheels.

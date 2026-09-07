@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "python": "3.12.14",
+  "isolated_environment": ".local/phase4-clean",
+  "install_command": "python -m pip install -r requirements.txt --disable-pip-version-check",
+  "install_log_sha256": "45e07b1fc3e45c1a15e75c01d28bc15f1479209aa9b769e26644eef3209708ea",
+  "all_constraints_match_installed_versions": true,
+  "numeric_versions_unchanged": true,
+  "notes": "The fresh resolver selected setuptools 84.0.0; it was added to final constraints after the install. The final lock matches the complete tested environment. Earlier provenance from Phase 3 remains historical."
+}

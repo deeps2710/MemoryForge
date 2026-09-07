@@ -38,3 +38,26 @@ blog and concept summary, primary-source rechecking, typesetting, the chart from
 saved observations, PDF rendering and content/layout verification. The 630-word
 one-page summary and four-page blog disclose developer versus external benchmark
 evidence. No human comprehension review or new ML result is claimed.
+
+2026-09-07, Phase 4: Codex assisted dependency constraints, installed/upstream
+notice collection, the scoped license application selected by the owner, public
+deployment preparation, organizer/portal inspection, ZIP packaging, demo and
+rubric writing, automated verification and release documentation. The app's
+credits now link directly to provenance, disclosure and both PDFs. The model,
+training procedure, saved numerical evidence and memory rule were preserved.
+Executed checks and deployment status are recorded in the final readiness report;
+preparation is not reported as a completed public deployment or submission.
+
+The logo was supplied by the user in a file named as a ChatGPT image. Codex
+integrated the original bytes; its creation history is not independently verified.
+The preserved initial html file is unrelated, unmodified and excluded from the
+application/submission ZIP. No third-party architecture fork is represented as
+original MemoryForge research.
+
+Human work established in this record: project direction, supplied requirements,
+logo choice, phase authorization and the explicit license selection. No claim
+is made that the team has already reviewed every implementation or successfully
+defended it. Before submitting, the registered team must trace a write/query,
+explain the sampling and frozen encoder audit, distinguish primary-paper claims
+from this toy, and rehearse the demo. TECHNICAL_WALKTHROUGH.md and DEMO_SCRIPT.md
+support that review; passing automated checks does not certify technical ownership.

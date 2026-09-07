@@ -1,0 +1,195 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-07T18:10:31.131526+00:00",
+  "baseline": "83a70f39c6772b7ac948830a39fc989b33a234d7",
+  "files_inspected": 102,
+  "local_markdown_links_checked": 46,
+  "broken_local_links": [],
+  "secret_pattern_hits": [],
+  "syntax_errors": [],
+  "active_code_todos": [],
+  "forbidden_tracked_or_unignored_paths": [],
+  "protected_files": {
+    "artifacts/encoder.pt": {
+      "unchanged": true,
+      "sha256": "7a08d13960844c98f1e02e0e2f1ac38bf4a63709670bff01e51591c5af6d6003"
+    },
+    "artifacts/encoder.training.json": {
+      "unchanged": true,
+      "sha256": "0dcae6e35ebcb2e7739749c6ebd1fc3ef64876b6379088183527fd08d338481d"
+    },
+    "artifacts/environment.json": {
+      "unchanged": true,
+      "sha256": "a689c4a2f9e0f06195af783bacdefbb20a63aa8aff0434647e126968251c9e10"
+    },
+    "artifacts/evaluation.json": {
+      "unchanged": true,
+      "sha256": "2f809e17db5e153c097e46bc199b4b41cf454a497a2fea1fe593353019f5a56f"
+    },
+    "artifacts/pdf_verification.json": {
+      "unchanged": true,
+      "sha256": "1b6e450d3b6c403ac1fd96560119bea4aaf90209a919cdab14f95ece1311a867"
+    },
+    "artifacts/phase2_demo.json": {
+      "unchanged": true,
+      "sha256": "e3f86dca69e727b60ec9d84e7af8df3c179fd08f40917168c5e3800dda9ed39e"
+    },
+    "artifacts/phase2_environment.json": {
+      "unchanged": true,
+      "sha256": "4fd6c09e7727a877572a73dfca5c7de08c13ee6e779b60b42ce9d32639c5e5e7"
+    },
+    "artifacts/phase2_latency.json": {
+      "unchanged": true,
+      "sha256": "207fb898ceca6cef26dc4a5dc028e09533fefb9347608f466e08ed6f2dfedca9"
+    },
+    "artifacts/phase2_verification.json": {
+      "unchanged": true,
+      "sha256": "c833f24290759b4c027725936e9517d12780fe8937ffa121967c228312f52f31"
+    },
+    "artifacts/phase3_evidence.json": {
+      "unchanged": true,
+      "sha256": "938044eb2f2c0c84334aa5b791f00ffe0c108a720811bb1415b3e46064bd8898"
+    },
+    "artifacts/phase3_replay.json": {
+      "unchanged": true,
+      "sha256": "7bd14e340fc898651330903317b0935770c9768a12d8e527533f085f221031f3"
+    },
+    "artifacts/phase3_robustness.json": {
+      "unchanged": true,
+      "sha256": "42dc2c7c26c5dcac4a3f5b812483f7cb4d4c3809acb389d42efda42db9c94c77"
+    },
+    "artifacts/phase3_verification.json": {
+      "unchanged": true,
+      "sha256": "4bd4e48554441ea6615c10e7a3085de6477b1e996a57c580b7e51d744d38c196"
+    },
+    "artifacts/reproducibility.json": {
+      "unchanged": true,
+      "sha256": "2b5be4caff9e40922d00fd5136e33aa6a77833a71fd4aee16ef766bb1f5a75be"
+    },
+    "artifacts/verification.json": {
+      "unchanged": true,
+      "sha256": "faede527717b55cfcf695f0c1a32f6ecc44b441fa71acee9d06cd7c467f5bce8"
+    },
+    "assets/memoryforge-logo.png": {
+      "unchanged": true,
+      "sha256": "7fcb572d54b50c219976b141cdac567fe2a3133f1d19d8e58a42b1e8ea5131ae"
+    },
+    "html": {
+      "unchanged": true,
+      "sha256": "472a8e224fea4e4600774bba0e69960101dd61a995e6c0789a241bc141c6d98f"
+    },
+    "output/pdf/MemoryForge_Blog.pdf": {
+      "unchanged": true,
+      "sha256": "ff0c85db353582b98eecdf7fcc0fe6acec635d1edb2eb3914204189f97b616ba"
+    },
+    "output/pdf/MemoryForge_Concept_Summary.pdf": {
+      "unchanged": true,
+      "sha256": "548b87f1d8df19d271127a34b760a46de03c1da34129e43443395341562d926d"
+    },
+    "src/__init__.py": {
+      "unchanged": true,
+      "sha256": "6c2bcdd0a7b5797ff83a7a17589b9cbed1d53ce0ccdcb1a492cb82c9ee6157a4"
+    },
+    "src/config.py": {
+      "unchanged": true,
+      "sha256": "dd1f28842574c8bfb6b499e3ab4463c4204f08019c5c095bc766d9defacde750"
+    },
+    "src/data.py": {
+      "unchanged": true,
+      "sha256": "dc09ec0efb73cf3a37963b01075adf8ae379812ce2e2cbe8e10037f2edda6bb8"
+    },
+    "src/encoder.py": {
+      "unchanged": true,
+      "sha256": "4f1ef03b60fef83db9e0fbc7bca351c20cfdb76978a88aab727633b0da7159bd"
+    },
+    "src/episodes.py": {
+      "unchanged": true,
+      "sha256": "a82ad40ea4bd54ca48f10529007c0be530078bca70fc9492197bff7b2f0a73d6"
+    },
+    "src/evaluation.py": {
+      "unchanged": true,
+      "sha256": "e6679d1a645386f1e94f26e0347124488e145f112a6edb11f22bcedc273a4421"
+    },
+    "src/evidence.py": {
+      "unchanged": true,
+      "sha256": "545eb7ec9ec59a0223a5de534cf450926db1363d8535874dbd8b036afffaaa3a"
+    },
+    "src/fast_memory.py": {
+      "unchanged": true,
+      "sha256": "9cd6b183b555438be7513fb5b8ff7bdb22363149fbe877e34a7882b14fd5ef73"
+    },
+    "src/lab.py": {
+      "unchanged": true,
+      "sha256": "1a8abcb0b35300d67d5caa2cb0cda34bebe636a170922964b00a3558a76679f7"
+    },
+    "src/learning.py": {
+      "unchanged": true,
+      "sha256": "5e4282ce31502845fffd46a83fb036ea469ff01e00d90c44dc0ea54c0d8f4229"
+    },
+    "src/reproducibility.py": {
+      "unchanged": true,
+      "sha256": "c756b0aade36e00d4b3ed4959d79e0eb5c02bcde70f77667926939f17fb73e17"
+    },
+    "src/research.py": {
+      "unchanged": true,
+      "sha256": "deecb25a18e6f60bb78970c47750eda4a8953d1701d52e9801c680bf05a28bef"
+    },
+    "src/training.py": {
+      "unchanged": true,
+      "sha256": "1c53c3e544bb11bbb50c71a13a2855492022c41dfc1400861996ddb3ef178403"
+    },
+    "src/visualization.py": {
+      "unchanged": true,
+      "sha256": "e628ea3e8a27cbc9b68677b1d84872ee336ecfeaf2bbdcd12b6ba34082a01ae3"
+    },
+    "tests/conftest.py": {
+      "unchanged": true,
+      "sha256": "ebdb10a5232e243da8d17e88ea7c8396d3acceb2e4f5dfe539de2455fa0f174d"
+    },
+    "tests/test_app.py": {
+      "unchanged": true,
+      "sha256": "e8b88b97bbfaccb4212b8ef148cabacf5cf07c87a255bf88f7c5a2bd7d368f27"
+    },
+    "tests/test_data.py": {
+      "unchanged": true,
+      "sha256": "c1a6f607501ccf5c49f7798d14c6f24c68b469e805f7c087da1b8b7e28486cba"
+    },
+    "tests/test_encoder.py": {
+      "unchanged": true,
+      "sha256": "998055ef3478ef83601558d5b13d56119df09260291997f3c4e00b5d70e1bc98"
+    },
+    "tests/test_episode.py": {
+      "unchanged": true,
+      "sha256": "cf8062bad2cb40cd4a597bcf93e2d6fa1692c1b2b65e998f84a547e2e7115bcc"
+    },
+    "tests/test_evaluation.py": {
+      "unchanged": true,
+      "sha256": "7e22843bc6af5897a5b2c6c47471f6246d501b9a439b3e69382ff73cc1ee62dd"
+    },
+    "tests/test_evidence.py": {
+      "unchanged": true,
+      "sha256": "8594dec47d8a490c44c3c6583af4ccf38e687f704d087a1c29960a22d01f8ba9"
+    },
+    "tests/test_fast_memory.py": {
+      "unchanged": true,
+      "sha256": "47f1f61ec0eabcd2c52e272046c2bdb89e16299da9031d6a81b6d104a74efe92"
+    },
+    "tests/test_lab.py": {
+      "unchanged": true,
+      "sha256": "8e39ad7c84dd25772ef1f38dd6ff49376a421b04981cb33cd569f52324b0070e"
+    },
+    "tests/test_reproducibility.py": {
+      "unchanged": true,
+      "sha256": "16f72eaf57ea765e2e8f4fd8d321ee11999401df4a151ab4c53ab4cd1c9bf8e6"
+    },
+    "tests/test_research.py": {
+      "unchanged": true,
+      "sha256": "cbcc10976a7821508475052bdb8a93577b56fc59d16545f97799150277c2c7c2"
+    },
+    "tests/test_visualization.py": {
+      "unchanged": true,
+      "sha256": "b61805b53b3d806579c5a03faa42359c381d22995eb1c19ca54211f978803986"
+    }
+  },
+  "limits": "Pattern scan is not proof of no possible secret; no external-link or vulnerability claim. Existing unrelated html is preserved, not used. Historical reports remain historical."
+}

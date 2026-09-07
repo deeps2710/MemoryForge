@@ -7,9 +7,11 @@ htmlcov/
 .ruff_cache/
 .local/
 tmp/pdfs/
+output/submission/
 .env
 .env.*
 !.env.example
+.streamlit/secrets.toml
 artifacts/replay*.json
 artifacts/test-*.pt
 *.tmp

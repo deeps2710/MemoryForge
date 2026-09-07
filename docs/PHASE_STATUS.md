@@ -1,13 +1,18 @@
 # Phase status
 
-Current phase: **Phase 3 — research integration, evidence and robustness**.
+Current phase: **Phase 4 — submission hardening, deployment and final audit**.
 Completed phases: **Phases 1, 2 and 3**.
-Current status: **COMPLETE / PASS**, verified 2026-09-07.
+Current status: **IN PROGRESS**, explicitly authorized by the user on 2026-09-07.
 
 Phase 1: **COMPLETE**.
 Phase 2: **COMPLETE**.
 Phase 3: **COMPLETE**.
-Phase 4: **NOT STARTED**.
+Phase 4: **IN PROGRESS**.
+
+Phase 4 entry: clean HEAD 83a70f39c6772b7ac948830a39fc989b33a234d7,
+124 tests passed in 20.56s in the existing isolated CPU environment. Both PDFs
+and the supplied logo are already delivered. The work below records Phase 3
+history; Phase 4 now covers public deployment, provenance and submission audits.
 
 Phase 3 was explicitly authorized by the user's next-phase instruction.
 Entry: clean HEAD 320a327 and 105 passing prior tests. The established ML core,
@@ -54,10 +59,10 @@ blog and a one-page concept summary PDF, with editable sources and verified
 layout/citations. See PDF_DELIVERY.md and artifacts/pdf_verification.json.
 This explicit document-only request does not start Phase 4.
 
-Next permitted phase: **Phase 4, only after a new explicit next-phase instruction**.
+Authorized phase: **Phase 4**, by the latest explicit next-phase instruction.
 Remaining work: public deployment, license selections, final provenance/submission
 audits, portal verification and validation of the delivered PDFs against actual
 upload requirements. Both requested PDF documents now exist.
 These are later-phase requirements, not Phase 3 acceptance failures.
 
-Stopped after Phase 3 as instructed. Awaiting explicit instruction to initiate the next phase.
+Post-hackathon extensions remain out of scope. Stop after the Phase 4 readiness report.

@@ -72,6 +72,13 @@ def sidebar(lab: LabSession) -> str:
         st.markdown('<div class="rail-note"><strong>Made for curious ML learners.</strong><br>Bring an understanding of vectors, classification and basic neural networks.</div>', unsafe_allow_html=True)
         st.markdown('<div class="rail-note">MemoryForge is an educational fast-weight associative-memory model. It is not BDH or BDH-CQ.</div>', unsafe_allow_html=True)
         st.caption("DataForge 2026 · Associative Memory & Fast Weights")
+        with st.expander("Read, reproduce & credits"):
+            repo = "https://github.com/deeps2710/MemoryForge"
+            st.markdown(f"[Source & setup]({repo}) · [60-second demo]({repo}/blob/main/docs/DEMO_SCRIPT.md)")
+            st.markdown(f"[One-page concept PDF]({repo}/blob/main/output/pdf/MemoryForge_Concept_Summary.pdf) · [Project blog PDF]({repo}/blob/main/output/pdf/MemoryForge_Blog.pdf)")
+            st.caption("Digits: Alpaydin & Kaynak / UCI, via scikit-learn; normalized and split locally. CC BY 4.0. Encoder trained in this project.")
+            st.markdown(f"[Sources & licenses]({repo}/blob/main/docs/PROVENANCE.md) · [AI assistance]({repo}/blob/main/docs/AI_ASSISTANCE.md)")
+            st.caption("Codex assisted development and writing. Original project code and weights: MIT; separate asset notices apply.")
     return page
 
 

@@ -152,3 +152,24 @@ words before references (630 words in the extracted PDF including page text).
 The four-page blog explains the mechanism and measured failures/evidence.
 Published architecture/benchmark claims remain separate from project results.
 Actual portal acceptance and the remaining submission tasks are still gated.
+
+## D-14 — Phase 4 release scope and licensing
+
+The user explicitly initiated Phase 4 on 2026-09-07 and selected MIT for original
+code, documentation and generated weights, attributed to MemoryForge contributors.
+Separate logo, data, fonts, research and pre-existing html rights are excluded.
+Preserve the established ML core and historical evidence; make only release,
+provenance and submission changes. No post-hackathon feature extension is started.
+
+## D-15 — CPU deployment constraints and submission packaging
+
+Use real Streamlit Community Cloud hosting with Python 3.12 and official CPU
+PyTorch wheels. Pin the observed dependency resolution in a constraints file
+without changing the numerical version baseline. Do not infer public readiness
+from local tests; verify an assigned URL without owner authentication.
+
+The inspected Unstop form requires a Pathway/Rime selection and one ZIP. Package
+source, checkpoint, evidence, documentation and the two distinct PDFs. Exclude
+local environments, caches, secrets, unrelated html and the ZIP itself. Keep the
+blog labelled as a submission-format draft until its ambiguous format is clarified.
+Do not submit an entry or accept new account terms without the appropriate owner action.

@@ -11,14 +11,22 @@ randomly assigned labels such as ALPHA, BETA and GAMMA using an associative
 memory. New held-out images query that memory. Encoder tensors are checked for
 exact equality before and after adaptation.
 
-**Phases 1–3 complete: verified core, interactive lab, sourced research and reproducible evidence.**
-Public deployment and the final submission audit remain gated to Phase 4.
+**Phase 4: submission hardening and deployment verification in progress.**
+The real lab, source, trained checkpoint, evidence and both requested PDFs are ready.
+Public app URL: **UNVERIFIED** until the deployment check below is complete.
 MemoryForge is an educational fast-weight associative-memory model used to
 demonstrate the concept. It does not implement or reproduce BDH or BDH-CQ.
 
 [Repository](https://github.com/deeps2710/MemoryForge) ·
-[Phase status](docs/PHASE_STATUS.md) · [Phase 3 report](docs/PHASE_3_REPORT.md) ·
+[Phase status](docs/PHASE_STATUS.md) · [Deployment instructions](docs/DEPLOYMENT.md) ·
 [Requirement evidence](docs/REQUIREMENTS_MATRIX.md)
+
+## The problem
+
+“Learning” can mean changing trained parameters, accumulating context or updating
+temporary memory. Those mechanisms are easy to conflate in a polished model demo.
+MemoryForge exposes a small enough system to inspect every write and score, keep
+the encoder audit visible, and deliberately test interference and forgetting.
 
 ## Audience and learning objectives
 
@@ -33,8 +41,8 @@ research lesson, evidence and learning checks are available now.
 
 ## Install and run
 
-Python 3.11-compatible source and numerical dependency pins; tested on Windows
-with Python 3.12.14 and CPU PyTorch. Start in the repository root. A Python
+Use Python **3.12**; verified on Windows with Python 3.12.14 and CPU PyTorch.
+Start in the repository root. A Python
 installation must be available as `python` (or substitute its executable path).
 
 ```sh
@@ -46,8 +54,7 @@ Activate with `.venv\Scripts\Activate.ps1` in PowerShell, or
 replace `python` below with `.\.venv\Scripts\python.exe`; activation is optional.
 
 ```sh
-# Windows/Linux CPU wheel; install this first to avoid unnecessary GPU packages.
-python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+# The requirements select CPU PyTorch and constrain the tested dependency versions.
 python -m pip install -r requirements.txt
 python -m pip check
 
@@ -74,9 +81,9 @@ python scripts/train_encoder.py
 python scripts/verify_replay.py
 ```
 
-On macOS, install `torch==2.6.0` from the default PyPI index instead of the CPU
-wheel index; this project still places every tensor on CPU. macOS/Linux and an
-actual Python 3.11 runtime are not verified in the Phase 1 or Phase 2 reports.
+The requirements select the PyPI torch build on macOS; every tensor still runs
+on CPU. macOS is unverified. The Windows checks do not establish Linux/cloud
+behavior; public-deployment verification is recorded separately.
 
 Dependency installation needs network access. Digits is bundled in scikit-learn;
 training, evaluation and tests make no dataset/API network requests and require
@@ -238,7 +245,7 @@ The report reproduces exactly and is stored in `artifacts/phase3_evidence.json`.
 
 ```sh
 python scripts/evaluate_suite.py
-python scripts/verify_robustness.py
+python scripts/verify_robustness.py --output artifacts/phase4_robustness.json
 ```
 
 The robustness command uses a fresh workspace-local pytest scratch directory,
@@ -258,18 +265,22 @@ See the [technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) and
 The separately requested [project blog PDF](output/pdf/MemoryForge_Blog.pdf) and
 [one-page concept summary PDF](output/pdf/MemoryForge_Concept_Summary.pdf) are
 available with [editable sources and build instructions](docs/PDF_DELIVERY.md).
-They were prepared at the user's explicit request before Phase 4; deployment
-and the remaining submission audit have not started.
+They were prepared at the user's explicit request before Phase 4. The organizer
+and portal have now been inspected: the portal requires one ZIP and a Pathway
+Track selection. See the [submission audit](docs/SUBMISSION_INSTRUCTIONS_AUDIT.md).
+The separate blog is a submission-format draft because no separate blog format
+was defined. The one-page concept summary is a distinct, required briefing.
 
 ```text
 app.py        Streamlit entry point; run with python -m streamlit run app.py
 src/          ML engine, isolated lab sessions, UI, charts and quiz
-assets/       original CSS; system fonts and actual digit images
-.streamlit/   local theme and runtime configuration
+assets/       original CSS and the user-supplied application logo
+.streamlit/   theme and runtime configuration; no secrets required
 scripts/      explicit training, evaluation, replay and lab evidence commands
 tests/        math, isolation, replay and Streamlit integration checks
 artifacts/    small checkpoint and actual reproducible evidence
 docs/         architecture, decisions, phase gate, requirements and disclosures
+output/pdf/   blog and one-page concept summary
 ```
 
 The pre-existing unrelated `html` file is preserved and is not an application
@@ -286,19 +297,51 @@ capacity or continual learning. See [limitations](docs/LIMITATIONS.md).
 Data: Alpaydin and Kaynak's *Optical Recognition of Handwritten Digits* via the
 scikit-learn bundled subset. Its original UCI page lists CC BY 4.0; attribution,
 modifications and license evidence are in [provenance](docs/PROVENANCE.md).
-The team has not yet selected licenses for project code and generated weights.
+Original project code, documentation, diagrams and generated weights are covered
+by the owner-selected [MIT license](LICENSE). The logo, initial html, dataset,
+dependencies, research and embedded fonts have separate rights/notices.
 
 Codex assisted implementation, tests, evaluation and documentation; see
 [AI assistance](docs/AI_ASSISTANCE.md). Team review and technical ownership remain
 required. Four recent primary research papers/reports and official BDH code were
 verified in Phase 3; [research notes](docs/RESEARCH_NOTES.md) link the claim ledger.
 
-This project targets DataForge 2026's Pathway Track according to the supplied
-brief. The actual organizer PDF/portal has not been independently verified.
-The user separately requested and received a blog PDF and one-page concept
-summary before Phase 4. Public deployment and verification of the actual
-submission portal's upload requirements remain gated.
-See the [gated roadmap](docs/FUTURE_ROADMAP.md) and
-[full supplied development brief](docs/DEVELOPMENT_BRIEF.md).
+Credits: MemoryForge contributors supplied project direction and requirements,
+selected the logo and approved the license. Codex assisted code, experiments,
+writing and browser verification. Dataset credit belongs to Alpaydin and Kaynak;
+the app uses PyTorch, scikit-learn, NumPy/SciPy, Streamlit, Plotly and pandas.
+Full [installed notices](docs/DEPENDENCY_NOTICES.txt),
+[Streamlit/frontend/font notices](docs/STREAMLIT_NOTICES.txt) and
+[PDF font notices](docs/PDF_FONT_NOTICES.txt) accompany the provenance record.
+The user supplied the ChatGPT-named logo; no independent creation-history or
+general reuse-license claim is made.
 
-Further phases require explicit user instruction. No next phase starts automatically.
+## Deployment and submission package
+
+Deploy the real Streamlit app from `deeps2710/MemoryForge`, branch `main`,
+entrypoint `app.py`, with Python 3.12 and no secrets. The
+[deployment guide](docs/DEPLOYMENT.md) specifies owner/account steps and public
+access/cold-start checks. An assigned URL is not treated as working until tested.
+
+Rehearse the [one-minute demo](docs/DEMO_SCRIPT.md), review the
+[rubric audit](docs/RUBRIC_AUDIT.md) and [readiness report](docs/SUBMISSION_READINESS_REPORT.md).
+Build the portal ZIP from the latest reviewed source:
+
+```sh
+python scripts/build_submission.py
+```
+
+It writes `output/submission/MemoryForge_Submission_DRAFT.zip`, verifies every
+entry against its source bytes and includes a revision/hash manifest. Local
+environments, caches, secrets, unrelated html and the archive itself are excluded.
+The ZIP is deliberately not committed to avoid recursively packaging releases;
+its builder, source and both PDFs are public. Packaging is not competition submission.
+
+The portal's observed submission deadline is 8 September 2026, 11:59 PM IST;
+verify it again on the [live event page](https://unstop.com/hackathons/dataforge-2026-iit-kharagpur-1739346).
+This differs from the registration deadline. See the
+[gated future roadmap](docs/FUTURE_ROADMAP.md) and
+[original development brief](docs/DEVELOPMENT_BRIEF.md).
+
+Post-hackathon extensions require a separate user instruction. Phase 4 ends with
+the readiness report; automated tests do not certify human technical ownership.

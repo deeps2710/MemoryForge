@@ -1,4 +1,4 @@
-"""MemoryForge Phase 2. Run: python -m streamlit run app.py"""
+"""MemoryForge learning lab. Run: python -m streamlit run app.py"""
 
 from pathlib import Path
 

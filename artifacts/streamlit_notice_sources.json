@@ -1,0 +1,35 @@
+{
+  "reviewed_date": "2026-09-07",
+  "sources": [
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "bytes": 11358
+    },
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/NOTICES",
+      "sha256": "b0dc856fe13421b95a2a02bc25aed5b9df0bfb5b9b982ea36585f73db088899b",
+      "bytes": 1057100
+    },
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/frontend/app/src/assets/fonts/Source_Code_Pro/Source-Code-Pro.LICENSE",
+      "sha256": "2e14ee65e55dbcc7d66347cd7c76a10a1a18ac49dd7989a2b3838b479676f746",
+      "bytes": 4485
+    },
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/frontend/app/src/assets/fonts/Source_Sans_Pro/Source-Sans-Pro.LICENSE",
+      "sha256": "f698b3361368a7ad7cf77234e58bc7a8502bf9fe0678f8e30a67d593f47206c2",
+      "bytes": 4486
+    },
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/frontend/app/src/assets/fonts/Source_Serif_Pro/Source-Serif-Pro.LICENSE",
+      "sha256": "3c5d7588508b9be768142136906bcc11cad7c70145b3881d7300701ea62272ac",
+      "bytes": 4485
+    },
+    {
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/1.45.1/frontend/app/src/assets/img/Material-Icons.LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    }
+  ]
+}
