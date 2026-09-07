@@ -1,0 +1,119 @@
+{
+  "application_code_model_and_evidence_unchanged": true,
+  "blog": {
+    "bytes": 1732078,
+    "hyperlinks": 22,
+    "pages": 4,
+    "words_in_extracted_pdf": 1816
+  },
+  "blog_content_bottoms": [
+    57.8897637795277,
+    42.8897637795277,
+    49.8897637795277,
+    47.8897637795277
+  ],
+  "chart_is_vector": true,
+  "chart_source": "artifacts/phase3_evidence.json",
+  "concept_source_words_before_references": 531,
+  "concept_summary": {
+    "bytes": 1695782,
+    "hyperlinks": 21,
+    "pages": 1,
+    "words_in_extracted_pdf": 630
+  },
+  "created_at_utc": "2026-09-07T13:01:30.657518+00:00",
+  "evidence_canonical_sha256": "2a50066a46766a3ebe5e3ffda33e009200b5c15206104d10aa368d3bdd322eab",
+  "files": {
+    "MemoryForge_Blog.pdf": {
+      "bytes": 1732078,
+      "distinct_link_targets": [
+        "https://arxiv.org/html/1706.03762v7",
+        "https://arxiv.org/html/2406.06484v3",
+        "https://arxiv.org/html/2501.00663v1",
+        "https://arxiv.org/html/2509.26507v1",
+        "https://arxiv.org/html/2608.09888v1",
+        "https://github.com/deeps2710/MemoryForge/tree/f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac"
+      ],
+      "page_text_bounds": [
+        {
+          "bottom": 819.468169,
+          "left": 36.0,
+          "page": 1,
+          "right": 559.2756045,
+          "top": 32.28881820000004
+        },
+        {
+          "bottom": 819.468169,
+          "left": 36.0,
+          "page": 2,
+          "right": 559.2756045,
+          "top": 32.28881820000004
+        },
+        {
+          "bottom": 819.468169,
+          "left": 36.0,
+          "page": 3,
+          "right": 559.2756045,
+          "top": 32.28881820000004
+        },
+        {
+          "bottom": 819.468169,
+          "left": 36.0,
+          "page": 4,
+          "right": 559.2756045,
+          "top": 32.28881820000004
+        }
+      ],
+      "pages": 4,
+      "sha256": "ff0c85db353582b98eecdf7fcc0fe6acec635d1edb2eb3914204189f97b616ba",
+      "text_inside_page_margins": true
+    },
+    "MemoryForge_Concept_Summary.pdf": {
+      "bytes": 1695782,
+      "distinct_link_targets": [
+        "https://arxiv.org/html/1706.03762v7",
+        "https://arxiv.org/html/2406.06484v3",
+        "https://arxiv.org/html/2509.26507v1",
+        "https://arxiv.org/html/2608.09888v1",
+        "https://github.com/deeps2710/MemoryForge/tree/f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac"
+      ],
+      "page_text_bounds": [
+        {
+          "bottom": 819.468169,
+          "left": 36.0,
+          "page": 1,
+          "right": 559.2756045,
+          "top": 34.13090804000001
+        }
+      ],
+      "pages": 1,
+      "sha256": "548b87f1d8df19d271127a34b760a46de03c1da34129e43443395341562d926d",
+      "text_inside_page_margins": true
+    }
+  },
+  "font": "MF",
+  "implementation_commit": "f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac",
+  "packages": {
+    "matplotlib": "3.11.1",
+    "pypdf": "6.10.0",
+    "reportlab": "4.4.9"
+  },
+  "phase4_started": false,
+  "rendering": "Poppler pdftoppm, 120 DPI concept / 105 DPI blog. Host Symbol/ArialUnicode fallback notices did not affect inspected glyphs.",
+  "standard_pdf_font_build_also_passed": true,
+  "status": "PASS",
+  "summary_layout": {
+    "left_column_bottom": 158.88976377952775,
+    "right_column_bottom": 144.08976377952774
+  },
+  "summary_quality_review": {
+    "central_claim": "Temporary state changes, encoder parameters do not.",
+    "evidence_types": "Local developer-produced measurements and author-reported synthetic MAD benchmark labelled separately.",
+    "limits": "Known digit identities, overlapping outcomes, targeted corruption, missing broader transfer/capacity evidence.",
+    "mechanism": "Normalized k/q, one-hot v, S/c class means, Mq, no adaptation optimizer.",
+    "research_roles": "BDH synaptic state and CQ's separate workspace distinguished; neither implemented by the toy.",
+    "review_scope": "Agent content/visual review and automated file checks; no independent human comprehension study claimed."
+  },
+  "verified_at_utc": "2026-09-07T13:06:05.136678+00:00",
+  "visual_review": "All five final rendered pages inspected; no clipping, overlap, broken symbols or table defects observed."
+}

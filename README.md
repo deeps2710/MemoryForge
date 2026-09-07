@@ -12,7 +12,7 @@ memory. New held-out images query that memory. Encoder tensors are checked for
 exact equality before and after adaptation.
 
 **Phases 1–3 complete: verified core, interactive lab, sourced research and reproducible evidence.**
-Public deployment and submission deliverables remain gated to Phase 4.
+Public deployment and the final submission audit remain gated to Phase 4.
 MemoryForge is an educational fast-weight associative-memory model used to
 demonstrate the concept. It does not implement or reproduce BDH or BDH-CQ.
 
@@ -255,6 +255,12 @@ See the [technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) and
 
 ## Project layout
 
+The separately requested [project blog PDF](output/pdf/MemoryForge_Blog.pdf) and
+[one-page concept summary PDF](output/pdf/MemoryForge_Concept_Summary.pdf) are
+available with [editable sources and build instructions](docs/PDF_DELIVERY.md).
+They were prepared at the user's explicit request before Phase 4; deployment
+and the remaining submission audit have not started.
+
 ```text
 app.py        Streamlit entry point; run with python -m streamlit run app.py
 src/          ML engine, isolated lab sessions, UI, charts and quiz
@@ -289,8 +295,9 @@ verified in Phase 3; [research notes](docs/RESEARCH_NOTES.md) link the claim led
 
 This project targets DataForge 2026's Pathway Track according to the supplied
 brief. The actual organizer PDF/portal has not been independently verified.
-Public deployment and submission PDFs belong to Phase 4. Whether a blog PDF is
-separate from the one-page concept summary remains an explicit unresolved item.
+The user separately requested and received a blog PDF and one-page concept
+summary before Phase 4. Public deployment and verification of the actual
+submission portal's upload requirements remain gated.
 See the [gated roadmap](docs/FUTURE_ROADMAP.md) and
 [full supplied development brief](docs/DEVELOPMENT_BRIEF.md).
 

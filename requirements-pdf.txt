@@ -1,0 +1,4 @@
+# Optional PDF authoring environment; separate from the application dependencies.
+reportlab==4.4.9
+matplotlib==3.11.1
+pypdf==6.10.0

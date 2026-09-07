@@ -25,3 +25,7 @@ competition-critical phases are complete. Preserve the narrow central claim.
 
 Status update 2026-09-07: Phases 1–3 are implemented and verified. Phase 4 remains
 gated to the next explicit instruction; post-hackathon extensions remain deferred.
+
+Standalone document exception, 2026-09-07: the user requested and received a
+separate project blog PDF and one-page concept summary while keeping Phase 4
+unstarted. See PDF_DELIVERY.md. Remaining Phase 4 tasks are still gated.

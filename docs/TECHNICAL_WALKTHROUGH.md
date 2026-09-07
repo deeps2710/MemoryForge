@@ -139,7 +139,7 @@ record the verification process. MemoryForge does not implement BDH or BDH-CQ.
 | Does the BDH connection prove LLM reasoning? | No; a conceptual connection does not reproduce the architecture or task. |
 | What is precomputed? | Held-out embeddings are cached; the multi-seed report is saved. Writes, queries and current matrices are live. |
 | Is installation offline? | No. Offline runtime tests apply after dependencies and the bundled dataset are available. |
-| What remains? | Phase 4 deployment, final PDFs, licenses, portal clarification and final audit. |
+| What remains? | Phase 4 deployment, licenses, portal clarification and final audit. The user separately requested and received both PDFs before that phase. |
 
 ## Limits to state aloud
 

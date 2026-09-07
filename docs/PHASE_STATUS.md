@@ -49,9 +49,15 @@ a clean working tree. A following documentation commit records verified delivery
 Post-Phase-3 maintenance: added the user's supplied logo to the sidebar and
 browser icon on 2026-09-07. This limited branding request does not start Phase 4.
 
+Separate user-authorized document delivery on 2026-09-07: a four-page project
+blog and a one-page concept summary PDF, with editable sources and verified
+layout/citations. See PDF_DELIVERY.md and artifacts/pdf_verification.json.
+This explicit document-only request does not start Phase 4.
+
 Next permitted phase: **Phase 4, only after a new explicit next-phase instruction**.
-Remaining work: public deployment, final PDFs, license selections, final
-provenance/submission audits, portal verification and blog PDF clarification.
+Remaining work: public deployment, license selections, final provenance/submission
+audits, portal verification and validation of the delivered PDFs against actual
+upload requirements. Both requested PDF documents now exist.
 These are later-phase requirements, not Phase 3 acceptance failures.
 
 Stopped after Phase 3 as instructed. Awaiting explicit instruction to initiate the next phase.

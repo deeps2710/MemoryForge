@@ -32,3 +32,9 @@ environment. No external source implementation was executed or copied, and no
 research figure, public benchmark or human learner-study result was fabricated.
 The team still must review and defend every component; this is not a claim of
 completed human technical ownership.
+
+2026-09-07, separate document request before Phase 4: Codex assisted the project
+blog and concept summary, primary-source rechecking, typesetting, the chart from
+saved observations, PDF rendering and content/layout verification. The 630-word
+one-page summary and four-page blog disclose developer versus external benchmark
+evidence. No human comprehension review or new ML result is claimed.

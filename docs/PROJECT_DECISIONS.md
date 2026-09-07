@@ -141,3 +141,14 @@ for fresh-cache app checks.
 Consequences: cross-platform behavior, full air-gapped browser execution and
 public deployment remain unverified; global OS permissions/network settings are
 not changed. Phase introduced: 3.
+
+## D13 - Separately requested PDFs before Phase 4
+
+The user explicitly requested a project blog PDF and a separate readable
+one-page concept summary while prohibiting the next phase. Deliver those two
+documents as a scoped exception, retain editable Markdown and a reproducible
+PDF builder, and keep Phase 4 NOT STARTED. The concept summary uses 531 source
+words before references (630 words in the extracted PDF including page text).
+The four-page blog explains the mechanism and measured failures/evidence.
+Published architecture/benchmark claims remain separate from project results.
+Actual portal acceptance and the remaining submission tasks are still gated.

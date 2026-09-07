@@ -62,3 +62,11 @@ read-only; it is not a project dependency or vendored implementation. Sources'
 licenses do not become the project license. The fresh installed package inventory
 is captured in artifacts/phase3_robustness.json; final transitive notice review
 and project/generated-weight license choices remain Phase 4 items.
+
+The separately requested PDFs use original explanatory text and diagrams,
+the supplied logo, and a Matplotlib plot of the existing Phase 3 observations.
+No paper figure is reused. PDF text embeds Liberation Sans subsets (SIL Open
+Font License 1.1); the plot embeds DejaVu Sans subsets with the distribution's
+Bitstream/Arev notices. Exact notices are in PDF_FONT_NOTICES.txt. Optional PDF
+authoring dependencies are isolated in requirements-pdf.txt and do not change
+the application dependency set. No project license choice is implied.
