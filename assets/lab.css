@@ -9,8 +9,8 @@ h1 { font-size: clamp(2rem, 3.1vw, 3.1rem) !important; letter-spacing: -.045em; 
 h2 { font-size: 1.55rem !important; letter-spacing: -.025em; }
 h3 { font-size: 1.08rem !important; letter-spacing: -.01em; padding-top: 0 !important; }
 .eyebrow { color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: .45rem; }
-.brand { font-size: 1.5rem; letter-spacing: -.055em; font-weight: 700; margin-bottom: .1rem; }
-.brand-mark { background: #D8E89B; border: 1px solid #AABA7B; border-radius: 8px; padding: 2px 8px; margin-right: 8px; font-family: monospace; }
+.brand { display: flex; align-items: center; gap: 8px; font-size: 1.5rem; letter-spacing: -.055em; font-weight: 700; margin-bottom: .1rem; }
+.brand-logo { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
 .rail-note { border-top: 1px solid var(--line); padding-top: 1.1rem; margin-top: 1.5rem; font-size: .83rem; line-height: 1.55; color: var(--muted); }
 .tag { display: inline-block; border: 1px solid #BACCA9; border-radius: 20px; padding: 4px 11px; color: #2F4C32; background: #E4EDCE; font-size: .72rem; font-weight: 650; }
 .path-step { border-left: 2px solid #B5C59C; padding-left: 12px; font-size: .78rem; line-height: 1.5; color: var(--muted); }

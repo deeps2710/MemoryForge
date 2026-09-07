@@ -46,6 +46,9 @@ Phase 3 implementation: `383d141e158be6067e9fc0d5a1c7ae2daceb20ad`.
 Pushed to origin/main; git ls-remote verified the exact hash on 2026-09-07 with
 a clean working tree. A following documentation commit records verified delivery.
 
+Post-Phase-3 maintenance: added the user's supplied logo to the sidebar and
+browser icon on 2026-09-07. This limited branding request does not start Phase 4.
+
 Next permitted phase: **Phase 4, only after a new explicit next-phase instruction**.
 Remaining work: public deployment, final PDFs, license selections, final
 provenance/submission audits, portal verification and blog PDF clarification.

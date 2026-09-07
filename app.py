@@ -9,7 +9,7 @@ from src.lab import load_lab_resources
 from src.research import render_research
 from src.ui import initialize, learning_check, render_lab, sidebar
 
-st.set_page_config(page_title="MemoryForge · Learn without retraining", page_icon="◈", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="MemoryForge · Learn without retraining", page_icon=str(ROOT / "assets" / "memoryforge-logo.png"), layout="wide", initial_sidebar_state="expanded")
 st.html(f"<style>{(ROOT / 'assets' / 'lab.css').read_text(encoding='utf-8')}</style>")
 
 

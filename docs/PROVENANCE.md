@@ -38,8 +38,9 @@ copied into this repository; it ships inside the scikit-learn dependency.
 | Streamlit 1.45.1 | Installed distribution metadata | Apache License 2.0 | Imported UI dependency; unmodified |
 | Plotly 6.1.2 | Installed distribution metadata | MIT | Imported chart dependency; unmodified |
 | pandas 2.2.3 | Installed distribution metadata | BSD-3-Clause | Imported table dependency; unmodified |
-| UI CSS, brand mark and text | Original with Codex assistance | Project license NOT SELECTED | `assets/lab.css`, `src/ui.py`; no downloaded assets |
-| Fonts and icons | Local system font stack; textual M/Unicode mark and native Streamlit controls | No font or icon files redistributed | System fonts and dependency rendering |
+| UI CSS and text | Original with Codex assistance | Project license NOT SELECTED | `assets/lab.css`, `src/ui.py` |
+| Application logo | User-supplied PNG, added at the user's request after Phase 3 | Supplied for application use; no separate license inferred | `assets/memoryforge-logo.png`; original bytes preserved, displayed in sidebar and browser icon |
+| Fonts and interface icons | Local system font stack and native Streamlit controls | No font files redistributed; application logo recorded separately | System fonts and dependency rendering |
 | Digit display images | Dataset above, nearest-neighbor enlargement | Dataset attribution above | `src/visualization.py`; no generated or external artwork |
 | Research sources | Four primary papers/reports and official BDH code, versioned in research_sources.json | Linked and paraphrased; no figures/full texts/source code copied | src/research.py; docs/RESEARCH_NOTES.md |
 
@@ -51,8 +52,9 @@ the dependencies/assets actually used by the finished product.
 Phase 2 metadata and the installed package inventory are saved in
 `artifacts/phase2_environment.json`. License names were read from installed
 Streamlit, Plotly and pandas distributions. Full transitive and wheel notice
-review remains a Phase 4 item. No image-generation model, remote font service,
-third-party template or copied website was used for the UI.
+review remains a Phase 4 item. The original Phase 2 UI used no image-generation
+model, remote font service, third-party template or copied website. The later
+user-supplied logo is recorded separately above.
 
 Phase 3 adds original evidence/derivation code and reuses the existing dependency
 stack. Official BDH code at 2b0d7a45b058d4309c84a10e0768d541fe18bdc2 was inspected

@@ -1,14 +1,18 @@
 """Streamlit presentation and callbacks; model computation stays in lab/core modules."""
 
+from base64 import b64encode
+
 import pandas as pd
 import streamlit as st
 import torch
 
+from src.config import ROOT
 from src.lab import LabResources, LabSession, MAX_SHOTS, N_WAY
 from src.learning import QUIZ, quiz_feedback
 from src.visualization import digit_image, embedding_figure, memory_figure, score_figure, shots_figure
 
 CHART_CONFIG = {"displayModeBar": False, "responsive": True, "scrollZoom": False}
+LOGO_DATA = b64encode((ROOT / "assets" / "memoryforge-logo.png").read_bytes()).decode("ascii")
 
 
 def chart(figure, key: str) -> None:
@@ -55,7 +59,7 @@ def initialize(resources: LabResources, signature: tuple) -> None:
 
 def sidebar(lab: LabSession) -> str:
     with st.sidebar:
-        st.markdown('<div class="brand"><span class="brand-mark">M</span>MemoryForge</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="brand"><img class="brand-logo" src="data:image/png;base64,{LOGO_DATA}" alt="MemoryForge logo">MemoryForge</div>', unsafe_allow_html=True)
         st.caption("A small experiment in fast learning.")
         st.markdown("---")
         st.markdown('<div class="eyebrow">Your learning path</div>', unsafe_allow_html=True)
