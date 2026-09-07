@@ -162,8 +162,11 @@ No public application URL or submission readiness is claimed.
 
 Target: deeps2710/MemoryForge, branch main. Phase 3 baseline:
 `320a327f59cdb39321a1b6a500e577a135d2121c`.
-Implementation commit/push verification will be recorded in a following
-delivery documentation commit after successful push.
+Implementation commit: `383d141e158be6067e9fc0d5a1c7ae2daceb20ad`
+(`feat: add sourced research and reproducible Phase 3 evidence`).
+Push to origin/main succeeded. On 2026-09-07, git ls-remote confirmed this exact
+hash and the working tree was clean. This record is included in a following
+documentation commit; the final response identifies the final verified remote HEAD.
 
 ## 10. Phase gate
 
