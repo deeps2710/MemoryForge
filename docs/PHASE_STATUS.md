@@ -1,43 +1,52 @@
 # Phase status
 
-Current phase: **Phase 2 — interactive educational product and live demo**.
-Completed phases: **Phases 1 and 2**.
-Current status: **COMPLETE / PASS**.
-Last verification: 2026-09-07, 105 tests, pip check, smoke, unchanged complete
-50-episode evaluation, lab transition replay, repeated timings and browser QA.
+Current phase: **Phase 3 — research integration, evidence and robustness**.
+Completed phases: **Phases 1, 2 and 3**.
+Current status: **COMPLETE / PASS**, verified 2026-09-07.
 
 Phase 1: **COMPLETE**.
 Phase 2: **COMPLETE**.
-Phase 3: **NOT STARTED**.
+Phase 3: **COMPLETE**.
 Phase 4: **NOT STARTED**.
 
-Phase 2 was explicitly authorized by the user's next-phase instruction. Entry
-check: 77 Phase 1 tests passed in 5.78s; clean HEAD 21c9a5c. The existing ML core
-and checkpoint remain unchanged. Current full suite: 105 passed in 13.85s.
+Phase 3 was explicitly authorized by the user's next-phase instruction.
+Entry: clean HEAD 320a327 and 105 passing prior tests. The established ML core,
+checkpoint, prior tests/evidence and unrelated html file remain unchanged.
 
-Implemented: real immediate preset, guided lab/playground, native one-click
-actions, measured frozen-weight and memory deltas, actual matrices and scores,
-fixed-query shot experiment, conflict/reset, and three-question learning check.
-Evidence: PHASE_2_REPORT.md, PHASE_2_WALKTHROUGH.md, REQUIREMENTS_MATRIX.md and
-artifacts/phase2_{demo,latency,verification,environment}.json.
+Implemented: four verified primary papers/reports plus official BDH code;
+integrated research lesson with architecture boundaries; actual memory-rule
+derivation; paired 50-seed varying-shot/corruption evidence and charts; technical
+walkthrough; fresh-install and offline robustness checks. All 13 Phase 3 gates
+have individual PASS evidence in REQUIREMENTS_MATRIX.md.
 
-Known issues: no Phase 2 acceptance blockers. Tested on Windows Python 3.12.14,
-CPU only. Python is available through .venv rather than PATH. Other OS/Python
-runtime execution, full assistive-technology audit, human learner testing and
-public-service performance remain unverified. Existing unrelated html preserved.
+Latest verification: **124 passed in 8.16s** in the fresh isolated CPU environment.
+The robustness run also passed pip check, smoke, exact encoder regeneration and
+the complete numerical Phase 1 replay. All 650 Phase 3 conditions replay exactly,
+independently reconstruct from recorded keys, and have encoder delta 0.
+Browser checks cover desktop/mobile research, feedback and preserved lab state.
 
-Unresolved later-phase requirements: sourced BDH/research integration, evidence
-expansion, deployment, final PDFs, code/weight license selection, final provenance
-review, actual competition portal verification and the blog/concept-summary PDF
-distinction. These are not unresolved Phase 2 acceptance failures.
+Evidence: PHASE_3_REPORT.md, PHASE_3_WALKTHROUGH.md, TECHNICAL_WALKTHROUGH.md,
+research_sources.json and artifacts/phase3_{evidence,replay,robustness,verification}.json.
 
-Repository: https://github.com/deeps2710/MemoryForge (public), branch main.
-Phase 1 delivery: f46ae98 implementation; 21c9a5c verified-delivery documentation.
-Phase 2 implementation: `401f99bb14d30690c85e8218e176b0d069e9ca00`.
-Delivery: pushed to origin/main; `git ls-remote` returned the exact implementation
-hash on 2026-09-07 and the working tree was clean. A following documentation
-commit records this verified delivery.
+Known issues: no Phase 3 acceptance blockers. Execution is verified on Windows
+Python 3.12.14/CPU. Offline coverage blocks app socket connections after install;
+external source browsing still needs network. Population deviations describe
+overlapping episodes. No architecture equivalence, public deployment, human
+learning study or full accessibility audit is claimed.
 
-Next permitted work: Phase 3, **only after a new explicit instruction to initiate
-the next phase**. No Phase 3 research integration, final PDFs or deployment was
-performed in Phase 2.
+Test-harness continuity: legacy temp/cache permissions required unique local
+scratch folders. Create the parent before manual pytest --basetemp use, or run
+scripts/verify_robustness.py, which creates it automatically. A corrected manual
+final run passed all 124 tests. See the report for failed-then-corrected checks.
+
+Repository: https://github.com/deeps2710/MemoryForge, branch main.
+Phase 1: f46ae98 implementation; 21c9a5c verified delivery.
+Phase 2: 401f99b implementation; 320a327 verified delivery.
+Phase 3 commit/push verification will be recorded after successful delivery.
+
+Next permitted phase: **Phase 4, only after a new explicit next-phase instruction**.
+Remaining work: public deployment, final PDFs, license selections, final
+provenance/submission audits, portal verification and blog PDF clarification.
+These are later-phase requirements, not Phase 3 acceptance failures.
+
+Stopped after Phase 3 as instructed. Awaiting explicit instruction to initiate the next phase.

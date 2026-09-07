@@ -39,20 +39,20 @@ Phase 1K acceptance item; competition requirements span later phases.
 | COMP-04 | Visible frozen parameters, memory and retrieval | Brief sections 3–5, 13 | 2 | P2-05, P2-08 and P2-09 | PASS | Actual memory, scores and exact frozen-weight audit visible |
 | COMP-05 | Truth beside prediction | Brief sections 3–5, 13 | 2 | P2-07; test_app.py | PASS | Prediction and truth displayed together |
 | COMP-06 | Measured feedback approximately under 1 second after load | Brief sections 3–5, 13 | 2 | P2-15; artifacts/phase2_latency.json | PASS | Local measurements with scope limits; no universal guarantee |
-| COMP-07 | Substantial sourced BDH/BDH-CQ learning module; no equivalence | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
-| COMP-08 | At least 3 primary papers dated 2022–2026 beside claims | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
+| COMP-07 | Substantial sourced BDH/BDH-CQ learning module; no equivalence | Brief sections 3–5, 13 | 3 | P3-02–05; research module and primary claim ledger | PASS | BDH/CQ connections and architectural limits verified |
+| COMP-08 | At least 3 primary papers dated 2022–2026 beside claims | Brief sections 3–5, 13 | 3 | P3-01 and P3-03; four versioned primary papers/reports | PASS | 2022–2026 requirement satisfied; citations beside claims |
 | COMP-09 | Public artifact accessible without sign-in | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-10 | Public source repository | Brief sections 3–5, 13 | 4 | Unauthenticated GitHub API private=false; implementation commit f46ae98 pushed, remote main hash verified | PASS | Source repository delivery complete; this does not imply deployment/submission readiness |
-| COMP-11 | Complete README and reproduction instructions | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
-| COMP-12 | Verified data/code/weights/assets/licenses provenance | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
-| COMP-13 | AI disclosure and technical ownership | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
+| COMP-11 | Complete README and reproduction instructions | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
+| COMP-12 | Verified data/code/weights/assets/licenses provenance | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
+| COMP-13 | AI disclosure and technical ownership | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
 | COMP-14 | One-page concept summary PDF | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
 | COMP-15 | Blog/written PDF; resolve whether separate from summary | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | Portal clarification required |
 | COMP-16 | Learning check, accessible presentation, genuine failure/reset | Brief sections 3–5, 13 | 2 | P2-11–14; PHASE_2_WALKTHROUGH.md | PASS | Quiz, labelled responsive UI and real conflict/reset; no full WCAG claim |
-| COMP-17 | Multi-seed, varying-shot, clean/corrupted evidence and charts | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
-| COMP-18 | Technical walkthrough, primary-source claim ledger | Brief sections 3–5, 13 | 3 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
-| COMP-19 | Clean install, public deployment, demo script and rubric audit | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
-| COMP-20 | Honest limitations, CPU only, reproducibility | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–2 implementation documented; remaining final submission audit deferred |
+| COMP-17 | Multi-seed, varying-shot, clean/corrupted evidence and charts | Brief sections 3–5, 13 | 3 | P3-07–09; phase3_evidence.json and chart payload tests | PASS | 50 seeds, varying shots and paired corruption; actual mean/population deviation |
+| COMP-18 | Technical walkthrough, primary-source claim ledger | Brief sections 3–5, 13 | 3 | P3-03 and P3-11; technical walkthrough and source ledger | PASS | Mechanism, evidence and limitations explained for team ownership |
+| COMP-19 | Clean install, public deployment, demo script and rubric audit | Brief sections 3–5, 13 | 4 | P3-12; fresh install, complete tests and artifact regeneration | PARTIAL | Public deployment, final demo and rubric audit remain Phase 4 |
+| COMP-20 | Honest limitations, CPU only, reproducibility | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
 
 
 ## Phase 2 acceptance
@@ -79,3 +79,23 @@ Authorized by the user's explicit next-phase instruction on 2026-09-06.
 | P2-16 | All Phase 1 tests still pass | Brief Phase 2 gate | 2 | Complete pytest suite | PASS | All 77 unchanged Phase 1 tests pass; complete 50-episode report exactly equal |
 | P2-17 | Phase 2 tests pass | Brief Phase 2 gate | 2 | Lab state, charts, AppTest, repeat/invalid/reload/isolation | PASS | 28 new lab/chart/AppTest checks pass; full suite 105 passed in 13.85s |
 | P2-18 | Requirement evidence and phase ledger updated | Brief Phase 2 gate | 2 | Report, matrix, decisions, limitations, disclosure | PASS | Phase 2 report, matrix, ledger, README, architecture, decisions, limits and provenance |
+
+## Phase 3 acceptance
+
+Authorized by the user's explicit next-phase instruction on 2026-09-07.
+
+| ID | Requirement | Source/category | Target phase | Verification method / evidence | Current status | Notes |
+|---|---|---|---|---|---|---|
+| P3-01 | 3+ qualifying recent primary papers verified | Brief Phase 3 gate | 3 | research_sources.json: four papers/reports, first dates 2024–2026, versioned primary full text and exact locators | PASS | Verified 2026-09-07 |
+| P3-02 | BDH primary sources recorded | Brief Phase 3 gate | 3 | BDH v1, BDH-CQ v1 and official Pathway baseline at commit 2b0d7a45b058d4309c84a10e0768d541fe18bdc2 | PASS | Verified 2026-09-07 |
+| P3-03 | Technical claims sourced | Brief Phase 3 gate | 3 | One shared claim ledger feeds nearby UI citations; RESEARCH_NOTES.md maps local claims to code/tests | PASS | Verified 2026-09-07 |
+| P3-04 | BDH module integrated | Brief Phase 3 gate | 3 | Research & evidence starts from the live episode; source connections, role comparison and immediate learning check; AppTest/browser verified | PASS | Verified 2026-09-07 |
+| P3-05 | No false equivalence with MemoryForge | Brief Phase 3 gate | 3 | Explicit architecture boundaries in UI, source ledger and LIMITATIONS.md; proprietary CQ details are not inferred | PASS | Verified 2026-09-07 |
+| P3-06 | Equations match code | Brief Phase 3 gate | 3 | S += outer(v,k), c += v, M = S/c, scores = Mq; float64 normalized-key reconstruction and read-only derivation tests | PASS | Verified 2026-09-07 |
+| P3-07 | Reproducible evidence suite exists | Brief Phase 3 gate | 3 | scripts/evaluate_suite.py: two complete 50-seed reports exactly equal; phase3_replay.json | PASS | Verified 2026-09-07 |
+| P3-08 | Experiment results stored | Brief Phase 3 gate | 3 | phase3_evidence.json: 650 conditions, keys/IDs/mappings, writes, matrices, scores, predictions, deltas and resets | PASS | Verified 2026-09-07 |
+| P3-09 | Charts use actual data | Brief Phase 3 gate | 3 | test_evidence_plot_uses_saved_observations_and_population_std; summary validation and full saved-row reconstruction | PASS | Verified 2026-09-07 |
+| P3-10 | Limitations comprehensive | Brief Phase 3 gate | 3 | LIMITATIONS.md and nearby UI limits: pretrained representations, simple digits, interference, dependent trials, uncalibrated scores and architecture scope | PASS | Verified 2026-09-07 |
+| P3-11 | Technical walkthrough exists | Brief Phase 3 gate | 3 | TECHNICAL_WALKTHROUGH.md covers data flow, training, math, actions, evidence, visualizations, limits and 12 judge questions | PASS | Verified 2026-09-07 |
+| P3-12 | All tests pass | Brief Phase 3 gate | 3 | 124 tests, fresh isolated CPU installation, pip check, smoke, exact regeneration/core replay; phase3_robustness.json and phase3_verification.json | PASS | Verified 2026-09-07 |
+| P3-13 | Requirements matrix updated | Brief Phase 3 gate | 3 | REQUIREMENTS_MATRIX.md: all 13 Phase 3 gates individually evidenced; Phase 4 remains gated | PASS | Verified 2026-09-07 |

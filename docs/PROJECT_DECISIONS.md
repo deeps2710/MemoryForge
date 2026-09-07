@@ -110,3 +110,34 @@ Browser observations are a few measured local clicks including tool overhead.
 No universal latency, full assistive-technology audit or human learner study is
 claimed. Research, public deployment and PDFs remain gated.
 Phase introduced: 2.
+
+## D-10 — Research claims and boundaries
+
+Decision: use four version-specific primary papers/reports plus pinned official
+BDH code. Store claim, date, evidence type, locator and limits in one JSON ledger
+used directly by the app. Include BDH-CQ only for its supported system interface.
+Reason: substantive connection without inventing inaccessible internals.
+Consequences: published results are not reproduced by this toy; no external
+benchmark claims or figures are imported. Titans' memory-parameter adaptation is
+explicitly distinguished from the frozen encoder. Phase introduced: 3.
+
+## D-11 — Paired evidence protocol
+
+Decision: 50 fixed seeds; nested 0/1/2/5/10 clean shots with 0/1/3 repeated
+wrong-label writes; no corrupted zero-shot condition. Keep query sets fixed
+within seeds, record raw states/predictions and compare complete reports twice.
+Reason: show variation and actual interference without resampling confounds.
+Consequences: absolute conflict counts imply different contamination fractions;
+episodes overlap, and population standard deviation is descriptive. No tuning or
+guaranteed per-episode monotonic trend. Phase introduced: 3.
+
+## D-12 — Robustness and reproducibility environment
+
+Decision: test a fresh isolated Python 3.12.14 environment with the pinned direct
+dependencies; capture the complete installed inventory. Use unique workspace
+pytest scratch paths because old host temp/cache folders were inaccessible.
+Explicitly regenerate weights, compare core evidence and deny socket connections
+for fresh-cache app checks.
+Consequences: cross-platform behavior, full air-gapped browser execution and
+public deployment remain unverified; global OS permissions/network settings are
+not changed. Phase introduced: 3.

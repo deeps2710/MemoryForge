@@ -1,7 +1,7 @@
-# Provenance — Phases 1 and 2
+# Provenance — Phases 1–3
 
-Evidence checked 2026-09-06 (core/data) and 2026-09-07 (UI dependencies/assets). This is an implementation provenance record, not
-the Phase 3 research integration. No papers or figures are reused in this phase.
+Evidence checked 2026-09-06 (core/data) and 2026-09-07 (UI dependencies/assets). Phase 3 source verification is recorded in RESEARCH_NOTES.md and the versioned
+research_sources.json ledger. No paper figures or full texts are redistributed.
 
 ## Dataset
 
@@ -26,7 +26,7 @@ copied into this repository; it ships inside the scikit-learn dependency.
 
 | Item | Source/evidence | License/status | Modification/location |
 |---|---|---|---|
-| MemoryForge code | Original Phases 1–2 implementation with Codex assistance | Project license NOT SELECTED; team decision needed | `src/`, `scripts/`, `tests/` |
+| MemoryForge code | Original Phases 1–3 implementation with Codex assistance | Project license NOT SELECTED; team decision needed | `src/`, `scripts/`, `tests/` |
 | Initial repository | Remote commit `fd433b4` from the user-designated repository | No license file present | Existing `html` preserved verbatim; README expanded |
 | Encoder and head weights | Locally trained from seeded random initialization using this repository | Generated-weight license NOT SELECTED; training-data attribution above | `artifacts/encoder.pt`; no third-party pretrained weights |
 | Evaluation evidence | Computed by this repository | Project-generated output; data attribution above | `artifacts/*.json` |
@@ -41,7 +41,7 @@ copied into this repository; it ships inside the scikit-learn dependency.
 | UI CSS, brand mark and text | Original with Codex assistance | Project license NOT SELECTED | `assets/lab.css`, `src/ui.py`; no downloaded assets |
 | Fonts and icons | Local system font stack; textual M/Unicode mark and native Streamlit controls | No font or icon files redistributed | System fonts and dependency rendering |
 | Digit display images | Dataset above, nearest-neighbor enlargement | Dataset attribution above | `src/visualization.py`; no generated or external artwork |
-| Research papers and figures | None reused yet | Phase 3 pending | Transition placeholder only |
+| Research sources | Four primary papers/reports and official BDH code, versioned in research_sources.json | Linked and paraphrased; no figures/full texts/source code copied | src/research.py; docs/RESEARCH_NOTES.md |
 
 Package metadata was read using `importlib.metadata`. Package license names do
 not replace full wheel notices or determine dataset rights. No third-party
@@ -53,3 +53,10 @@ Phase 2 metadata and the installed package inventory are saved in
 Streamlit, Plotly and pandas distributions. Full transitive and wheel notice
 review remains a Phase 4 item. No image-generation model, remote font service,
 third-party template or copied website was used for the UI.
+
+Phase 3 adds original evidence/derivation code and reuses the existing dependency
+stack. Official BDH code at 2b0d7a45b058d4309c84a10e0768d541fe18bdc2 was inspected
+read-only; it is not a project dependency or vendored implementation. Sources'
+licenses do not become the project license. The fresh installed package inventory
+is captured in artifacts/phase3_robustness.json; final transitive notice review
+and project/generated-weight license choices remain Phase 4 items.

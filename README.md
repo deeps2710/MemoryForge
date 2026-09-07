@@ -11,13 +11,13 @@ randomly assigned labels such as ALPHA, BETA and GAMMA using an associative
 memory. New held-out images query that memory. Encoder tensors are checked for
 exact equality before and after adaptation.
 
-**Phases 1 and 2 complete: verified ML core and interactive Streamlit lab.**
-Research integration is the next gated phase. Public deployment is pending.
+**Phases 1–3 complete: verified core, interactive lab, sourced research and reproducible evidence.**
+Public deployment and submission deliverables remain gated to Phase 4.
 MemoryForge is an educational fast-weight associative-memory model used to
 demonstrate the concept. It does not implement or reproduce BDH or BDH-CQ.
 
 [Repository](https://github.com/deeps2710/MemoryForge) ·
-[Phase status](docs/PHASE_STATUS.md) · [Phase 2 report](docs/PHASE_2_REPORT.md) ·
+[Phase status](docs/PHASE_STATUS.md) · [Phase 3 report](docs/PHASE_3_REPORT.md) ·
 [Requirement evidence](docs/REQUIREMENTS_MATRIX.md)
 
 ## Audience and learning objectives
@@ -28,8 +28,8 @@ learners to distinguish frozen slow weights from writable temporary memory;
 create and inspect an association; query an unseen image; test the effects of
 more demonstrations, conflicting labels and reset; and explain why temporary
 adaptation is useful but differs from permanent training. The sourced research
-connection to BDH belongs to Phase 3; the guided lab, playground and learning
-check are available now.
+connection to BDH is integrated with primary sources; the guided lab, playground,
+research lesson, evidence and learning checks are available now.
 
 ## Install and run
 
@@ -217,6 +217,42 @@ python scripts/record_lab.py
 python scripts/benchmark_lab.py
 ```
 
+## Research and Phase 3 evidence
+
+**Research & evidence** connects your current episode to BDH and BDH-CQ, contrasts
+DeltaNet and Titans, derives an actual write and query, and presents a saved
+paired evidence suite. Four qualifying primary sources are linked beside claims:
+[BDH](https://arxiv.org/html/2509.26507v1),
+[DeltaNet](https://arxiv.org/html/2406.06484v3),
+[Titans](https://arxiv.org/html/2501.00663v1), and
+[BDH-CQ](https://arxiv.org/html/2608.09888v1).
+The [claim ledger](docs/research_sources.json) records versions, dates and limits.
+MemoryForge does not implement these architectures or claim their benchmarks.
+
+Across 50 fixed seeds, clean mean accuracies at 1/2/5/10 shots are
+94.07%/95.67%/96.93%/98.07%. With three appended wrong-label writes they are
+84.47%/86.87%/94.20%/97.27%. Encoder delta is exactly zero in all 650 condition
+evaluations. The 19,500 query outcomes share samples; population deviations in
+the chart are descriptive, not confidence intervals from independent datasets.
+The report reproduces exactly and is stored in `artifacts/phase3_evidence.json`.
+
+```sh
+python scripts/evaluate_suite.py
+python scripts/verify_robustness.py
+```
+
+The robustness command uses a fresh workspace-local pytest scratch directory,
+checks dependencies, runs all tests and smoke, regenerates the encoder separately
+and compares its tensors/evaluation against the saved baseline. A fresh isolated
+Windows Python 3.12.14 installation passed **124 tests**; no-connection tests
+exercise the app with fresh caches. Dependencies require installation Internet;
+external citations require connectivity when opened. No global network settings
+are changed. Old pytest folders on this development machine were inaccessible;
+the workspace-local strategy avoids depending on their permissions.
+
+See the [technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) and
+[Phase 3 report](docs/PHASE_3_REPORT.md).
+
 ## Project layout
 
 ```text
@@ -248,8 +284,8 @@ The team has not yet selected licenses for project code and generated weights.
 
 Codex assisted implementation, tests, evaluation and documentation; see
 [AI assistance](docs/AI_ASSISTANCE.md). Team review and technical ownership remain
-required. Recent primary papers and BDH claims will be verified in Phase 3;
-[research handoff](docs/RESEARCH_NOTES.md) contains the evidence TODOs.
+required. Four recent primary research papers/reports and official BDH code were
+verified in Phase 3; [research notes](docs/RESEARCH_NOTES.md) link the claim ledger.
 
 This project targets DataForge 2026's Pathway Track according to the supplied
 brief. The actual organizer PDF/portal has not been independently verified.

@@ -6,6 +6,7 @@ import streamlit as st
 
 from src.config import DEFAULT_ARTIFACT, ROOT
 from src.lab import load_lab_resources
+from src.research import render_research
 from src.ui import initialize, learning_check, render_lab, sidebar
 
 st.set_page_config(page_title="MemoryForge · Learn without retraining", page_icon="◈", layout="wide", initial_sidebar_state="expanded")
@@ -31,6 +32,8 @@ def main() -> None:
         page = sidebar(lab)
         if page == "60-second check":
             learning_check()
+        elif page == "Research & evidence":
+            render_research(lab)
         else:
             render_lab(lab, page)
     except (OSError, ValueError, RuntimeError, KeyError) as error:

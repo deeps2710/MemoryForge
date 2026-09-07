@@ -17,8 +17,8 @@
   this fixed benchmark; it is not a confidence interval over independent datasets.
 - CPU deterministic replay is tested on the recorded environment. Bitwise equality
   across other operating systems, BLAS builds or library versions is not promised.
-- Phase 2 provides the interactive UI. Research integration, public deployment and
-  submission PDFs remain explicitly gated to later phases.
+- Phases 2–3 provide the interactive UI, sourced research and evidence. Public
+  deployment and submission PDFs remain gated to Phase 4.
 - The lab fixes 3 classes, 30 queries and a support pool of 10 images/class; it
   starts at one shot/class. Its nested-prefix sampling differs from the Phase 1
   five-shot benchmark. Adding shots need not monotonically improve accuracy.
@@ -40,3 +40,17 @@
   has not selected a license for project code or generated model weights.
   Final provenance review and the portal's blog-PDF versus concept-summary-PDF
   distinction remain unresolved.
+
+- The Phase 3 suite uses 50 fixed seeds, nested shots and repeated corruption of
+  one support key. Absolute conflict counts are not equal corruption rates across
+  shot counts. Conditions share queries; the 19,500 outcomes are not independent.
+- Error bars are population standard deviations, not confidence intervals or
+  guarantees for another dataset. No held-out score selects new training settings.
+- Research claims are version-specific primary-source paraphrases. Paper/code
+  inspection does not reproduce published results. Proprietary BDH-CQ details
+  are not inferred; no language, ARC, capacity or biological claim is validated
+  by this digit toy.
+- Offline tests deny socket connections after installation with fresh app caches;
+  this is not a complete air-gapped browser audit. External source links need
+  connectivity when opened. Full transitive inventory is recorded; only direct
+  and numerical dependencies are pinned, so future resolutions may differ.

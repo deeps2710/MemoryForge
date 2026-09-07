@@ -23,3 +23,12 @@ and corrected. No AI-generated bitmap assets or fabricated research citations
 were introduced. The complete 105-test suite passed and the new 50-episode
 evaluation exactly matched Phase 1's saved report. See PHASE_2_REPORT.md and
 PHASE_2_WALKTHROUGH.md. The team's review and technical defense remain required.
+
+2026-09-07, Phase 3: Codex assisted primary-source verification, claim-ledger
+writing, the BDH/research lesson, mathematical inspection, paired experiments,
+19 new tests, fresh-install and blocked-network checks, explicit artifact
+regeneration, browser QA and documentation. All 124 tests passed in the fresh
+environment. No external source implementation was executed or copied, and no
+research figure, public benchmark or human learner-study result was fabricated.
+The team still must review and defend every component; this is not a claim of
+completed human technical ownership.

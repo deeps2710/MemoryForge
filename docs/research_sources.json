@@ -1,0 +1,119 @@
+{
+  "verified_on": "2026-09-07",
+  "policy": "Version-specific primary sources; paraphrases, no copied figures or benchmark claims. Publication status does not imply independent reproduction.",
+  "sources": [
+    {
+      "id": "bdh",
+      "title": "The Dragon Hatchling: The Missing Link between the Transformer and Models of the Brain",
+      "authors": [
+        "Adrian Kosowski",
+        "Przemysław Uznański",
+        "Jan Chorowski",
+        "Zuzanna Stamirowska",
+        "Michał Bartoszkiewicz"
+      ],
+      "first_public_date": "2025-09-30",
+      "reviewed_version": "arXiv:2509.26507v1",
+      "reviewed_version_date": "2025-09-30",
+      "kind": "primary research preprint",
+      "qualifying_paper": true,
+      "url": "https://arxiv.org/abs/2509.26507v1",
+      "full_text": "https://arxiv.org/html/2509.26507v1",
+      "locator": "§1.2–1.3, §2.2 and §3",
+      "evidence_type": "Architecture definition and conceptual analysis",
+      "claim": "BDH separates fixed connections from a dynamic synaptic state updated through Hebbian interactions. Its graph formulation and GPU-oriented sequence model give that state a role in inference.",
+      "relevance": "The shared teaching idea is fixed learned parameters alongside writable context-dependent state.",
+      "limits": "MemoryForge has no BDH neuron graph, sequence model or reported interpretability/scaling experiment. Its 3×16 label memory is not BDH."
+    },
+    {
+      "id": "delta",
+      "title": "Parallelizing Linear Transformers with the Delta Rule over Sequence Length",
+      "authors": [
+        "Songlin Yang",
+        "Bailin Wang",
+        "Yu Zhang",
+        "Yikang Shen",
+        "Yoon Kim"
+      ],
+      "first_public_date": "2024-06-10",
+      "reviewed_version": "arXiv:2406.06484v3",
+      "reviewed_version_date": "2024-10-31",
+      "kind": "primary research paper; NeurIPS 2024",
+      "qualifying_paper": true,
+      "url": "https://arxiv.org/abs/2406.06484v3",
+      "full_text": "https://arxiv.org/html/2406.06484v3",
+      "locator": "§2.1–2.2; §3",
+      "evidence_type": "Update-rule derivation and training algorithm",
+      "claim": "The paper contrasts additive key–value accumulation with DeltaNet's retrieval-and-correction update, and develops parallel training across sequence length.",
+      "relevance": "An additive memory can mix conflicting associations; changing the update rule is a research direction prompted by that limitation.",
+      "limits": "MemoryForge uses class-wise averaging of additive writes, not the delta rule or the paper's language-model training method."
+    },
+    {
+      "id": "titans",
+      "title": "Titans: Learning to Memorize at Test Time",
+      "authors": [
+        "Ali Behrouz",
+        "Peilin Zhong",
+        "Vahab Mirrokni"
+      ],
+      "first_public_date": "2024-12-31",
+      "reviewed_version": "arXiv:2501.00663v1",
+      "reviewed_version_date": "2024-12-31",
+      "kind": "primary research preprint",
+      "qualifying_paper": true,
+      "url": "https://arxiv.org/abs/2501.00663v1",
+      "full_text": "https://arxiv.org/html/2501.00663v1",
+      "locator": "§3.1–3.3, especially associative-memory objective and §3.2",
+      "evidence_type": "Neural-memory objective and architecture design",
+      "claim": "Titans optimizes a neural associative-memory objective at test time, with momentum and forgetting, and combines neural memory with attention.",
+      "relevance": "Temporary adaptation can use learned neural-memory updates as well as a simple outer-product rule.",
+      "limits": "Titans updates memory-module parameters at test time. MemoryForge performs no gradient update during adaptation; its frozen encoder must not be used to imply that every test-time-learning system freezes all parameters."
+    },
+    {
+      "id": "bdh-cq",
+      "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+      "authors": [
+        "Björn Engdahl",
+        "Adrian Kosowski",
+        "Jan Chorowski",
+        "Zuzanna Stamirowska",
+        "Przemysław Uznański",
+        "Junlin Jiang",
+        "Rohan Phadke",
+        "Remigiusz Kinas",
+        "Richard Zhong"
+      ],
+      "first_public_date": "2026-08-10",
+      "reviewed_version": "arXiv:2608.09888v1",
+      "reviewed_version_date": "2026-08-10",
+      "kind": "primary research technical report/preprint",
+      "qualifying_paper": true,
+      "url": "https://arxiv.org/abs/2608.09888v1",
+      "full_text": "https://arxiv.org/html/2608.09888v1",
+      "locator": "§3.1–3.3, equations (1)–(4)",
+      "evidence_type": "Published system-level interface; not a complete implementation",
+      "claim": "BDH-CQ describes demonstration-driven recurrent memory with fixed model parameters, followed by iterative computation in a separate latent workspace.",
+      "relevance": "Its contextual-memory stage directly connects to the lesson; iterative latent reasoning adds a different role beyond storing associations.",
+      "limits": "The report leaves exact updates, dimensions and implementation details proprietary. MemoryForge does not implement that workspace or establish ARC reasoning performance; BDH-CQ is not needed to derive the toy's equations."
+    },
+    {
+      "id": "bdh-code",
+      "title": "Pathway official BDH baseline implementation",
+      "authors": [
+        "Pathway"
+      ],
+      "first_public_date": "2025-09-30",
+      "reviewed_version": "2b0d7a45b058d4309c84a10e0768d541fe18bdc2",
+      "reviewed_version_date": null,
+      "kind": "primary author-maintained source code",
+      "qualifying_paper": false,
+      "url": "https://github.com/pathwaycom/bdh/tree/2b0d7a45b058d4309c84a10e0768d541fe18bdc2",
+      "full_text": "https://github.com/pathwaycom/bdh/blob/2b0d7a45b058d4309c84a10e0768d541fe18bdc2/bdh.py",
+      "locator": "bdh.py: Attention.forward and BDH.forward; README baseline scope",
+      "evidence_type": "Read-only code inspection; not executed or vendored",
+      "claim": "The inspected code uses causal attention, ReLU-expanded representations and a language-model readout, unlike the lab's class-mean digit-label memory.",
+      "relevance": "The official baseline makes the architecture boundary concrete.",
+      "limits": "This repository is not evidence of a complete BDH-CQ implementation. No Pathway source, weights or research figures are copied into MemoryForge."
+    }
+  ]
+}

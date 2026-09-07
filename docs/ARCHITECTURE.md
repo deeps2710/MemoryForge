@@ -131,3 +131,22 @@ Resource loading and CPU actions have separate timing from Streamlit reruns and
 browser observations. `benchmark_lab.py` preserves samples and scopes each
 measurement. `record_lab.py` records actual deterministic preset transitions.
 Scoped CSS stacks the main panels below 1150 px and metrics on small screens.
+
+## Phase 3 research and evidence layer
+
+`research.py` renders the research lesson, read-only write decomposition and
+saved evidence view. `docs/research_sources.json` is the single source of research
+claims, citations, versions and limitations. Neither navigation nor inspection
+writes to a learner's memory. Mathematical inspection normalizes in float64 just
+as FastMemory does.
+
+`evidence.py` reuses LabSession's fixed-pool sampler with paired shot/conflict
+conditions. Summaries are recomputed from raw condition records. The app rejects
+summary disagreement and warns on a saved/live encoder mismatch. Chart error
+bars represent population standard deviation across episodes. Timing lives in
+separate replay metadata. `evaluate_suite.py` requires two complete reports to
+match; `verify_robustness.py` captures checks in the invoking environment.
+
+The core equations, training, encoder checkpoint and Phase 1 sampler are unchanged.
+Research sources are read from local metadata; runtime does not fetch papers.
+No BDH implementation, foreign model weights or remote inference service is added.

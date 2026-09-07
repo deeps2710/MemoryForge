@@ -22,3 +22,6 @@ modern Hopfield memories; learned update rules; attention comparisons; meta-lear
 and prototypes; consolidation/continual learning; capacity/interference studies;
 larger models; GPU support; packaged library. Do not implement before the
 competition-critical phases are complete. Preserve the narrow central claim.
+
+Status update 2026-09-07: Phases 1–3 are implemented and verified. Phase 4 remains
+gated to the next explicit instruction; post-hackathon extensions remain deferred.

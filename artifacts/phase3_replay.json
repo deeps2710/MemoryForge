@@ -1,0 +1,8 @@
+{
+  "complete_reports_equal": true,
+  "conditions": 650,
+  "episodes": 50,
+  "first_run_seconds": 1.4281070998404175,
+  "sha256": "2a50066a46766a3ebe5e3ffda33e009200b5c15206104d10aa368d3bdd322eab",
+  "timing_scope": "CPU suite after imports/resource loading; includes recording, excludes browser."
+}

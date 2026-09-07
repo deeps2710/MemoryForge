@@ -1,0 +1,189 @@
+{
+  "all_encoder_parameters_unchanged": true,
+  "all_resets_empty": true,
+  "baseline_commit": "320a327f59cdb39321a1b6a500e577a135d2121c",
+  "browser": {
+    "desktop": [
+      1280,
+      720
+    ],
+    "last_tab_right_edge": 268.8625068664551,
+    "mobile": [
+      390,
+      844
+    ],
+    "mobile_document_width": 390,
+    "status": "PASS",
+    "url": "http://127.0.0.1:8501/",
+    "walkthrough": "docs/PHASE_3_WALKTHROUGH.md",
+    "writes_before_and_after_research": 6
+  },
+  "criteria": [
+    {
+      "evidence": "research_sources.json: four papers/reports, first dates 2024\u20132026, versioned primary full text and exact locators",
+      "id": "P3-01",
+      "requirement": "3+ qualifying recent primary papers verified",
+      "status": "PASS"
+    },
+    {
+      "evidence": "BDH v1, BDH-CQ v1 and official Pathway baseline at commit 2b0d7a45b058d4309c84a10e0768d541fe18bdc2",
+      "id": "P3-02",
+      "requirement": "BDH primary sources recorded",
+      "status": "PASS"
+    },
+    {
+      "evidence": "One shared claim ledger feeds nearby UI citations; RESEARCH_NOTES.md maps local claims to code/tests",
+      "id": "P3-03",
+      "requirement": "Technical claims sourced",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Research & evidence starts from the live episode; source connections, role comparison and immediate learning check; AppTest/browser verified",
+      "id": "P3-04",
+      "requirement": "BDH module integrated",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Explicit architecture boundaries in UI, source ledger and LIMITATIONS.md; proprietary CQ details are not inferred",
+      "id": "P3-05",
+      "requirement": "No false equivalence with MemoryForge",
+      "status": "PASS"
+    },
+    {
+      "evidence": "S += outer(v,k), c += v, M = S/c, scores = Mq; float64 normalized-key reconstruction and read-only derivation tests",
+      "id": "P3-06",
+      "requirement": "Equations match code",
+      "status": "PASS"
+    },
+    {
+      "evidence": "scripts/evaluate_suite.py: two complete 50-seed reports exactly equal; phase3_replay.json",
+      "id": "P3-07",
+      "requirement": "Reproducible evidence suite exists",
+      "status": "PASS"
+    },
+    {
+      "evidence": "phase3_evidence.json: 650 conditions, keys/IDs/mappings, writes, matrices, scores, predictions, deltas and resets",
+      "id": "P3-08",
+      "requirement": "Experiment results stored",
+      "status": "PASS"
+    },
+    {
+      "evidence": "test_evidence_plot_uses_saved_observations_and_population_std; summary validation and full saved-row reconstruction",
+      "id": "P3-09",
+      "requirement": "Charts use actual data",
+      "status": "PASS"
+    },
+    {
+      "evidence": "LIMITATIONS.md and nearby UI limits: pretrained representations, simple digits, interference, dependent trials, uncalibrated scores and architecture scope",
+      "id": "P3-10",
+      "requirement": "Limitations comprehensive",
+      "status": "PASS"
+    },
+    {
+      "evidence": "TECHNICAL_WALKTHROUGH.md covers data flow, training, math, actions, evidence, visualizations, limits and 12 judge questions",
+      "id": "P3-11",
+      "requirement": "Technical walkthrough exists",
+      "status": "PASS"
+    },
+    {
+      "evidence": "124 tests, fresh isolated CPU installation, pip check, smoke, exact regeneration/core replay; phase3_robustness.json and phase3_verification.json",
+      "id": "P3-12",
+      "requirement": "All tests pass",
+      "status": "PASS"
+    },
+    {
+      "evidence": "REQUIREMENTS_MATRIX.md: all 13 Phase 3 gates individually evidenced; Phase 4 remains gated",
+      "id": "P3-13",
+      "requirement": "Requirements matrix updated",
+      "status": "PASS"
+    }
+  ],
+  "final_pytest": {
+    "command_template": "python -m pytest -q --basetemp <created-unique-local-parent>/tmp -o cache_dir=<created-unique-local-parent>/cache",
+    "exit_code": 0,
+    "runtime": "C:\\Users\\ved patel\\OneDrive\\Documents\\ChatGPT\\MemoryForge\\.local\\phase3-clean\\Scripts\\python.exe",
+    "stdout": "........................................................................ [ 58%]\n....................................................                     [100%]\n124 passed in 8.16s\n"
+  },
+  "fresh_install": true,
+  "git_delivery": {
+    "status": "pending commit and push verification"
+  },
+  "include_system_site_packages": false,
+  "phase": 3,
+  "phase4_started": false,
+  "repository_audit": {
+    "baseline": "320a327f59cdb39321a1b6a500e577a135d2121c",
+    "git_diff_check_exit_code": 0,
+    "local_markdown_links_checked": 27,
+    "local_markdown_links_valid": true,
+    "scope": "Preservation of earlier implementation/tests/artifacts/dependencies and local documentation links; final submission audit remains Phase 4.",
+    "status": "PASS",
+    "unchanged_prior_files": [
+      ".gitignore",
+      ".streamlit/config.toml",
+      "artifacts/encoder.pt",
+      "artifacts/encoder.training.json",
+      "artifacts/environment.json",
+      "artifacts/evaluation.json",
+      "artifacts/phase2_demo.json",
+      "artifacts/phase2_environment.json",
+      "artifacts/phase2_latency.json",
+      "artifacts/phase2_verification.json",
+      "artifacts/reproducibility.json",
+      "artifacts/verification.json",
+      "assets/lab.css",
+      "html",
+      "requirements.txt",
+      "scripts/benchmark_lab.py",
+      "scripts/evaluate_core.py",
+      "scripts/record_lab.py",
+      "scripts/smoke_test.py",
+      "scripts/train_encoder.py",
+      "scripts/verify_replay.py",
+      "src/__init__.py",
+      "src/config.py",
+      "src/data.py",
+      "src/encoder.py",
+      "src/episodes.py",
+      "src/evaluation.py",
+      "src/fast_memory.py",
+      "src/lab.py",
+      "src/learning.py",
+      "src/reproducibility.py",
+      "src/training.py",
+      "src/visualization.py",
+      "tests/conftest.py",
+      "tests/test_app.py",
+      "tests/test_data.py",
+      "tests/test_encoder.py",
+      "tests/test_episode.py",
+      "tests/test_evaluation.py",
+      "tests/test_fast_memory.py",
+      "tests/test_lab.py",
+      "tests/test_reproducibility.py",
+      "tests/test_visualization.py"
+    ]
+  },
+  "resolved_harness_failures": [
+    "Legacy pytest temp/cache inaccessible: use workspace-local scratch directories.",
+    "Manual final command lacked its scratch parent: 75 passed, 49 fixture errors; corrected command passed 124 tests.",
+    "Earlier report overwrite raised OSError; subsequent default-path suite succeeded with matching canonical digest."
+  ],
+  "robustness_artifact": "artifacts/phase3_robustness.json",
+  "saved_conditions_independently_reconstructed": 650,
+  "sources": {
+    "ledger": "docs/research_sources.json",
+    "qualifying_primary_papers": 4,
+    "verified_date": "2026-09-07"
+  },
+  "status": "PASS",
+  "suite_replay": {
+    "complete_reports_equal": true,
+    "conditions": 650,
+    "episodes": 50,
+    "first_run_seconds": 1.4281070998404175,
+    "sha256": "2a50066a46766a3ebe5e3ffda33e009200b5c15206104d10aa368d3bdd322eab",
+    "timing_scope": "CPU suite after imports/resource loading; includes recording, excludes browser."
+  },
+  "verified_at_utc": "2026-09-07T07:41:09.960807+00:00"
+}

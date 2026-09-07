@@ -59,7 +59,7 @@ def sidebar(lab: LabSession) -> str:
         st.caption("A small experiment in fast learning.")
         st.markdown("---")
         st.markdown('<div class="eyebrow">Your learning path</div>', unsafe_allow_html=True)
-        page = st.radio("Workspace", ("Guided lab", "Playground", "60-second check"), key="workspace", label_visibility="collapsed")
+        page = st.radio("Workspace", ("Guided lab", "Playground", "Research & evidence", "60-second check"), key="workspace", label_visibility="collapsed")
         st.markdown("---")
         st.markdown('<span class="tag">ENCODER · FROZEN</span>', unsafe_allow_html=True)
         st.caption("Representations learned beforehand. No neural-network training during this experiment.")
@@ -175,6 +175,7 @@ def action_detail(lab: LabSession) -> None:
     with st.expander("Inspect the latest write and the update rule"):
         st.code("S ← S + v kᵀ\nc ← c + v\nM[i] = S[i] / c[i] for written labels\nscores = M q", language=None)
         st.caption("k = unit encoder embedding; v = one-hot episode label; S = raw sums; c = write counts; M = class-mean memory. No optimizer runs here.")
+        st.markdown("[Implementation of this rule](https://github.com/deeps2710/MemoryForge/blob/main/src/fast_memory.py) · [Mathematical verification](https://github.com/deeps2710/MemoryForge/blob/main/tests/test_fast_memory.py)")
         if transition.writes:
             rows = [{"Sample": w["sample_id"], "Digit": w["digit"], "Written label": lab.episode.label_names[w["written_label"]], "One-hot value": str(w["value"])} for w in transition.writes]
             st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
@@ -237,9 +238,10 @@ def render_lab(lab: LabSession, page: str) -> None:
     else:
         st.caption("The preset starts with one real demonstration per class. Teach adds one more per class; Test Query advances to another held-out image.")
         st.button("Explore the playground", on_click=navigate, args=("Playground",))
-    with st.expander("What this teaches — and where the research connection belongs"):
+    with st.expander("What this teaches — and how it connects to research"):
         st.write("A frozen representation and writable temporary memory play different roles. You just changed associations without changing the encoder. Reset shows why that adaptation is temporary.")
-        st.write("MemoryForge is an educational fast-weight associative-memory model. A sourced learning module connecting this concept to BDH / BDH-CQ is planned for Phase 3. This lab does not implement or reproduce those architectures.")
+        st.write("Follow the research lesson to compare this experiment with published BDH, BDH-CQ, DeltaNet and Titans work. Each connection includes its primary source and the limits of the comparison.")
         st.caption("Limits: supervised digit representations, tiny 8×8 data, known digit identities, uncalibrated scores, and possible interference. Held-out embeddings are precomputed once; writes, queries, matrices and comparisons are computed live.")
+    st.button("Connect this experiment to research", on_click=navigate, args=("Research & evidence",))
     st.button("Take the 60-second check", on_click=navigate, args=("60-second check",))
     st.markdown('<div class="small-rule">One claim, made testable: temporary fast memory can acquire new associations while long-term model parameters remain unchanged.<br>AI assistance: Codex assisted implementation and verification; the team remains responsible for technical understanding. Data attribution and sources are recorded in the repository.</div>', unsafe_allow_html=True)
