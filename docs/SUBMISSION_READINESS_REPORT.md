@@ -14,11 +14,11 @@ Public repository: [deeps2710/MemoryForge](https://github.com/deeps2710/MemoryFo
 | Restart | PASS | Fresh provisioning/reinstall recovered to usable preset within 130 seconds; teaching worked afterward. Wake before judging. |
 | Repository | PASS | Public main contains source, model, evidence, disclosures, notices, both PDFs and package builder. The final ZIP manifest identifies its source commit. |
 | Tests | PASS | Fresh Phase 4 installation passed 124 tests in 22.19s. After final PyArrow alignment, 124 passed again in 15.76s; pip check and five smoke checks passed. phase4_final_robustness.json. |
-| Model and evaluation | PASS | Final separate retraining exactly matched checkpoint tensors and complete numerical Phase 1 evidence. Prior model, core, tests, evidence, logo and PDFs preserved. |
+| Model and evaluation | PASS | Final separate retraining exactly matched checkpoint tensors and complete numerical Phase 1 evidence. Prior model, core, tests, evidence and logo preserved; PDFs were subsequently redesigned. |
 | Research sources | PASS | Four versioned primary papers/reports with dates and adjacent claim citations; research_sources.json. Benchmarks, author claims and local developer measurements are distinguished. |
 | BDH module | PASS | Live-state connection, equations, architectural boundaries and substantial BDH/CQ lesson. Toy class means are explicitly neither BDH nor CQ latent reasoning. |
-| Concept summary | PASS | One A4 page, 630 extracted words including references; visual/content check in PDF_DELIVERY.md and pdf_verification.json. Original verified PDF bytes retained. |
-| Blog/written deliverable | UNVERIFIED format | Four-page project blog PDF delivered and included. Organizer PDF and ZIP field do not specify a separate blog format; marked submission-format draft. This does not affect the distinct one-page summary. |
+| Concept summary | PASS | One A4 page, 526 extracted words including references; visual/content check in PDF_DELIVERY.md and pdf_verification.json. Redesigned at user request on 2026-09-08. |
+| Blog/written deliverable | UNVERIFIED format | Six-page project blog PDF delivered and included. Organizer PDF and ZIP field do not specify a separate blog format; marked submission-format draft. This does not affect the distinct one-page summary. |
 | Provenance | PASS for records | Owner-approved scoped MIT; 54 installed distributions, 85 notice files; upstream Streamlit/frontend/font and PDF font notices. Logo and original html excluded from MIT; unverified reuse rights remain disclosed. Linux wheel notices not claimed identical to Windows. |
 | AI disclosure | PASS | AI_ASSISTANCE.md records assistance, reuse, verification and owner decisions. |
 | Human ownership | UNVERIFIED | No observed team comprehension review or successful live defense. Automated tests cannot establish either. |
@@ -76,10 +76,10 @@ Phase 4 stops at this report. Post-hackathon extensions require a new instructio
 
 ## Requested presentation handoff, 2026-09-08
 
-The package also includes the eight-slide DataForge presentation for Team BitWise
-(Deepshikha Rani and Ved Patel), ending with THANK YOU. It contains actual app
-screenshots, two editable DFD views and an editable measured-evidence chart.
-DATA_FLOW.md expands the diagrams to four views plus a data dictionary.
+The package also includes the ten-slide DataForge presentation for Team BitWise
+(Ved Patel and Deepshikha Rani), ending with THANK YOU. It contains actual app
+screenshots, an editable architecture overview and an editable measured-evidence chart.
+DATA_FLOW.md provides four detailed views plus a data dictionary.
 PRESENTATION.md records the slide outline, source captures and authoring process.
 Four screenshot originals are included; three also appear in the public README.
 The ZIP builder requires these additions alongside both PDFs and the original

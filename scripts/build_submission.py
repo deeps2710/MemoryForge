@@ -15,8 +15,10 @@ REQUIRED = {"app.py", "README.md", "LICENSE", "artifacts/encoder.pt",
             "docs/SUBMISSION_READINESS_REPORT.md", "docs/SUBMISSION_INSTRUCTIONS_AUDIT.md",
             "docs/PDF_FONT_NOTICES.txt", "requirements.txt", "requirements-lock.txt",
             "output/pdf/MemoryForge_Concept_Summary.pdf", "output/pdf/MemoryForge_Blog.pdf",
-            "output/presentation/MemoryForge_BitWise_DataForge.pptx",
-            "docs/DATA_FLOW.md", "docs/PRESENTATION.md",
+            "output/presentation/MemoryForge_DataForge2026_Presentation.pptx",
+            "docs/DATA_FLOW.md", "docs/PRESENTATION.md", "docs/BLOG.md", "docs/CONCEPT_SUMMARY.md",
+            "docs/TEAM.md", "docs/FUTURE_SCOPE.md",
+            "output/pdf/MemoryForge_OnePage_Summary.pdf", "output/pdf/MemoryForge_DataForge2026_Presentation.pdf",
             "assets/screenshots/guided-lab.png", "assets/screenshots/memory-and-retrieval.png",
             "assets/screenshots/conflict-outcome.png", "assets/screenshots/research-evidence.png"}
 
@@ -47,19 +49,22 @@ def main():
         payload[name] = path.read_bytes()
     package_note = (
         "# MemoryForge — Pathway Track solution package\n\n"
-        "DataForge 2026 | Team BitWise | Deepshikha Rani and Ved Patel\n\n"
+        "DataForge 2026 | Team BitWise | Ved Patel and Deepshikha Rani\n\n"
         "Packaging status: DRAFT pending the manual actions in docs/SUBMISSION_READINESS_REPORT.md.\n"
         "This ZIP is not evidence that a competition entry has been submitted.\n\n"
         "Start with README.md for the project claim, current deployment status and install/run commands.\n"
         "Repository: https://github.com/deeps2710/MemoryForge\n"
         "Live application: https://memoryforge.streamlit.app/ (verified 2026-09-08).\n\n"
         "Written deliverables:\n"
-        "- output/pdf/MemoryForge_Concept_Summary.pdf — one page; the required concept briefing.\n"
-        "- output/pdf/MemoryForge_Blog.pdf — four-page project blog; submission-format draft,\n"
+        "- output/pdf/MemoryForge_OnePage_Summary.pdf — one page; the required concept briefing.\n"
+        "  MemoryForge_Concept_Summary.pdf is an identical alias for existing app links.\n"
+        "- docs/BLOG.md and docs/CONCEPT_SUMMARY.md — editable writing sources.\n"
+        "- output/pdf/MemoryForge_Blog.pdf — six-page project blog; submission-format draft,\n"
         "  since the organizer and ZIP field do not define a separate blog format.\n"
         "- docs/PDF_FONT_NOTICES.txt — notices for fonts embedded in both PDFs.\n\n"
         "Presentation and diagrams:\n"
-        "- output/presentation/MemoryForge_BitWise_DataForge.pptx — 8 slides, ending with THANK YOU.\n"
+        "- output/presentation/MemoryForge_DataForge2026_Presentation.pptx — 10 slides, ending with THANK YOU.\n"
+        "- output/pdf/MemoryForge_DataForge2026_Presentation.pdf — 10-page viewing copy.\n"
         "- docs/DATA_FLOW.md — four detailed data-flow views and a data dictionary.\n"
         "- docs/PRESENTATION.md — slide outline, screenshot sources and authoring notes.\n"
         "- assets/screenshots/ — four actual public-application captures, also used in README/deck.\n\n"

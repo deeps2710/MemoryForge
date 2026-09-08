@@ -41,7 +41,7 @@
   selected scoped MIT for original project code, documents and generated weights.
   The supplied logo and pre-existing html retain separate, unresolved general
   reuse rights. The portal requires a ZIP; the organizer has not specified a
-  separate blog format. Its four-page blog remains a submission-format draft.
+  separate blog format. Its six-page blog remains a submission-format draft.
 
 - The Phase 3 suite uses 50 fixed seeds, nested shots and repeated corruption of
   one support key. Absolute conflict counts are not equal corruption rates across

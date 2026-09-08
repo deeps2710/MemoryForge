@@ -79,3 +79,9 @@ User-requested presentation maintenance on 2026-09-08: eight-slide DataForge /
 BitWise deck, final THANK YOU slide, actual screenshots, editable DFD views,
 full data-flow document, README images and refreshed submission packaging.
 This extends the Phase 4 handoff materials without starting a new feature phase.
+
+Subsequent user-requested redesign: the active handoff now uses a ten-slide deck
+with a final THANK YOU slide, a six-page illustrated blog and an exactly one-page
+summary. MemoryForge is the main PDF title. PPTX/PDF filenames and editable sources
+are recorded in PRESENTATION.md and PDF_DELIVERY.md. TEAM.md records the newly
+authorized role allocation. App, checkpoint and numerical evidence remain unchanged.

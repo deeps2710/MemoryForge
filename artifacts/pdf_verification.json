@@ -1,119 +1,105 @@
 {
-  "application_code_model_and_evidence_unchanged": true,
-  "blog": {
-    "bytes": 1732078,
-    "hyperlinks": 22,
-    "pages": 4,
-    "words_in_extracted_pdf": 1816
-  },
-  "blog_content_bottoms": [
-    57.8897637795277,
-    42.8897637795277,
-    49.8897637795277,
-    47.8897637795277
-  ],
-  "chart_is_vector": true,
-  "chart_source": "artifacts/phase3_evidence.json",
-  "concept_source_words_before_references": 531,
-  "concept_summary": {
-    "bytes": 1695782,
-    "hyperlinks": 21,
-    "pages": 1,
-    "words_in_extracted_pdf": 630
-  },
-  "created_at_utc": "2026-09-07T13:01:30.657518+00:00",
-  "evidence_canonical_sha256": "2a50066a46766a3ebe5e3ffda33e009200b5c15206104d10aa368d3bdd322eab",
+  "status": "PASS",
+  "verified_at_utc": "2026-09-08T15:30:57.599584+00:00",
+  "implementation_commit": "3751264ac4eef1c5561692e67999c1d639ec658f",
   "files": {
     "MemoryForge_Blog.pdf": {
-      "bytes": 1732078,
-      "distinct_link_targets": [
-        "https://arxiv.org/html/1706.03762v7",
+      "pages": 6,
+      "bytes": 1916963,
+      "sha256": "e517208c2e5e636ffbcf9be9b23ad730ed1bb7203951c5624616d0fb6d75671d",
+      "words_in_extracted_pdf": 1816,
+      "word_count_method": "Regex word tokens, matching scripts/build_pdfs.py",
+      "largest_title": "MemoryForge",
+      "page_text_bounds": [
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        },
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        },
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        },
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        },
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        },
+        {
+          "left": 40.0,
+          "right": 555.2756051,
+          "top": 22.894042799999966,
+          "bottom": 820.6786182000001
+        }
+      ],
+      "citation_targets": [
         "https://arxiv.org/html/2406.06484v3",
         "https://arxiv.org/html/2501.00663v1",
         "https://arxiv.org/html/2509.26507v1",
         "https://arxiv.org/html/2608.09888v1",
-        "https://github.com/deeps2710/MemoryForge/tree/f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac"
-      ],
+        "https://github.com/deeps2710/MemoryForge/tree/3751264ac4eef1c5561692e67999c1d639ec658f"
+      ]
+    },
+    "MemoryForge_OnePage_Summary.pdf": {
+      "pages": 1,
+      "bytes": 1693869,
+      "sha256": "f3b7ae5b94d06b417925970f3269098f0464744580e1bb194739f6634fa7b70b",
+      "words_in_extracted_pdf": 526,
+      "word_count_method": "Regex word tokens, matching scripts/build_pdfs.py",
+      "largest_title": "MemoryForge",
       "page_text_bounds": [
         {
-          "bottom": 819.468169,
-          "left": 36.0,
-          "page": 1,
-          "right": 559.2756045,
-          "top": 32.28881820000004
-        },
-        {
-          "bottom": 819.468169,
-          "left": 36.0,
-          "page": 2,
-          "right": 559.2756045,
-          "top": 32.28881820000004
-        },
-        {
-          "bottom": 819.468169,
-          "left": 36.0,
-          "page": 3,
-          "right": 559.2756045,
-          "top": 32.28881820000004
-        },
-        {
-          "bottom": 819.468169,
-          "left": 36.0,
-          "page": 4,
-          "right": 559.2756045,
-          "top": 32.28881820000004
+          "left": 38.0,
+          "right": 555.2756051,
+          "top": 37.155272800000034,
+          "bottom": 820.6786182000001
         }
       ],
-      "pages": 4,
-      "sha256": "ff0c85db353582b98eecdf7fcc0fe6acec635d1edb2eb3914204189f97b616ba",
-      "text_inside_page_margins": true
-    },
-    "MemoryForge_Concept_Summary.pdf": {
-      "bytes": 1695782,
-      "distinct_link_targets": [
-        "https://arxiv.org/html/1706.03762v7",
+      "citation_targets": [
         "https://arxiv.org/html/2406.06484v3",
+        "https://arxiv.org/html/2501.00663v1",
         "https://arxiv.org/html/2509.26507v1",
         "https://arxiv.org/html/2608.09888v1",
-        "https://github.com/deeps2710/MemoryForge/tree/f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac"
-      ],
-      "page_text_bounds": [
-        {
-          "bottom": 819.468169,
-          "left": 36.0,
-          "page": 1,
-          "right": 559.2756045,
-          "top": 34.13090804000001
-        }
-      ],
-      "pages": 1,
-      "sha256": "548b87f1d8df19d271127a34b760a46de03c1da34129e43443395341562d926d",
-      "text_inside_page_margins": true
+        "https://github.com/deeps2710/MemoryForge/tree/3751264ac4eef1c5561692e67999c1d639ec658f"
+      ]
+    },
+    "MemoryForge_DataForge2026_Presentation.pdf": {
+      "pages": 10,
+      "bytes": 3515962,
+      "sha256": "59a794650bb47f045dbfeca47bb9ef7b6361d2ea7f3e4f87c03d8dc26b0e0429"
     }
   },
-  "font": "MF",
-  "implementation_commit": "f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac",
-  "packages": {
-    "matplotlib": "3.11.1",
-    "pypdf": "6.10.0",
-    "reportlab": "4.4.9"
+  "compatibility_alias": "MemoryForge_Concept_Summary.pdf is byte-identical to MemoryForge_OnePage_Summary.pdf",
+  "source_sha256": {
+    "docs/BLOG.md": "d79b135a9f4af145c8b8a290ee2b53c11e96e4535ab94e3050ea19e6b1238110",
+    "docs/CONCEPT_SUMMARY.md": "3082dc1e0beed6430b1652def4162eb7250624e9c31b36d72e6baf7d1ceb88a2",
+    "scripts/build_pdfs.py": "9c70884f0e9d606b11b95e907a3b21e4f556de8ad1da0e38a3bdc2ffa466323d",
+    "scripts/build_presentation.mjs": "d9af58d3ecc3c0c774bf64a8944ff35a5400cbcaed74c100508b62a82ac3c585",
+    "artifacts/phase3_evidence.json": "109b635809f31e2ab530ecdb6430d77abdac040a913b08a791e07c7b1b05649d",
+    "src/fast_memory.py": "9cd6b183b555438be7513fb5b8ff7bdb22363149fbe877e34a7882b14fd5ef73",
+    "src/encoder.py": "4f1ef03b60fef83db9e0fbc7bca351c20cfdb76978a88aab727633b0da7159bd"
   },
-  "phase4_started": false,
-  "rendering": "Poppler pdftoppm, 120 DPI concept / 105 DPI blog. Host Symbol/ArialUnicode fallback notices did not affect inspected glyphs.",
-  "standard_pdf_font_build_also_passed": true,
-  "status": "PASS",
-  "summary_layout": {
-    "left_column_bottom": 158.88976377952775,
-    "right_column_bottom": 144.08976377952774
-  },
-  "summary_quality_review": {
-    "central_claim": "Temporary state changes, encoder parameters do not.",
-    "evidence_types": "Local developer-produced measurements and author-reported synthetic MAD benchmark labelled separately.",
-    "limits": "Known digit identities, overlapping outcomes, targeted corruption, missing broader transfer/capacity evidence.",
-    "mechanism": "Normalized k/q, one-hot v, S/c class means, Mq, no adaptation optimizer.",
-    "research_roles": "BDH synaptic state and CQ's separate workspace distinguished; neither implemented by the toy.",
-    "review_scope": "Agent content/visual review and automated file checks; no independent human comprehension study claimed."
-  },
-  "verified_at_utc": "2026-09-07T13:06:05.136678+00:00",
-  "visual_review": "All five final rendered pages inspected; no clipping, overlap, broken symbols or table defects observed."
+  "application_code_model_and_evidence_unchanged": true,
+  "prior_app_tested_files_byte_identical": 37,
+  "all_13_evidence_means_and_population_standard_deviations_reconstructed": true,
+  "visual_review": "All 17 final PDF pages rendered with Poppler and visually inspected; no observed clipping, overlap or broken equations. Blog architecture line-break defect corrected before final delivery.",
+  "presentation_pdf_format": "192-dpi raster viewing companion; native editable content and source notes are in PPTX.",
+  "chart_is_vector_in_blog": true,
+  "review_scope": "Agent technical and visual review; no external reproduction, learner study or native PowerPoint execution claimed."
 }

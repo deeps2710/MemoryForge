@@ -27,9 +27,9 @@ reproduction/evidence documents, one-page concept PDF and separately requested
 blog PDF. The ZIP is packaging; a public artifact URL and public source repository
 remain requirements in the organizer PDF. A ZIP alone does not replace them.
 
-The concept summary is one page and 630 extracted words including references
-(531 source words before references), within the recommended 500–950 range.
-The four-page blog is a **submission-format draft pending organizer confirmation**:
+After the user-requested redesign on 2026-09-08, the concept summary remains
+one page with 526 extracted words, within the recommended 500–950 range.
+The six-page blog is a **submission-format draft pending organizer confirmation**:
 the PDF names a blog but does not define a separate blog format, and the portal's
 ZIP field supplies no further guidance. Both PDFs are included, each labelled
 with its role in the package README; they are not treated as interchangeable.

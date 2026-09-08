@@ -1,69 +1,72 @@
 # MemoryForge presentation
 
-DataForge 2026, Pathway track. **Team BitWise: Deepshikha Rani and Ved Patel.**
+DataForge 2026 / PS-1 - Pathway. Team BitWise: **Ved Patel and Deepshikha Rani**.
+The [role allocation](TEAM.md) records the user's authorization and distinguishes
+assigned responsibilities from verified contribution history.
 
-Open [the PowerPoint](../output/presentation/MemoryForge_BitWise_DataForge.pptx)
-in a compatible slide viewer; running the application is not required to view it.
-The deck contains exactly eight slides:
+Open the [PowerPoint](../output/presentation/MemoryForge_DataForge2026_Presentation.pptx)
+or its [PDF viewing copy](../output/pdf/MemoryForge_DataForge2026_Presentation.pdf).
+The deck has ten slides, ending with THANK YOU:
 
-1. MemoryForge, its central claim and team.
-2. Actual guided-lab screenshot with unchanged encoder weights.
-3. Editable offline model-preparation DFD.
-4. Editable session memory, retrieval and audit DFD, with the write/read equations.
-5. Actual memory and conflict screenshots with measured outcomes.
-6. Editable accuracy chart and the distinct roles of BDH, BDH-CQ, DeltaNet and Titans.
-7. Deployment, reproducibility and limitations.
-8. THANK YOU, both team members and their user-supplied contact addresses.
+1. DataForge-first cover with MemoryForge as the largest title, topic, track, team and role column.
+2. Problem, working prototype and measured encoder/memory distinction.
+3. Exact implemented S/c/M class-mean write and read equations.
+4. Editable architecture with offline preparation, runtime path and tech stack.
+5. Actual memory screenshot with Teach, Test Query and Clear Memory explanations.
+6. Editable chart from the 50-seed evidence suite, with evaluation limits.
+7. Actual conflict screenshot and the measured 27/30 to 26/30 failure.
+8. Sourced BDH, BDH-CQ, DeltaNet and Titans distinctions; PS-1 alignment.
+9. Reuse, scale limits, proposed experiments and a potential sustainability model.
+10. THANK YOU, both team members, contact addresses and the live demonstration URL.
 
-The [detailed DFD](DATA_FLOW.md) expands the two slide views into system context,
-offline training/evaluation, runtime initialization and session adaptation, with
-a data dictionary and code links. These describe implemented data flows.
+The [detailed DFD](DATA_FLOW.md) remains the complete four-view data-flow document.
+The architecture slide summarizes it; the presentation does not claim a new
+architecture or a BDH/CQ implementation. Future work is planning only.
 
 ## Evidence and assets
 
-Four original 1280 x 720 PNG screenshots are in
-[assets/screenshots](../assets/screenshots), captured from the public
-[MemoryForge application](https://memoryforge.streamlit.app/) on 2026-09-08:
+The original 1280 x 720 PNG screenshots in [assets/screenshots](../assets/screenshots)
+were captured from the public application on 2026-09-08. The public preset was
+inspected again before redesign and showed the same values, without owner login.
 
-| File | Observed state and use |
+| File | State and use |
 |---|---|
-| guided-lab.png | Seed 1000, three-write preset; slide 2 and README. |
+| guided-lab.png | Three-write preset, encoder delta 0 and memory delta 1.73205; slide 2, blog page 1 and README. |
 | memory-and-retrieval.png | Six writes, 27/30 correct, actual matrix and scores; slide 5 and README. |
-| conflict-outcome.png | Seven writes, 26/30 correct, five changed predictions; slide 5. |
+| conflict-outcome.png | Seven writes, 26/30 correct, five changed predictions; slide 7 and blog page 3. |
 | research-evidence.png | Saved paired-suite chart and results; README. |
 
-These are browser captures, not generated interface mockups. The slides preserve
-their aspect ratios; the original full-resolution files remain in the ZIP.
-The chart uses [saved Phase 3 evidence](../artifacts/phase3_evidence.json), with
-mean percentages rounded to two decimals in its embedded workbook and one
-decimal in the visible labels. The full precision results remain in the JSON.
-Primary citations are beside the research claims and full URLs are in speaker notes.
-Deployment measurements are dated observations, not performance guarantees.
+Captions identify each action, changed state and implication. Screenshot bytes
+and aspect ratios are unchanged. The native chart reads phase3_evidence.json;
+its embedded workbook rounds means to 0.01 percentage point, with visible labels
+to 0.1. Primary paper identifiers appear beside claims and full URLs in notes.
+Local evidence links pin the inspected implementation to revision 3751264.
 
-Text, DFD shapes/connectors and the evidence chart are native editable PowerPoint
-elements. Screenshots and the user logo are raster images. Arial is referenced,
-not embedded; no font files or authoring-library code are distributed with the
-presentation. See [provenance](PROVENANCE.md) and [AI assistance](AI_ASSISTANCE.md)
-for original-content licensing, separate logo/frontend rights and authoring disclosure.
+Text, architecture connectors and chart are editable PowerPoint elements.
+Screenshots and the logo are raster images. The ten-page PDF is a 192-dpi raster
+viewing companion made from the finalized deck's renders; use the PPTX for
+editing, text selection and speaker notes. Arial is referenced in the PPTX,
+not embedded. No authoring-library code or font binaries are redistributed.
 
 ## Authoring and verification
 
-[build_presentation.mjs](../scripts/build_presentation.mjs) uses the Codex
-Artifact Tool runtime, not the application Python environment. To regenerate,
-set `ARTIFACT_NODE_MODULES` to the bundled Node modules directory,
-`PRESENTATIONS_SKILL_DIR` to the installed presentations skill directory, and
-`ARTIFACT_PYTHON` to its bundled Python executable. Set `DECK_REVISION` to a fresh
-identifier, then run `node scripts/build_presentation.mjs` from the repository.
-This optional toolchain is not needed to run MemoryForge or open the supplied PPTX.
+The project script [build_presentation.mjs](../scripts/build_presentation.mjs)
+requires the Codex Artifact Tool authoring runtime. Set `ARTIFACT_NODE_MODULES`
+to its Node modules directory, `PRESENTATIONS_SKILL_DIR` to the installed
+presentations skill directory, and `ARTIFACT_PYTHON` to its Python executable.
+Set `DECK_REVISION` to a new revision identifier and run:
 
-The builder exports and finalizes a candidate under `.local/presentation-build`,
-validates package structure, geometry, fonts and the chart workbook, imports the
-final file and renders all eight slides. Inspect each rendered slide before
-copying that finalized PPTX to the public `output/presentation` path. Private
-drafts and validation scratch files are excluded from the submission ZIP.
-The delivered eight-slide file received those checks and full-size visual review.
-It was not opened in the desktop Microsoft PowerPoint application.
+```sh
+node scripts/build_presentation.mjs
+```
 
-Run `python scripts/build_submission.py` after committing the reviewed files.
-The ZIP builder requires the presentation, both PDFs, DFD, screenshot files and
-application deliverables, then verifies every archived byte against its source.
+The builder writes private candidates under `.local/redesign`, validates package,
+geometry, font policy and chart workbook, imports the finalized file, and renders
+ten slides at 2560 x 1440. Visually inspect them before copying the finalized
+PPTX unchanged to the public output path. `build_pdfs.py --slide-render-dir`
+creates the PDF viewing copy; see [PDF delivery](PDF_DELIVERY.md).
+
+All ten final slides and all PDF pages received rendered visual review. Desktop
+PowerPoint execution was not available and is not claimed. The authoring runtime
+is optional; opening the deck and running the app do not require it.
+The superseded eight-slide PPTX is retained in Git history, not the current ZIP.

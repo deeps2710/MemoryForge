@@ -1,337 +1,199 @@
-"""Build the separately requested blog and one-page concept summary.
+"""Typeset the edited MemoryForge blog and exactly one-page concept briefing.
 
-Use requirements-pdf.txt in a document-authoring environment, not the app venv.
-Optional --font-dir selects LiberationSans TTFs; otherwise standard PDF fonts
-are used. Markdown in docs/ is the editable writing source. No ML is rerun.
+Editable writing: docs/BLOG.md and docs/CONCEPT_SUMMARY.md. No ML code is run.
+Uses the separate requirements-pdf.txt environment. See docs/PDF_DELIVERY.md.
 """
 import argparse
 from datetime import datetime, timezone
+from hashlib import sha256
 from html import escape
-import importlib.metadata
 import json
 from pathlib import Path
 import re
-
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import numpy as np
-from pypdf import PdfReader, PdfWriter, Transformation
+from reportlab.pdfgen import canvas
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfgen import canvas
-from reportlab.platypus import Paragraph, Table, TableStyle, Preformatted
+from reportlab.platypus import Paragraph, Table, TableStyle
+from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parents[1]
-W, H = A4
-INK = colors.HexColor("#18382F")
-LEAF = colors.HexColor("#365C44")
-MUTED = colors.HexColor("#53625B")
-PALE = colors.HexColor("#EDF2E8")
-LINE = colors.HexColor("#CFDACE")
-COMMIT = "f3ec52e60c999d60f8ea89c2f7c243eaa89c1bac"
-REPO = f"https://github.com/deeps2710/MemoryForge/tree/{COMMIT}"
-SOURCES = {
-    "1":"https://arxiv.org/html/1706.03762v7",
-    "2":"https://arxiv.org/html/2406.06484v3",
-    "3":"https://arxiv.org/html/2509.26507v1",
-    "4":"https://arxiv.org/html/2608.09888v1",
-    "5":REPO,
-    "6":"https://arxiv.org/html/2501.00663v1",
-}
-FONT = "Helvetica"
-FONT_BOLD = "Helvetica-Bold"
-BOXES = []
-CHART_BOX = None
+ROOT=Path(__file__).resolve().parents[1]
+W,H=A4
+BG=colors.HexColor('#F5F3E9'); INK=colors.HexColor('#173E35')
+GREEN=colors.HexColor('#456C4C'); MUTED=colors.HexColor('#586754')
+SAGE=colors.HexColor('#DDE5D0'); AMBER=colors.HexColor('#996027'); LINE=colors.HexColor('#B9C7AE')
+REV='3751264ac4eef1c5561692e67999c1d639ec658f'
+SOURCES={'1':'https://arxiv.org/html/2509.26507v1','2':'https://arxiv.org/html/2608.09888v1','3':'https://arxiv.org/html/2406.06484v3','4':'https://arxiv.org/html/2501.00663v1','5':f'https://github.com/deeps2710/MemoryForge/tree/{REV}'}
+F='Helvetica'; FB='Helvetica-Bold'; BOXES=[]
 
+def fonts(folder):
+    global F,FB
+    if folder:
+        for suffix in ['Regular','Bold','Italic','BoldItalic']:
+            pdfmetrics.registerFont(TTFont('MF-'+suffix,str(folder/f'LiberationSans-{suffix}.ttf')))
+        pdfmetrics.registerFontFamily('MF-Regular',normal='MF-Regular',bold='MF-Bold',italic='MF-Italic',boldItalic='MF-BoldItalic')
+        F,FB='MF-Regular','MF-Bold'
 
-def register_fonts(directory):
-    global FONT, FONT_BOLD
-    if directory is None:
-        return
-    for suffix, file in [("","Regular"),("-Bold","Bold"),("-Italic","Italic"),("-BoldItalic","BoldItalic")]:
-        pdfmetrics.registerFont(TTFont("MF" + suffix, str(directory / f"LiberationSans-{file}.ttf")))
-    pdfmetrics.registerFontFamily("MF", normal="MF", bold="MF-Bold", italic="MF-Italic", boldItalic="MF-BoldItalic")
-    FONT, FONT_BOLD = "MF", "MF-Bold"
+def inline(t):
+    t=escape(t).replace("&lt;br/&gt;", "<br/>").replace("&lt;-", "←").replace("k^T", "k<super>T</super>")
+    t=re.sub(r'\*\*(.+?)\*\*',r'<b>\1</b>',t)
+    t=re.sub(r'\*(.+?)\*',r'<i>\1</i>',t)
+    t=re.sub(r'\[([1-5])\]',lambda m:f'<a href="{SOURCES[m[1]]}" color="#456C4C">[{m[1]}]</a>',t)
+    return t
 
+def p(t,size=11.3,bold=False,color=INK,leading=None):
+    return Paragraph(inline(t),ParagraphStyle('mf',fontName=FB if bold else F,fontSize=size,leading=leading or size*1.27,textColor=color,splitLongWords=False,allowWidows=0,allowOrphans=0))
 
-def inline(text):
-    text = escape(text)
-    text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
-    text = re.sub(r"\*(.+?)\*", r"<i>\1</i>", text)
-    def cite(match):
-        prefix = "&nbsp;" if match.group(1) else ""
-        return prefix + "&nbsp;".join(f'<a href="{SOURCES[n.strip()]}" color="#365C44">[{n.strip()}]</a>'
-                        for n in match.group(2).split(","))
-    return re.sub(r"(\s*)\[([1-6](?:,\s*[1-6])*)\]", cite, text)
+def put(c,t,x,y,w,size=11.3,bold=False,color=INK,leading=None,floor=42):
+    q=p(t,size,bold,color,leading);_,h=q.wrap(w,1000)
+    if y-h<floor:raise ValueError(f'Page {c.getPageNumber()} overflow by {floor-(y-h):.1f}pt: {t[:85]}')
+    q.drawOn(c,x,y-h);BOXES.append({'page':c.getPageNumber(),'x':x,'top':y,'width':w,'bottom':y-h,'text':t[:65]});return y-h
 
+def base(c,n,total,summary=False):
+    c.setFillColor(BG);c.rect(0,0,W,H,fill=1,stroke=0)
+    c.setFillColor(MUTED);c.setFont(F,8.5)
+    c.drawString(40,23,'MemoryForge / Team BitWise / DataForge 2026')
+    c.drawRightString(W-40,23,f'{n} / {total}')
+    if not summary:
+        c.setFont(FB,9);c.setFillColor(GREEN);c.drawString(40,H-30,'MEMORYFORGE / ASSOCIATIVE MEMORY & FAST WEIGHTS')
 
-def para(text, size=11, leading=None, bold=False, color=INK):
-    return Paragraph(inline(text), ParagraphStyle("p", fontName=FONT_BOLD if bold else FONT,
-                     fontSize=size, leading=leading or size*1.36, textColor=color, alignment=TA_LEFT,
-                     spaceAfter=0, splitLongWords=False, allowWidows=0, allowOrphans=0))
+def blocks(t):
+    # Controlled Markdown subset: paragraphs, headings, explicit page/figure markers, fenced code.
+    return re.findall(r'```(?:equation|command)\n.*?```|<!--.*?-->|(?:[^\n]+\n?)+?(?=\n\s*\n|\Z)',t.strip(),re.S)
 
+def arrow(c,x1,y1,x2,y2):
+    c.setStrokeColor(GREEN);c.setFillColor(GREEN);c.setLineWidth(1);c.line(x1,y1,x2,y2)
+    q=c.beginPath();q.moveTo(x2,y2);q.lineTo(x2-5,y2+3);q.lineTo(x2-5,y2-3);q.close();c.drawPath(q,fill=1,stroke=0)
 
-def blocks(text):
-    """Parse the small explicit Markdown subset used by the two source files."""
-    lines = text.strip().splitlines()
-    result, i = [], 0
-    while i < len(lines):
-        line = lines[i].strip()
-        if not line:
-            i += 1
-            continue
-        if re.match(r"^\[[1-6]\]:\s+https://", line):
-            i += 1
-        elif line.startswith("<!--"):
-            result.append((line[4:-3].strip(), None)); i += 1
-        elif line.startswith("```"):
-            label, body = line[3:], []
-            i += 1
-            while not lines[i].startswith("```"):
-                body.append(lines[i]); i += 1
-            result.append((label,"\n".join(body))); i += 1
-        elif line.startswith("|"):
-            rows = []
-            while i < len(lines) and lines[i].strip().startswith("|"):
-                row = [c.strip() for c in lines[i].strip().strip("|").split("|")]
-                if not all(re.fullmatch(r"[-:]+", c) for c in row):
-                    rows.append(row)
-                i += 1
-            result.append(("table", rows))
-        elif line.startswith("## "):
-            result.append(("heading",line[3:])); i += 1
-        elif line.startswith("# "):
-            result.append(("title",line[2:])); i += 1
+def architecture(c,x,y,w):
+    bw=(w-38)/3; h=58
+    for row,labels in enumerate([['1,347 training rows','Train encoder\n64-32-16 + head','Save checkpoint\nfreeze encoder'],['450 held-out rows\nsupports and queries','Frozen encoder\nunit keys and q','Session memory\nsupports write; q reads']]):
+        yy=y-row*94
+        for j,t in enumerate(labels):
+            xx=x+j*(bw+19);c.setFillColor(SAGE);c.rect(xx,yy-h,bw,h,fill=1,stroke=0)
+            put(c,t.replace('\n','<br/>'),xx+9,yy-10,bw-18,10.7,leading=13)
+            if j<2:arrow(c,xx+bw+2,yy-h/2,xx+bw+17,yy-h/2)
+    return y-159
+
+def chart(c,x,y,w,report):
+    h=224;left=x+36;bottom=y-h+36;pw=w-50;ph=h-77
+    c.setFont(F,9);c.setFillColor(MUTED)
+    for v in range(0,101,20):
+        yy=bottom+ph*v/100;c.setStrokeColor(LINE);c.setLineWidth(.35);c.line(left,yy,left+pw,yy);c.drawRightString(left-7,yy-3,str(v))
+    c.drawString(x,y-10,'Mean query accuracy (%)')
+    c.setFillColor(GREEN);c.rect(x+200,y-11,8,8,fill=1,stroke=0);c.setFillColor(INK);c.drawString(x+213,y-10,'Clean')
+    c.setFillColor(AMBER);c.rect(x+280,y-11,8,8,fill=1,stroke=0);c.setFillColor(INK);c.drawString(x+293,y-10,'3 wrong-label writes')
+    for i,k in enumerate([1,2,5,10]):
+        center=left+(i+.5)*pw/4
+        for j,n in enumerate([0,3]):
+            v=next(r['mean_accuracy']*100 for r in report['summary'] if r['shots']==k and r['conflicts']==n)
+            xx=center-25+j*27;c.setFillColor(GREEN if n==0 else AMBER);c.rect(xx,bottom,23,ph*v/100,fill=1,stroke=0)
+            c.setFont(FB,9);c.setFillColor(INK);c.drawCentredString(xx+11.5,bottom+ph*v/100+5,f'{v:.1f}')
+        c.setFont(F,10);c.drawCentredString(center,bottom-19,f'{k} shot'+('s' if k>1 else ''))
+    return y-h
+
+def table(c,rows,x,y,w,widths=None):
+    contents=[[p(str(v),10.2,bold=(i==0),leading=12.7) for v in row] for i,row in enumerate(rows)]
+    t=Table(contents,colWidths=widths or [w/len(rows[0])]*len(rows[0]))
+    t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),SAGE),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),8),('RIGHTPADDING',(0,0),(-1,-1),8),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LINEBELOW',(0,0),(-1,-1),.4,LINE)]))
+    _,h=t.wrap(w,1000)
+    if y-h<42:raise ValueError('Table overflows')
+    t.drawOn(c,x,y-h);return y-h
+
+def flow(c,source,x,y,w,report,size=11.3,floor=43):
+    for b in blocks(source):
+        b=b.strip()
+        if not b:continue
+        if b.startswith('<!-- screenshot:'):
+            name=re.search(r'screenshot:(.*?) -->',b)[1];ih=w*720/1280
+            c.drawImage(str(ROOT/'assets/screenshots'/name),x,y-ih,w,ih,mask='auto');y-=ih+10
+        elif b=='<!-- architecture -->':y=architecture(c,x,y,w)-8
+        elif b=='<!-- chart -->':y=chart(c,x,y,w,report)-6
+        elif b=='<!-- transitions -->':
+            y=table(c,[['Seed 1000 state','Writes','Correct / 30'],['One support per class','3','23'],['Two supports per class','6','27'],['One wrong-label write','7','26'],['Clear Memory','0','0 (abstention)']],x,y,w,[w*.56,w*.17,w*.27])-12
+        elif b=='<!-- evidence-table -->':
+            rows=[['Supports / class','Clean mean +/- SD','3 wrong writes: mean +/- SD']]
+            for k in [1,2,5,10]:
+                rr=[next(r for r in report['summary'] if r['shots']==k and r['conflicts']==n) for n in [0,3]]
+                rows.append([k]+[f"{100*r['mean_accuracy']:.2f}% +/- {100*r['std_accuracy_population']:.2f} pp" for r in rr])
+            y=table(c,rows,x,y,w,[w*.23,w*.35,w*.42])-12
+        elif b.startswith('```'):
+            lines=b.splitlines()[1:-1];h=len(lines)*(size*1.43)+20
+            if y-h<floor:raise ValueError('Equation/code overflow')
+            c.setFillColor(SAGE);c.rect(x,y-h,w,h,fill=1,stroke=0)
+            for i,line in enumerate(lines):put(c,line,x+11,y-9-i*size*1.43,w-22,size-.3,leading=size*1.4,floor=floor)
+            y-=h+10
+        elif b.startswith('<!--'):continue
+        elif b.startswith('# '):y=put(c,b[2:],x,y,w,25,True,leading=28,floor=floor)-14
+        elif b.startswith('## '):y=put(c,b[3:],x,y-4,w,13.3 if size<11.1 else 16,True,leading=16.5 if size<11.1 else 19,floor=floor)-7
         else:
-            body = [line]; i += 1
-            while i < len(lines) and lines[i].strip() and not lines[i].startswith(("#", "|", "```", "<!--")):
-                body.append(lines[i].strip()); i += 1
-            result.append(("paragraph"," ".join(body)))
-    return result
-
-
-def table(rows, width, compact=False):
-    size, leading = (9.05, 11.2) if compact else (9.6, 12.8)
-    ratios = ([.275,.725] if len(rows[0]) == 2 else
-              ([.23,.375,.395] if rows[0][0].startswith("Clean shots") else [.56,.15,.29]))
-    content = [[para(cell, size, leading, bold=(r==0)) for cell in row] for r,row in enumerate(rows)]
-    t = Table(content, colWidths=[width*r for r in ratios], hAlign="LEFT")
-    t.setStyle(TableStyle([
-        ("BACKGROUND",(0,0),(-1,0),PALE), ("VALIGN",(0,0),(-1,-1),"TOP"),
-        ("LINEBELOW",(0,0),(-1,0),.7,LINE),
-        ("LINEBELOW",(0,1),(-1,-1),.35,LINE),
-        ("LEFTPADDING",(0,0),(-1,-1),6), ("RIGHTPADDING",(0,0),(-1,-1),6),
-        ("TOPPADDING",(0,0),(-1,-1),5), ("BOTTOMPADDING",(0,0),(-1,-1),5),
-    ]))
-    return t
-
-
-def equation(text, width, compact=False):
-    s = ParagraphStyle("code",fontName="Courier",fontSize=9.0 if compact else 10.0,leading=13 if compact else 15,textColor=INK)
-    t = Table([[Preformatted(text,s)]],colWidths=[width])
-    t.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,-1),PALE),
-                          ("LEFTPADDING",(0,0),(-1,-1),9),("RIGHTPADDING",(0,0),(-1,-1),9),
-                          ("TOPPADDING",(0,0),(-1,-1),9),("BOTTOMPADDING",(0,0),(-1,-1),9)]))
-    return t
-
-
-def place(c, obj, x, y, width, bottom, label):
-    _, h = obj.wrap(width, H)
-    if y-h < bottom:
-        raise ValueError(f"Layout overflow on page {c.getPageNumber()} at {label[:60]}: need {bottom-(y-h):.1f} more points")
-    obj.drawOn(c,x,y-h)
-    BOXES.append({"page":c.getPageNumber(),"label":label[:60],"x":x,"y":y-h,"width":width,"height":h})
-    return y-h
-
-
-def diagram(c,x,y,width):
-    h = 93
-    top = y-15
-    bw, gap = (width-32)/3, 16
-    items = [("FROZEN ENCODER","image -> unit key"), ("WRITABLE MEMORY","key + symbol -> S, c"), ("QUERY READOUT","q + M -> scores")]
-    for i,(title,body) in enumerate(items):
-        bx=x+i*(bw+gap)
-        c.setFillColor(PALE); c.roundRect(bx,top-54,bw,54,7,stroke=0,fill=1)
-        c.setFillColor(LEAF); c.setFont(FONT_BOLD,8.4); c.drawCentredString(bx+bw/2,top-18,title)
-        c.setFillColor(INK); c.setFont(FONT,9); c.drawCentredString(bx+bw/2,top-36,body)
-        if i < 2:
-            c.setStrokeColor(LEAF); c.line(bx+bw+3,top-27,bx+bw+gap-3,top-27)
-            c.line(bx+bw+gap-6,top-24,bx+bw+gap-3,top-27)
-            c.line(bx+bw+gap-6,top-30,bx+bw+gap-3,top-27)
-    c.setFont(FONT,8.3); c.setFillColor(MUTED)
-    c.drawString(x,y-h+5,"Keys and queries share the encoder. Only demonstrations write to memory.")
-    return y-h
-
-
-def flow(c, content, x, y, width, bottom, compact=False):
-    global CHART_BOX
-    references = False
-    for kind, text in blocks(content):
-        if kind in ("title","column","references","page"):
-            continue
-        if kind == "heading":
-            references = text in ("Sources and technical ownership", "Primary sources and continuation")
-            y -= 2 if compact else 6
-            y = place(c, para(text,11.0 if compact else 15.0,13.4 if compact else 18,bold=True),x,y,width,bottom,text)
-            y -= 4 if compact else 7
-        elif kind == "paragraph":
-            size = 10.0 if compact else (8.35 if references else 11.0)
-            leading = 12.2 if compact else (10.5 if size < 9 else 15.0)
-            y = place(c,para(text,size,leading),x,y,width,bottom,text)
-            y -= 5 if compact else (4 if size < 9 else 8)
-        elif kind == "table":
-            y = place(c,table(text,width,compact),x,y,width,bottom,"table") - (7 if compact else 10)
-        elif kind in ("equation","command"):
-            y = place(c,equation(text,width,compact),x,y,width,bottom,kind) - (7 if compact else 10)
-        elif kind == "diagram":
-            y = diagram(c,x,y,width)
-        elif kind == "chart":
-            h = 211
-            if y-h < bottom:
-                raise ValueError("Chart does not fit")
-            CHART_BOX = (c.getPageNumber()-1,x,y-h,width,h)
-            y -= h+7
+            is_ref=bool(re.match(r'^\[[1-5]\]',b));ss=8.7 if is_ref else (10.2 if b.startswith('**Figure') else size)
+            y=put(c,b.replace('\n',' '),x,y,w,ss,color=MUTED if b.startswith('**Figure') else INK,leading=ss*(1.24 if size<11.1 and not is_ref else 1.32),floor=floor)- (5 if is_ref or size<11.1 else 10)
     return y
 
+def metadata(c,title):
+    c.setTitle(title);c.setAuthor('Team BitWise: Ved Patel and Deepshikha Rani');c.setSubject('DataForge 2026 / PS-1 - Pathway / Associative Memory and Fast Weights')
 
-def base(c,page,total,summary=False):
-    c.setFillColor(colors.white); c.rect(0,0,W,H,stroke=0,fill=1)
-    c.setStrokeColor(LINE); c.setLineWidth(.6); c.line(36,37,W-36,37)
-    c.setFillColor(MUTED); c.setFont(FONT,7.5)
-    c.drawString(36,24,"MemoryForge | Evidence: 07 Sep 2026 | Codex-assisted writing; team review required")
-    c.drawRightString(W-36,24,f"{page} / {total}")
-    c.linkURL(REPO,(36,20,W-74,33),relative=0,thickness=0)
-
-
-def make_chart(report,path):
-    plt.rcParams.update({"font.family":"DejaVu Sans","font.size":9,"pdf.fonttype":42})
-    fig,ax=plt.subplots(figsize=(7.3,3.1),layout="constrained")
-    for conflict,color,style,label in [(0,"#365C44","-","Clean"),(1,"#9C5F30","--","1 wrong-label write"),(3,"#5962A0",":","3 wrong-label writes")]:
-        rows=[r for r in report["summary"] if r["conflicts"]==conflict]
-        ax.errorbar([r["shots"] for r in rows],[100*r["mean_accuracy"] for r in rows],
-                    yerr=[100*r["std_accuracy_population"] for r in rows],color=color,
-                    linestyle=style,marker="o",markersize=3.4,capsize=2.5,linewidth=1.5,label=label)
-    ax.axhline(100/3,color="#758078",linestyle="--",linewidth=.8)
-    ax.text(9.9,36,"Chance 33.33%",ha="right",fontsize=8,color="#53625B")
-    ax.set(xlabel="Clean demonstrations per class",ylabel="Mean query accuracy (%)",ylim=(-4,113),xticks=[0,1,2,5,10])
-    ax.spines[["top","right"]].set_visible(False)
-    ax.grid(axis="y",alpha=.17)
-    ax.legend(loc="upper center",bbox_to_anchor=(.5,1.19),ncol=3,frameon=False,fontsize=8)
-    fig.savefig(path,format="pdf",metadata={"Title":"MemoryForge: observed mean accuracy and population standard deviation"})
-    plt.close(fig)
-
-
-def build_summary(output,source):
-    c=canvas.Canvas(str(output),pagesize=A4,pageCompression=1)
-    c.setTitle("MemoryForge - One-page concept summary"); c.setAuthor("MemoryForge")
-    base(c,1,1,True)
-    c.drawImage(str(ROOT/"assets/memoryforge-logo.png"),W-86,H-85,50,50,mask="auto")
-    c.setFillColor(LEAF); c.setFont(FONT_BOLD,8.7); c.drawString(36,H-41,"CONCEPT BRIEF / ASSOCIATIVE MEMORY AND FAST WEIGHTS")
-    c.setFillColor(INK); c.setFont(FONT_BOLD,24); c.drawString(36,H-70,"Fast-weight associative memory")
-    c.setFont(FONT,10); c.setFillColor(MUTED); c.drawString(36,H-88,"MemoryForge | Learning associations without retraining")
-    c.setStrokeColor(LINE); c.line(36,H-101,W-36,H-101)
-    main,refs=source.split("<!-- references -->")
-    main=re.sub(r"^# .+?\n\n.+?\n\n","",main, count=1, flags=re.S)
-    left,right=main.split("<!-- column -->")
-    cw=(W-72-18)/2
-    yleft=flow(c,left,36,H-111,cw,146,True)
-    yright=flow(c,right,36+cw+18,H-111,cw,146,True)
-    c.setStrokeColor(LINE); c.line(36,137,W-36,137)
-    c.setFillColor(LEAF); c.setFont(FONT_BOLD,8.4); c.drawString(36,124,"PRIMARY SOURCES AND CONTINUATION | citation numbers are clickable")
-    entries=[text for kind,text in blocks(refs) if kind=="paragraph"]
-    y=114
-    for entry in entries[:2]:
-        y=place(c,para(entry,8.0,9.5),36,y,cw,43,"reference")-3
-    y=114
-    for entry in entries[2:]:
-        y=place(c,para(entry,8.0,9.5),36+cw+18,y,cw,43,"reference")-3
-    c.save()
-    return {"left_column_bottom":yleft,"right_column_bottom":yright}
-
-
-def build_blog(output,source,scratch,report):
-    global CHART_BOX
-    pages=source.split("<!-- page -->")
-    intermediate=scratch/"blog-typeset.pdf"
-    c=canvas.Canvas(str(intermediate),pagesize=A4,pageCompression=1)
-    c.setTitle("MemoryForge - Teaching a memory without retraining a network"); c.setAuthor("MemoryForge")
-    labels=["THE EXPERIMENT","THE MEMORY RULE","THE EVIDENCE","THE RESEARCH CONNECTION"]
-    bottoms=[]
-    for i,text in enumerate(pages):
-        base(c,i+1,len(pages))
-        c.setFillColor(LEAF); c.setFont(FONT_BOLD,8.5); c.drawString(42,H-39,f"MEMORYFORGE / {labels[i]}")
+def blog(output,source,report):
+    c=canvas.Canvas(str(output),pagesize=A4,pageCompression=1);metadata(c,'MemoryForge - Project Blog')
+    pages=source.split('<!-- page -->');assert len(pages)==6;bottoms=[]
+    for i,body in enumerate(pages):
+        base(c,i+1,6)
         if i==0:
-            c.drawImage(str(ROOT/"assets/memoryforge-logo.png"),W-100,H-110,57,57,mask="auto")
-            y=place(c,para("Teaching a memory without retraining a network",26,29,bold=True),42,H-55,W-147,50,"title")
-            text=re.sub(r"^\s*# .+?\n\n.+?\n\n","",text,count=1,flags=re.S)
-            y-=10
-        else:
-            c.setStrokeColor(LINE); c.line(42,H-49,W-42,H-49)
-            y=H-64
-        bottoms.append(flow(c,text,42,y,W-84,48))
-        c.showPage()
-    c.save()
-    chart=scratch/"evidence-chart.pdf"
-    make_chart(report,chart)
-    writer=PdfWriter(clone_from=intermediate)
-    page_index,x,y,w,h=CHART_BOX
-    chart_reader=PdfReader(chart)
-    cp=chart_reader.pages[0]
-    transform=Transformation().scale(w/float(cp.mediabox.width),h/float(cp.mediabox.height)).translate(x,y)
-    writer.pages[page_index].merge_transformed_page(cp,transform)
-    with output.open("wb") as stream:
-        writer.write(stream)
-    return bottoms
+            y=put(c,'MemoryForge',40,H-54,W-140,40,True,leading=44)-6
+            y=put(c,'Associative Memory & Fast Weights',42,y,W-130,15,color=GREEN)-7
+            y=put(c,'DataForge 2026 / PS-1 - Pathway / Team BitWise',42,y,W-84,10.3,color=MUTED)-15
+            c.drawImage(str(ROOT/'assets/memoryforge-logo.png'),W-102,H-122,60,60,mask='auto')
+            body=re.sub(r'^\s*# MemoryForge\s+Associative Memory & Fast Weights\s+DataForge 2026 / PS-1 - Pathway / Team BitWise\s*','',body)
+        else:y=H-56
+        bottoms.append(flow(c,body,42,y,W-84,report,11.3));c.showPage()
+    c.save();return bottoms
 
+def summary(output,source,report):
+    c=canvas.Canvas(str(output),pagesize=A4,pageCompression=1);metadata(c,'MemoryForge - One-page Concept Summary');base(c,1,1,True)
+    put(c,'MemoryForge',38,H-30,W-130,34,True,leading=39)
+    put(c,'Associative Memory & Fast Weights',40,H-76,W-100,14.3,color=GREEN)
+    put(c,'ONE-PAGE CONCEPT SUMMARY / DataForge 2026 / PS-1 - Pathway',40,H-99,W-80,8.9,color=MUTED)
+    c.drawImage(str(ROOT/'assets/memoryforge-logo.png'),W-89,H-83,47,47,mask='auto')
+    body,refs=source.split('<!-- references -->')
+    body=re.sub(r'^\s*# MemoryForge\s+Associative Memory & Fast Weights\s+DataForge 2026 / PS-1 - Pathway / Team BitWise\s*','',body)
+    columns=body.split('<!-- column -->');cw=(W-96)/2
+    bottoms=[flow(c,col,40+i*(cw+16),H-128,cw,report,10.8,144) for i,col in enumerate(columns)]
+    c.setStrokeColor(LINE);c.line(40,137,W-40,137)
+    put(c,'PRIMARY SOURCES / numbered citations are clickable',40,130,W-80,8.5,True,color=GREEN)
+    rr=[line for line in refs.strip().splitlines() if line.strip()]
+    for x,items in [(40,rr[:3]),(40+cw+16,rr[3:])]:
+        yy=114
+        for item in items:yy=put(c,item,x,yy,cw,7.9,leading=9.7,floor=34)-4
+    c.showPage();c.save();return bottoms
 
-def check_output(path,expected_pages):
-    r=PdfReader(path)
-    assert len(r.pages)==expected_pages,(path,len(r.pages))
-    texts=[p.extract_text() for p in r.pages]
-    assert all("\ufffd" not in t and "<!--" not in t and "<br/>" not in t for t in texts)
-    links=sum(1 for p in r.pages for a in p.get("/Annots",[]) if a.get_object().get("/A",{}).get("/URI"))
-    words=len(re.findall(r"\b[\w]+(?:[.-][\w]+)*\b"," ".join(texts)))
-    if expected_pages==1:
-        assert 500<=words<=950,words
-    return {"pages":len(r.pages),"words_in_extracted_pdf":words,"hyperlinks":links,"bytes":path.stat().st_size}
-
+def check(file,n):
+    r=PdfReader(file);assert len(r.pages)==n
+    text='\n'.join(p.extract_text() or '' for p in r.pages)
+    assert 'MemoryForge' in text and not any(t in text for t in ['\ufffd','<!--','```','<br/>'])
+    uris=[str(a.get_object().get('/A',{}).get('/URI','')) for p in r.pages for a in p.get('/Annots',[])]
+    assert all(u in uris for u in SOURCES.values())
+    words=len(re.findall(r'\b[\w]+(?:[.-][\w]+)*\b',text))
+    if n==1:assert 500<=words<=950,words
+    return {'pages':n,'words':words,'bytes':file.stat().st_size,'sha256':sha256(file.read_bytes()).hexdigest(),'citation_targets':sorted(set(uris))}
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--font-dir",type=Path)
-    parser.add_argument("--output-dir",type=Path,default=ROOT/"output/pdf")
-    parser.add_argument("--scratch-dir",type=Path,default=ROOT/"tmp/pdfs")
-    args=parser.parse_args()
-    args.output_dir.mkdir(parents=True,exist_ok=True); args.scratch_dir.mkdir(parents=True,exist_ok=True)
-    register_fonts(args.font_dir)
-    report=json.loads((ROOT/"artifacts/phase3_evidence.json").read_text())
-    summary=(ROOT/"docs/CONCEPT_SUMMARY.md").read_text(encoding="utf-8")
-    blog=(ROOT/"docs/BLOG.md").read_text(encoding="utf-8")
-    for shots in (1,2,5,10):
-        for conflicts in (0,3):
-            r=next(r for r in report["summary"] if r["shots"]==shots and r["conflicts"]==conflicts)
-            values=np.array([row["accuracy"] for e in report["episodes"] for row in e["conditions"] if row["shots"]==shots and row["conflicts"]==conflicts])
-            assert float(values.mean())==r["mean_accuracy"]
-            assert float(values.std(ddof=0))==r["std_accuracy_population"]
-            assert f'{100*r["mean_accuracy"]:.2f}% +/- {100*r["std_accuracy_population"]:.2f} pp' in blog
-    concept_path=args.output_dir/"MemoryForge_Concept_Summary.pdf"
-    blog_path=args.output_dir/"MemoryForge_Blog.pdf"
-    summary_layout=build_summary(concept_path,summary)
-    blog_bottoms=build_blog(blog_path,blog,args.scratch_dir,report)
-    result={"created_at_utc":datetime.now(timezone.utc).isoformat(),"implementation_commit":COMMIT,
-            "phase4_started":False,"font":FONT,"concept_summary":check_output(concept_path,1),
-            "blog":check_output(blog_path,4),"summary_layout":summary_layout,"blog_content_bottoms":blog_bottoms,
-            "chart_source":"artifacts/phase3_evidence.json","chart_is_vector":True,
-            "packages":{n:importlib.metadata.version(n) for n in ("reportlab","matplotlib","pypdf")},
-            "visual_review":"pending rendered-page inspection"}
-    (args.scratch_dir/"build_check.json").write_text(json.dumps(result,indent=2),encoding="utf-8")
-    print(json.dumps(result,indent=2))
-
-
-if __name__=="__main__":
-    main()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--font-dir',type=Path);ap.add_argument('--output-dir',type=Path,default=ROOT/'output/pdf');ap.add_argument('--scratch-dir',type=Path,default=ROOT/'tmp/pdfs/redesign');ap.add_argument('--slide-render-dir',type=Path)
+    args=ap.parse_args();fonts(args.font_dir);args.output_dir.mkdir(parents=True,exist_ok=True);args.scratch_dir.mkdir(parents=True,exist_ok=True)
+    report=json.loads((ROOT/'artifacts/phase3_evidence.json').read_text())
+    for row in report['summary']:
+        values=[c['accuracy'] for e in report['episodes'] for c in e['conditions'] if c['shots']==row['shots'] and c['conflicts']==row['conflicts']]
+        assert abs(sum(values)/len(values)-row['mean_accuracy'])<1e-12
+    bpath=args.output_dir/'MemoryForge_Blog.pdf';spath=args.output_dir/'MemoryForge_OnePage_Summary.pdf'
+    bottoms=blog(bpath,(ROOT/'docs/BLOG.md').read_text(encoding='utf-8-sig'),report)
+    cols=summary(spath,(ROOT/'docs/CONCEPT_SUMMARY.md').read_text(encoding='utf-8-sig'),report)
+    result={'created_at_utc':datetime.now(timezone.utc).isoformat(),'implementation_commit':REV,'font':F,'blog':check(bpath,6),'summary':check(spath,1),'blog_bottoms':bottoms,'summary_bottoms':cols,'chart':'Vector bars from actual JSON; full precision retained in evidence.','visual_review':'Pending render inspection'}
+    if args.slide_render_dir:
+        pp=args.output_dir/'MemoryForge_DataForge2026_Presentation.pdf';c=canvas.Canvas(str(pp),pagesize=(960,540),pageCompression=1);metadata(c,'MemoryForge - DataForge 2026 Presentation')
+        for n in range(1,11):c.drawImage(str(args.slide_render_dir/f'slide-{n:02}.png'),0,0,960,540);c.showPage()
+        c.save();assert len(PdfReader(pp).pages)==10
+        result['presentation_pdf']={'pages':10,'sha256':sha256(pp.read_bytes()).hexdigest(),'format':'192-dpi raster companion from finalized PPTX renders; editable content is in PPTX.'}
+    (args.scratch_dir/'build_check.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');(args.scratch_dir/'text_boxes.json').write_text(json.dumps(BOXES),encoding='utf-8');print(json.dumps(result,indent=2))
+if __name__=='__main__':main()

@@ -29,3 +29,9 @@ gated to the next explicit instruction; post-hackathon extensions remain deferre
 Standalone document exception, 2026-09-07: the user requested and received a
 separate project blog PDF and one-page concept summary while keeping Phase 4
 unstarted. See PDF_DELIVERY.md. Remaining Phase 4 tasks are still gated.
+
+Current status, 2026-09-08: Phase 4 is complete with the manual review/submission
+actions in SUBMISSION_READINESS_REPORT.md. The entries above record earlier
+gates, not the current completion state. The later document redesign does not
+initiate another feature phase. FUTURE_SCOPE.md contains proposed experiments
+and sustainability options prepared at the user's request; none are implemented.

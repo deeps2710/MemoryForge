@@ -82,3 +82,14 @@ DataForge, BitWise, Deepshikha Rani, Ved Patel and the optional contact addresse
 Codex checked every rendered slide and package structure. No screenshots were
 AI-generated. This work adds presentation materials; it does not establish a
 new scientific result, human technical defense or competition submission.
+
+2026-09-08 redesign: the user requested an app-styled presentation, blog and
+one-page summary after source inspection, and required MemoryForge as the main
+PDF title. Codex reviewed the existing artifacts, current code, research sources,
+saved evidence and public preset, then authored a ten-slide deck, six-page blog
+and one-page briefing. It reused actual screenshots and generated vector diagrams
+and a chart from recorded measurements. The PDF deck is a raster viewing copy
+of the finalized PowerPoint renders. The user then authorized assigning project
+roles; TEAM.md records the allocation, without claiming verified past work.
+Future experiments and sustainability are explicitly proposals. No app feature,
+experiment result, training artifact or competition submission was added.

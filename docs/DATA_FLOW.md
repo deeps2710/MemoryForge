@@ -1,7 +1,7 @@
 # MemoryForge data-flow diagrams
 
-DataForge 2026, Pathway track. **Team BitWise: Deepshikha Rani and Ved Patel.**
-The PowerPoint includes two editable DFD views. The diagrams below provide the
+DataForge 2026, Pathway track. **Team BitWise: Ved Patel and Deepshikha Rani.**
+The PowerPoint includes an editable architecture overview. The diagrams below provide the
 full flow and a data dictionary for technical review. They describe the current
 implementation, not a proposed future architecture.
 

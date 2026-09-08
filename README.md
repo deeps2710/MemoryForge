@@ -2,11 +2,11 @@
 
 **Interactive Few-Shot Learning with Fast-Weight Associative Memory**
 
-**DataForge 2026 · Team BitWise · Deepshikha Rani and Ved Patel**
+**DataForge 2026 · Team BitWise · Ved Patel and Deepshikha Rani**
 
-[8-slide presentation](output/presentation/MemoryForge_BitWise_DataForge.pptx) ·
+[10-slide presentation](output/presentation/MemoryForge_DataForge2026_Presentation.pptx) ·
 [Detailed data-flow diagrams](docs/DATA_FLOW.md) ·
-[Presentation and screenshot notes](docs/PRESENTATION.md)
+[Presentation and screenshot notes](docs/PRESENTATION.md) · [Team roles](docs/TEAM.md)
 
 > A neural system can rapidly learn new associations by updating temporary
 > fast-weight memory while keeping its long-term model parameters unchanged.
@@ -293,9 +293,13 @@ See the [technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) and
 ## Project layout
 
 The separately requested [project blog PDF](output/pdf/MemoryForge_Blog.pdf) and
-[one-page concept summary PDF](output/pdf/MemoryForge_Concept_Summary.pdf) are
+[one-page concept summary PDF](output/pdf/MemoryForge_OnePage_Summary.pdf) are
 available with [editable sources and build instructions](docs/PDF_DELIVERY.md).
-They were prepared at the user's explicit request before Phase 4. The organizer
+Both were redesigned on 8 September 2026 with MemoryForge as the main title.
+The blog has six pages and the summary exactly one. A
+[presentation PDF](output/pdf/MemoryForge_DataForge2026_Presentation.pdf) provides
+a viewing copy of the ten-slide deck. The old concept-summary filename remains
+a byte-identical alias for existing application links. The organizer
 and portal have now been inspected: the portal requires one ZIP and a Pathway
 Track selection. See the [submission audit](docs/SUBMISSION_INSTRUCTIONS_AUDIT.md).
 The separate blog is a submission-format draft because no separate blog format
@@ -311,7 +315,7 @@ tests/        math, isolation, replay and Streamlit integration checks
 artifacts/    small checkpoint and actual reproducible evidence
 docs/         architecture, decisions, phase gate, requirements and disclosures
 output/pdf/   blog and one-page concept summary
-output/presentation/  eight-slide DataForge deck, including two editable DFD views
+output/presentation/  ten-slide DataForge deck with editable architecture and measured chart
 ```
 
 The pre-existing unrelated `html` file is preserved and is not an application

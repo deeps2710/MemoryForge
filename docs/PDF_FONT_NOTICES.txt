@@ -1,7 +1,9 @@
 PDF font notices
 
-The delivered PDFs embed subsets of Liberation Sans for document text and
-DejaVu Sans for the Matplotlib figure. No standalone font files are distributed.
+The redesigned blog and summary embed subsets of Liberation Sans for text,
+including their vector chart/diagram. The presentation PDF contains rendered
+images and embeds no font binaries. No standalone font files are distributed.
+The DejaVu notice below is retained for the historical Matplotlib PDF figures.
 The supplied application logo is unchanged; its provenance is recorded separately.
 
 LIBERATION SANS

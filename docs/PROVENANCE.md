@@ -128,3 +128,12 @@ Codex-provided @oai/artifact-tool runtime and presentation validation tools;
 their proprietary implementation is not copied into the repository or ZIP.
 The project-specific authoring script is included. No external paper figures,
 BDH/CQ weights or stock graphics were added to the presentation.
+
+2026-09-08 redesign addendum: the current ten-slide presentation replaces the
+earlier eight-slide version. The blog and one-page summary use the same original
+screenshots and supplied logo, newly authored text, and vector charts/diagrams
+derived from the code and evaluation JSON. Body typography embeds Liberation
+Sans subsets under the existing font notices. The presentation PDF is a raster
+viewing companion to the editable PPTX. Both new writing sources and authoring
+scripts are included. The prior scoped license and separate asset rights still
+apply. TEAM.md records user-authorized role allocation for this submission.
