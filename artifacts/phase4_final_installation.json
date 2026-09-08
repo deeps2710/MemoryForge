@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-08T04:47:59.231946+00:00",
+  "base_fresh_install": "artifacts/phase4_installation.json",
+  "final_constraints_sha256": "f8854b0fe29926d9ef875464e5fe56d150cd9bc11b7a8665de731d79823acc30",
+  "final_install_log_sha256": "5659a946e05dc55103b60903b82581a7cdf4b03f3c6f132e72516e762a7f3e6d",
+  "all_constraints_match_installed_versions": true,
+  "change": "PyArrow 25.0.1 -> 24.0.0 after observing provider compatibility override.",
+  "verification": "artifacts/phase4_final_robustness.json",
+  "scope": "Existing fresh Phase 4 environment reconciled to final constraints; final full verification repeated. Pip left ignored temporary old PyArrow files because a local server held them open; no temporary files included in package."
+}

@@ -104,3 +104,11 @@ explicitly excludes it. The pre-existing `html` file also has no identified
 license, remains unchanged in the repository, is not executed by the app and
 is excluded from the submission ZIP. No paper figures, checkpoints or code
 from BDH/BDH-CQ are redistributed. Research is linked and paraphrased.
+
+2026-09-08 release addendum: the installed inventory was refreshed after changing
+PyArrow from 25.0.1 to 24.0.0 to match Community Cloud's observed compatibility
+override. It still describes 54 Windows distributions and 85 notice files.
+The hosted Linux install and app behavior were checked, but the complete Linux
+wheel notice inventory was not downloaded or claimed equivalent. Community
+Cloud additionally installs logging tools (rich, markdown-it-py, mdurl and
+pygments); these provider-installed packages are not vendored in the ZIP.

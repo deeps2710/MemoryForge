@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "verified_date": "2026-09-08",
+  "public_url": "https://memoryforge.streamlit.app/",
+  "source_revision": "ec574cb7e2e5621cd81c5b27e36c08e043d3fda1",
+  "provider": "Streamlit Community Cloud",
+  "repository": "deeps2710/MemoryForge",
+  "branch": "main",
+  "entrypoint": "app.py",
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.6.0+cpu",
+    "streamlit": "1.45.1",
+    "pyarrow": "24.0.0",
+    "platform": "Linux x86_64",
+    "evidence": "Owner browser build log; successful install and real anonymous app interactions."
+  },
+  "repair": {
+    "original_failure": "Python 3.14.7 cannot install torch 2.6.0+cpu: no matching ABI wheel.",
+    "action": "Saved Python 3.12 in existing app Settings > General.",
+    "additional_constraint": "PyArrow 24.0.0 matches provider override observed after first successful install.",
+    "installer_note": "uv could not resolve setuptools 84.0.0 across the configured indexes; the provider fallback pip installed successfully on fresh rebuild. This is an observed fallback, not a clean uv resolution."
+  },
+  "public_access": {
+    "owner_login_required": false,
+    "browser": "Separate Codex in-app browser; Fork visible, no Manage app owner controls.",
+    "outcome": "Preset, real writes, queries, conflict, reset, research tabs and release links rendered."
+  },
+  "episode": {
+    "seed": 1000,
+    "preset": {
+      "writes": 3,
+      "correct": 23,
+      "queries": 30,
+      "memory_delta": 1.73205
+    },
+    "teach": {
+      "writes": 6,
+      "correct": 27,
+      "queries": 30,
+      "memory_delta": 1.63242
+    },
+    "query": {
+      "held_out_index": 2,
+      "sample_id": 1328,
+      "digit": 4,
+      "prediction": "GAMMA",
+      "truth": "GAMMA",
+      "writes": 6
+    },
+    "conflict": {
+      "writes": 7,
+      "correct": 26,
+      "queries": 30,
+      "memory_delta": 1.59232
+    },
+    "reset": {
+      "writes": 0,
+      "correct": 0,
+      "queries": 30,
+      "memory_delta": 0,
+      "prediction": "Abstaining"
+    },
+    "encoder_delta_all_states": 0
+  },
+  "interaction_observations_ms": {
+    "teach": 1001,
+    "query": 959,
+    "conflict": 1017,
+    "reset": 952
+  },
+  "timing_scope": "One observation per action; click to expected text visible, including browser automation/network/wait overhead. No universal under-one-second claim.",
+  "restart": {
+    "status": "PASS",
+    "initiated_at_utc": "2026-09-08T04:44:42.587Z",
+    "dependency_processing_finished_at_utc": "2026-09-08T04:46:24Z",
+    "usable_preset_observed_within_seconds": 130,
+    "post_restart_teach_correct": 27,
+    "queries": 30,
+    "scope": "Fresh machine provisioning and dependency reinstall, then anonymous preset and real teach. 130 seconds is a polling upper bound, not an isolated model-load benchmark. An earlier restart recovered but its timing was interrupted and was discarded."
+  },
+  "research": {
+    "bdh_cq_boundaries_visible": true,
+    "adjacent_primary_source_links_visible": true,
+    "evidence_650_conditions_19500_outcomes_visible": true,
+    "saved_vs_live_label_visible": true,
+    "research_navigation_preserved_zeroed_memory": true
+  },
+  "presentation": {
+    "desktop_evidence_chart_visually_checked": true,
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "mobile_hero_controls_metrics_visually_checked": true,
+    "logo_visible": true,
+    "credits_and_both_pdf_links_visible": true,
+    "scope": "Representative screenshots and DOM checks, not a full WCAG audit."
+  },
+  "session_isolation_observation": "Anonymous memory was cleared to zero while the owner browser still showed its original three-write preset.",
+  "limits": [
+    "No concurrent-load study.",
+    "No independent Linux bitwise retraining reproduction.",
+    "Free hosting can sleep; wake and rehearse before judging.",
+    "No competition submission or human technical-defense certification."
+  ]
+}

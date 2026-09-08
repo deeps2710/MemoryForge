@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "verified_at_utc": "2026-09-07T18:10:31.131526+00:00",
+  "verified_at_utc": "2026-09-08T04:50:10.430999+00:00",
   "baseline": "83a70f39c6772b7ac948830a39fc989b33a234d7",
-  "files_inspected": 102,
+  "files_inspected": 107,
   "local_markdown_links_checked": 46,
   "broken_local_links": [],
   "secret_pattern_hits": [],

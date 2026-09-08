@@ -11,9 +11,11 @@ randomly assigned labels such as ALPHA, BETA and GAMMA using an associative
 memory. New held-out images query that memory. Encoder tensors are checked for
 exact equality before and after adaptation.
 
-**Phase 4: submission hardening and deployment verification in progress.**
-The real lab, source, trained checkpoint, evidence and both requested PDFs are ready.
-Public app URL: **UNVERIFIED** until the deployment check below is complete.
+**Phase 4: READY WITH MANUAL ACTIONS.**
+[Open MemoryForge](https://memoryforge.streamlit.app/) — public access and real
+interactions verified without an owner login on 2026-09-08. The source, trained
+checkpoint, evidence and both PDFs are included in the submission package.
+Team review and the final portal upload remain; see the readiness report below.
 MemoryForge is an educational fast-weight associative-memory model used to
 demonstrate the concept. It does not implement or reproduce BDH or BDH-CQ.
 
@@ -319,13 +321,25 @@ general reuse-license claim is made.
 ## Deployment and submission package
 
 Deploy the real Streamlit app from `deeps2710/MemoryForge`, branch `main`,
-entrypoint `app.py`, with Python 3.12 and no secrets. The
-[deployment guide](docs/DEPLOYMENT.md) specifies owner/account steps and public
-access/cold-start checks. An assigned URL is not treated as working until tested.
+entrypoint `app.py`, with Python **3.12** and no secrets. Explicitly select 3.12
+in Advanced settings; the provider default 3.14 cannot install the pinned
+PyTorch 2.6 CPU wheel. For this existing app, Settings → General allowed the
+runtime change. [Deployment evidence](docs/DEPLOYMENT.md) records the fix,
+public checks and startup limits. PyArrow is pinned to 24.0.0 to match the
+provider compatibility override.
+
+The final dependency configuration passed all **124 tests in 15.76s**, pip check,
+five smoke checks, exact checkpoint regeneration and numerical core replay.
+Public seed 1000 reproduced 23/30 → 27/30 → 26/30 across preset, teaching and
+conflict; reset cleared memory and the encoder delta stayed zero. Four observed
+cloud actions took 952–1,017 ms including automation overhead; these are single
+observations, not latency guarantees. See artifacts/phase4_final_robustness.json
+and artifacts/phase4_deployment.json.
 
 Rehearse the [one-minute demo](docs/DEMO_SCRIPT.md), review the
 [rubric audit](docs/RUBRIC_AUDIT.md) and [readiness report](docs/SUBMISSION_READINESS_REPORT.md).
-Build the portal ZIP from the latest reviewed source:
+Build the portal ZIP from the latest reviewed Git checkout (Git is required
+for the revision manifest; running the extracted app does not require Git):
 
 ```sh
 python scripts/build_submission.py

@@ -173,3 +173,14 @@ source, checkpoint, evidence, documentation and the two distinct PDFs. Exclude
 local environments, caches, secrets, unrelated html and the ZIP itself. Keep the
 blog labelled as a submission-format draft until its ambiguous format is clarified.
 Do not submit an entry or accept new account terms without the appropriate owner action.
+
+## 2026-09-08: preserve the model while repairing the cloud runtime
+
+The owner-created deployment used Python 3.14.7, which cannot install the pinned
+PyTorch 2.6.0 CPU wheel. The existing app's General settings allowed changing
+Python to 3.12; the provider then installed 3.12.14 successfully. The original
+model and training pins were retained. The provider also replaced PyArrow
+25.0.1 with 24.0.0; the constraints now request that same version explicitly.
+All tests and exact encoder/core replay passed again after this change. The
+source/PDF package includes pyproject.toml so extracted tests retain the same
+pytest configuration. No new architecture or next-phase feature was added.

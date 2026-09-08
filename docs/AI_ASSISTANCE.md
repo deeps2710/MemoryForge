@@ -61,3 +61,14 @@ defended it. Before submitting, the registered team must trace a write/query,
 explain the sampling and frozen encoder audit, distinguish primary-paper claims
 from this toy, and rehearse the demo. TECHNICAL_WALKTHROUGH.md and DEMO_SCRIPT.md
 support that review; passing automated checks does not certify technical ownership.
+
+2026-09-08, deployment repair and final release: the user reported an owner-created
+Community Cloud deployment and supplied its failure log. Codex changed the
+existing app's Python setting from 3.14 to 3.12 through the authorized owner
+browser, verified real interactions from an anonymous browser, and aligned the
+PyArrow constraint with the provider's observed 24.0.0 override. Codex reran
+verification, refreshed dependency notices, checked responsive presentation,
+performed a fresh restart, and prepared the source/PDF ZIP and final audit.
+The user supplied the owner account access; no new account permissions were
+needed for this runtime repair. No competition form was submitted. Human
+comprehension and defense remain unverified.

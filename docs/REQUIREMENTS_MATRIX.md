@@ -1,8 +1,10 @@
 # Requirements matrix
 
-Source: user-supplied MemoryForge development brief (2026-09-06), not an independently
-verified organizer document. PASS requires recorded evidence. P1 IDs cover every
-Phase 1K acceptance item; competition requirements span later phases.
+Sources: the supplied MemoryForge development brief (2026-09-06), the inspected
+14-page Pathway organizer PDF and the live Unstop submission form. See
+SUBMISSION_INSTRUCTIONS_AUDIT.md for physical page locators and portal details.
+PASS requires evidence. Earlier phase rows preserve their historical verification;
+the competition and Phase 4 rows record current release readiness.
 
 | ID | Requirement | Source/category | Target phase | Verification method / evidence | Current status | Notes |
 |---|---|---|---|---|---|---|
@@ -38,21 +40,22 @@ Phase 1K acceptance item; competition requirements span later phases.
 | COMP-03 | One precise falsifiable claim and explicit audience/objectives | Brief sections 3–5, 13 | 1 | README; PROJECT_DECISIONS | PASS | Central claim, audience and intended learning objectives explicit |
 | COMP-04 | Visible frozen parameters, memory and retrieval | Brief sections 3–5, 13 | 2 | P2-05, P2-08 and P2-09 | PASS | Actual memory, scores and exact frozen-weight audit visible |
 | COMP-05 | Truth beside prediction | Brief sections 3–5, 13 | 2 | P2-07; test_app.py | PASS | Prediction and truth displayed together |
-| COMP-06 | Measured feedback approximately under 1 second after load | Brief sections 3–5, 13 | 2 | P2-15; artifacts/phase2_latency.json | PASS | Local measurements with scope limits; no universal guarantee |
+| COMP-06 | Measured feedback approximately under 1 second after load | Brief sections 3–5, 13 | 2 | P2-15; artifacts/phase2_latency.json | PASS | Local measurements plus public single-action observations 952–1,017ms including overhead; no universal guarantee |
 | COMP-07 | Substantial sourced BDH/BDH-CQ learning module; no equivalence | Brief sections 3–5, 13 | 3 | P3-02–05; research module and primary claim ledger | PASS | BDH/CQ connections and architectural limits verified |
 | COMP-08 | At least 3 primary papers dated 2022–2026 beside claims | Brief sections 3–5, 13 | 3 | P3-01 and P3-03; four versioned primary papers/reports | PASS | 2022–2026 requirement satisfied; citations beside claims |
-| COMP-09 | Public artifact accessible without sign-in | Brief sections 3–5, 13 | 4 | Requirement-specific phase audit | NOT STARTED | No early completion claim |
+| COMP-09 | Public artifact accessible without sign-in | Organizer p12; Phase 4F | 4 | phase4_deployment.json: anonymous public demo at https://memoryforge.streamlit.app/ | PASS | Python 3.12.14; real operations and restart checked 2026-09-08 |
 | COMP-10 | Public source repository | Brief sections 3–5, 13 | 4 | Unauthenticated GitHub API private=false; implementation commit f46ae98 pushed, remote main hash verified | PASS | Source repository delivery complete; this does not imply deployment/submission readiness |
-| COMP-11 | Complete README and reproduction instructions | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
-| COMP-12 | Verified data/code/weights/assets/licenses provenance | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
-| COMP-13 | AI disclosure and technical ownership | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
+| COMP-11 | Complete README and reproduction instructions | Organizer p12; Phase 4A | 4 | README and all 26 items below; verified deployment and package commands | PASS | Local verification and separate public Linux browser checks |
+| COMP-12 | Data/code/weights/assets/licenses source record | Organizer p12; Phase 4B | 4 | PROVENANCE.md; scoped MIT owner choice; dependency_provenance.json; exact dependency, Streamlit and PDF font notices | PASS | Records separate logo/html reuse uncertainty; no legal ownership certification or uninspected Linux-wheel equivalence claimed |
+| COMP-13 | AI disclosure and technical ownership | Organizer p11–12; Phase 4C | 4 | AI_ASSISTANCE.md; TECHNICAL_WALKTHROUGH.md; DEMO_SCRIPT.md | UNVERIFIED | Disclosure complete; human comprehension/live defense cannot be certified by agent tests |
 | COMP-14 | One-page concept summary PDF | Brief sections 3–5, 13; explicit standalone document request | 4 | output/pdf/MemoryForge_Concept_Summary.pdf; pdf_verification.json: one page, 630 words including references | PASS | Delivered separately at user request before Phase 4; visual/content checks recorded in PDF_DELIVERY.md |
-| COMP-15 | Blog/written PDF; resolve whether separate from summary | Brief sections 3–5, 13; explicit separate-blog request | 4 | output/pdf/MemoryForge_Blog.pdf: four pages, editable source and verified measured chart | PARTIAL | Separate blog delivered as requested; actual portal/upload requirements still unverified |
+| COMP-15 | Blog/written PDF; separate format clarification | Organizer p12–14; explicit blog request | 4 | Four-page blog delivered; organizer PDF and ZIP form inspected; SUBMISSION_INSTRUCTIONS_AUDIT.md | UNVERIFIED | No separate format specified; included as a labelled submission-format draft alongside the distinct concept summary |
 | COMP-16 | Learning check, accessible presentation, genuine failure/reset | Brief sections 3–5, 13 | 2 | P2-11–14; PHASE_2_WALKTHROUGH.md | PASS | Quiz, labelled responsive UI and real conflict/reset; no full WCAG claim |
 | COMP-17 | Multi-seed, varying-shot, clean/corrupted evidence and charts | Brief sections 3–5, 13 | 3 | P3-07–09; phase3_evidence.json and chart payload tests | PASS | 50 seeds, varying shots and paired corruption; actual mean/population deviation |
 | COMP-18 | Technical walkthrough, primary-source claim ledger | Brief sections 3–5, 13 | 3 | P3-03 and P3-11; technical walkthrough and source ledger | PASS | Mechanism, evidence and limitations explained for team ownership |
-| COMP-19 | Clean install, public deployment, demo script and rubric audit | Brief sections 3–5, 13 | 4 | P3-12; fresh install, complete tests and artifact regeneration | PARTIAL | Public deployment, final demo and rubric audit remain Phase 4 |
-| COMP-20 | Honest limitations, CPU only, reproducibility | Brief sections 3–5, 13 | 4 | Phase 1 core and docs evidence | PARTIAL | Phases 1–3 implementation documented; remaining final submission audit deferred |
+| COMP-19 | Clean install, public deployment, demo script and rubric audit | Phase 4F/G/I/K | 4 | phase4_final_robustness.json: 124 tests, exact train/core replay; phase4_deployment.json; DEMO_SCRIPT.md; RUBRIC_AUDIT.md | PASS | Public cold rebuild and real anonymous demo checked; no universal latency guarantee |
+| COMP-20 | Honest limitations, CPU only, reproducibility | Organizer p7–14; Phase 4 | 4 | LIMITATIONS.md; live versus saved labels; phase4_robustness.json; unchanged historical evidence | PASS | No unverified performance, deployment, ownership or architecture-equivalence claim |
+| COMP-21 | Pathway selection and solution ZIP | Inspected live submission form | 4 | scripts/build_submission.py; source/byte manifest and CRC checks | UNVERIFIED | ZIP preparation and extracted run verified; actual Pathway selection/upload/submission not performed |
 
 
 ## Phase 2 acceptance
@@ -99,3 +102,63 @@ Authorized by the user's explicit next-phase instruction on 2026-09-07.
 | P3-11 | Technical walkthrough exists | Brief Phase 3 gate | 3 | TECHNICAL_WALKTHROUGH.md covers data flow, training, math, actions, evidence, visualizations, limits and 12 judge questions | PASS | Verified 2026-09-07 |
 | P3-12 | All tests pass | Brief Phase 3 gate | 3 | 124 tests, fresh isolated CPU installation, pip check, smoke, exact regeneration/core replay; phase3_robustness.json and phase3_verification.json | PASS | Verified 2026-09-07 |
 | P3-13 | Requirements matrix updated | Brief Phase 3 gate | 3 | REQUIREMENTS_MATRIX.md: all 13 Phase 3 gates individually evidenced; Phase 4 remains gated | PASS | Verified 2026-09-07 |
+
+
+## Phase 4 acceptance audit
+
+Statuses use PASS, FAIL, UNVERIFIED or NOT APPLICABLE. No scheduled or future
+extension is part of this release. A PASS for a document means its contents were
+reviewed; it does not imply that the human actions it describes have occurred.
+
+| ID | Requirement | Evidence | Status |
+|---|---|---|---|
+| P4-A | README covers the 26 specified items | All 26 items below; verified public URL in README | PASS |
+| P4-B | Source/license/modification/location record for all material | PROVENANCE.md and exact notices; scoped MIT approval | PASS |
+| P4-C | Honest AI and reuse disclosure | AI_ASSISTANCE.md; README credits; no claimed human defense | PASS |
+| P4-C2 | Team understands and can defend the submission | Walkthrough and rehearsal supplied; no observed team review | UNVERIFIED |
+| P4-D | Readable one-page 500–950-word concept summary | One A4 page, 630 extracted words, source/visual checks; PDF bytes preserved | PASS |
+| P4-E | Check blog ambiguity and label unresolved format | Organizer p12–14 and live ZIP field inspected; blog marked submission-format draft | PASS |
+| P4-F1 | Correct public deployment inputs, dependencies, checkpoint and no secrets | DEPLOYMENT.md; checked-in CPU artifact; pinned versions; no secret-pattern hits | PASS |
+| P4-F2 | Usable public URL without owner authentication | phase4_deployment.json: real app operated in anonymous browser | PASS |
+| P4-F3 | Public cold start and interaction checks | Fresh reboot usable within 130s; real actions observed at 952–1,017ms including overhead; phase4_deployment.json | PASS |
+| P4-G | Concise reproducible demonstration | DEMO_SCRIPT.md; measured seed-1000 protocol; roughly one-minute target labelled | PASS |
+| P4-H | Requirement-by-requirement honest audit | This matrix, organizer/portal audit and readiness report | PASS |
+| P4-I | Seven-criterion rubric review | RUBRIC_AUDIT.md: weights, strengths, weaknesses, evidence and useful final actions; no promised score | PASS |
+| P4-J | Code/assets/links/TODOs/secrets/caches/binaries/pins cleanup | phase4_cleanup.json: syntax/local-link/pattern scan, 45 protected prior files unchanged; only relevant release files added | PASS |
+| P4-K1 | Clean install, train/load, evaluate and tests | Initial fresh install and final constraints: phase4_final_installation.json / phase4_final_robustness.json; 124 tests in 15.76s, smoke, exact encoder/core replay | PASS |
+| P4-K2 | Start and operate final app end to end | Anonymous hosted demo, research, credits and post-reboot teaching; phase4_deployment.json | PASS |
+| P4-L | Final readiness report and stop | Final SUBMISSION_READINESS_REPORT.md: READY WITH MANUAL ACTIONS; stop after Phase 4 | PASS |
+| P4-ZIP | Portal package byte integrity, source manifest and run after extraction | Builder CRC/byte/SHA manifest checks; extracted smoke and app tests in phase4_package_smoke.json | PASS |
+| P4-SUBMIT | Actual competition submission | No final form submission authorized or performed | UNVERIFIED |
+| P4-EXT | Implement post-hackathon extensions | Excluded by phase scope | NOT APPLICABLE |
+
+### README item coverage
+
+| Item | Required content | Location in README | Status |
+|---|---|---|---|
+| 1 | Project title | Opening heading | PASS |
+| 2 | One-sentence claim | Opening quote | PASS |
+| 3 | Problem | The problem | PASS |
+| 4 | Intended learner | Audience and learning objectives | PASS |
+| 5 | Prerequisites | Audience and learning objectives | PASS |
+| 6 | Learning objectives | Audience and learning objectives | PASS |
+| 7 | Architecture | Mechanism; architecture link and project layout | PASS |
+| 8 | ML methodology | Mechanism and measured evidence; linked training config | PASS |
+| 9 | Memory equation | Explicit S/c/M update and scores | PASS |
+| 10 | Arbitrary episode mapping | Opening, Use the lab and Mechanism | PASS |
+| 11 | App features | Use the lab and Research | PASS |
+| 12 | Installation | Python 3.12 venv, requirements and pip check | PASS |
+| 13 | Run instructions | streamlit run app.py | PASS |
+| 14 | Training/reproduction | Explicit train_encoder.py commands | PASS |
+| 15 | Evaluation reproduction | Core, replay, suite and robustness commands | PASS |
+| 16 | Live/precomputed distinction | Cached embeddings, live actions, saved evidence; no scripted model animation | PASS |
+| 17 | Data source | Scope, sources and ownership | PASS |
+| 18 | Model source | Locally trained encoder, checkpoint and metadata | PASS |
+| 19 | Primary research | Research section and adjacent source links | PASS |
+| 20 | BDH connection | Research module and explicit implementation boundary | PASS |
+| 21 | Limitations | Scope and linked LIMITATIONS.md | PASS |
+| 22 | AI disclosure | Credits and AI_ASSISTANCE.md | PASS |
+| 23 | Licenses/provenance | Scoped MIT and separate notice links | PASS |
+| 24 | Verified deployment URL | Opening live link; deployment evidence section | PASS |
+| 25 | Repository URL | Opening links and deployment coordinates | PASS |
+| 26 | Credits | Scope, sources and ownership | PASS |
