@@ -8,7 +8,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 TOP_FILES = {"app.py", "README.md", "LICENSE", "requirements.txt", "requirements-lock.txt",
-             "requirements-pdf.txt", ".gitignore", ".gitattributes"}
+             "requirements-pdf.txt", "pyproject.toml", ".gitignore", ".gitattributes"}
 PREFIXES = ("src/", "tests/", "scripts/", "docs/", "assets/", "artifacts/", "output/pdf/")
 REQUIRED = {"app.py", "README.md", "LICENSE", "artifacts/encoder.pt",
             "artifacts/phase3_evidence.json", "docs/DEMO_SCRIPT.md",
@@ -47,7 +47,7 @@ def main():
         "This ZIP is not evidence that a competition entry has been submitted.\n\n"
         "Start with README.md for the project claim, current deployment status and install/run commands.\n"
         "Repository: https://github.com/deeps2710/MemoryForge\n"
-        "Live application: use only a verified public URL recorded in README.md.\n\n"
+        "Live application: https://memoryforge.streamlit.app/ (verified 2026-09-08).\n\n"
         "Written deliverables:\n"
         "- output/pdf/MemoryForge_Concept_Summary.pdf — one page; the required concept briefing.\n"
         "- output/pdf/MemoryForge_Blog.pdf — four-page project blog; submission-format draft,\n"

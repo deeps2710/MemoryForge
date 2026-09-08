@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-07T18:06:21.656684+00:00",
+  "recorded_at_utc": "2026-09-08T04:42:44.244233+00:00",
   "packages": [
     {
       "name": "altair",
@@ -720,7 +720,7 @@
     },
     {
       "name": "pyarrow",
-      "version": "25.0.1",
+      "version": "24.0.0",
       "license_expression": "Apache-2.0",
       "license_metadata": null,
       "license_classifiers": [],
@@ -734,12 +734,12 @@
       "modification": "Unmodified installed dependency; no package code or wheels vendored.",
       "notice_files": [
         {
-          "installed_relative_path": "pyarrow-25.0.1.dist-info/licenses/LICENSE.txt",
+          "installed_relative_path": "pyarrow-24.0.0.dist-info/licenses/LICENSE.txt",
           "sha256": "b410defd7f5f8cac9cfa54a3a49fcd971de2be0462bbab980c8f869f1aac94d3",
           "bytes": 114602
         },
         {
-          "installed_relative_path": "pyarrow-25.0.1.dist-info/licenses/NOTICE.txt",
+          "installed_relative_path": "pyarrow-24.0.0.dist-info/licenses/NOTICE.txt",
           "sha256": "2ccca1e730e671f55b8028facf2261a6f74b561a4d96a2ccd743be19c5619236",
           "bytes": 2997
         }
@@ -1398,5 +1398,5 @@
       "evidence_status": "RECORDED"
     }
   ],
-  "notices_sha256": "e1e920205ee4833a7a690df10548ff1656413a7b52eb3f68cb393cbfce2d9848"
+  "notices_sha256": "1f1b948d68a50e6f4fa311aa7031371ee6d8ae2b86547b99ab204e9063009289"
 }
