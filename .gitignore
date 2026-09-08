@@ -15,3 +15,4 @@ output/submission/
 artifacts/replay*.json
 artifacts/test-*.pt
 *.tmp
+.chart-data-*/

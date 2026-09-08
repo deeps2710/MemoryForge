@@ -2,6 +2,12 @@
 
 **Interactive Few-Shot Learning with Fast-Weight Associative Memory**
 
+**DataForge 2026 · Team BitWise · Deepshikha Rani and Ved Patel**
+
+[8-slide presentation](output/presentation/MemoryForge_BitWise_DataForge.pptx) ·
+[Detailed data-flow diagrams](docs/DATA_FLOW.md) ·
+[Presentation and screenshot notes](docs/PRESENTATION.md)
+
 > A neural system can rapidly learn new associations by updating temporary
 > fast-weight memory while keeping its long-term model parameters unchanged.
 
@@ -132,6 +138,28 @@ browser session. The app never trains the encoder. Clean memory is capped at
 10 demonstrations/class; repeated conflicts append additional writes.
 
 ## Mechanism
+
+### Application screenshots
+
+Actual captures of the public application on 8 September 2026. The first two
+show seed 1000; the research page shows the separately saved evaluation suite.
+
+![Guided lab with three writes, prediction beside truth and frozen encoder audit](assets/screenshots/guided-lab.png)
+
+The opening preset teaches one support per class. Its 30 fixed queries give
+23 correct predictions; the displayed query has a prediction beside its truth.
+
+![Actual fast-memory heatmap and dot-product retrieval scores after six writes](assets/screenshots/memory-and-retrieval.png)
+
+After two demonstrations per class, six writes give 27/30 correct. The heatmap
+and score plot show the computed retrieval matrix and its response to the query.
+
+![Research and evidence page with the saved paired shot and conflict evaluation](assets/screenshots/research-evidence.png)
+
+The research chart summarizes 50 fixed seeds. It is labelled saved evidence;
+it does not represent only the current browser's live episode.
+
+### Computation
 
 1. Load 1,797 bundled 8×8 digits; divide pixels by 16. Stratify original row IDs
    into 1,347 training and 450 held-out images using split seed 42.
@@ -283,6 +311,7 @@ tests/        math, isolation, replay and Streamlit integration checks
 artifacts/    small checkpoint and actual reproducible evidence
 docs/         architecture, decisions, phase gate, requirements and disclosures
 output/pdf/   blog and one-page concept summary
+output/presentation/  eight-slide DataForge deck, including two editable DFD views
 ```
 
 The pre-existing unrelated `html` file is preserved and is not an application
@@ -349,7 +378,8 @@ It writes `output/submission/MemoryForge_Submission_DRAFT.zip`, verifies every
 entry against its source bytes and includes a revision/hash manifest. Local
 environments, caches, secrets, unrelated html and the archive itself are excluded.
 The ZIP is deliberately not committed to avoid recursively packaging releases;
-its builder, source and both PDFs are public. Packaging is not competition submission.
+its builder, source, both PDFs, presentation and detailed DFD document are public.
+Packaging is not competition submission.
 
 The portal's observed submission deadline is 8 September 2026, 11:59 PM IST;
 verify it again on the [live event page](https://unstop.com/hackathons/dataforge-2026-iit-kharagpur-1739346).

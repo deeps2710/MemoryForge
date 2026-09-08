@@ -73,3 +73,15 @@ without inventing a score. SUBMISSION_INSTRUCTIONS_AUDIT.md records organizer
 page locators and the actual upload field.
 
 Phase 4 stops at this report. Post-hackathon extensions require a new instruction.
+
+## Requested presentation handoff, 2026-09-08
+
+The package also includes the eight-slide DataForge presentation for Team BitWise
+(Deepshikha Rani and Ved Patel), ending with THANK YOU. It contains actual app
+screenshots, two editable DFD views and an editable measured-evidence chart.
+DATA_FLOW.md expands the diagrams to four views plus a data dictionary.
+PRESENTATION.md records the slide outline, source captures and authoring process.
+Four screenshot originals are included; three also appear in the public README.
+The ZIP builder requires these additions alongside both PDFs and the original
+application deliverables and verifies all archived bytes. Presentation review
+does not change the manual actions or the status of competition submission.

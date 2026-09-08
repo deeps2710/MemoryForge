@@ -72,3 +72,13 @@ performed a fresh restart, and prepared the source/PDF ZIP and final audit.
 The user supplied the owner account access; no new account permissions were
 needed for this runtime repair. No competition form was submitted. Human
 comprehension and defense remain unverified.
+
+2026-09-08 presentation and packaging addendum: at the user's request, Codex
+captured the public application's real states, authored an eight-slide PPTX
+and detailed data-flow documentation, created an editable chart from saved
+measurements, added README screenshots and updated the ZIP inclusion rules.
+The user selected the eight-slide limit and final THANK YOU slide and supplied
+DataForge, BitWise, Deepshikha Rani, Ved Patel and the optional contact addresses.
+Codex checked every rendered slide and package structure. No screenshots were
+AI-generated. This work adds presentation materials; it does not establish a
+new scientific result, human technical defense or competition submission.

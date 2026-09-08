@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "reviewed_date": "2026-09-08",
+  "presentation": {
+    "path": "output/presentation/MemoryForge_BitWise_DataForge.pptx",
+    "sha256": "ea3230811dc1c1900f767ff4cb07f64fb70ed6864fe8f7fcbe76dcdca10c0d55",
+    "slides": 8,
+    "final_slide": "THANK YOU",
+    "actual_screenshot_originals_embedded": {
+      "guided-lab.png": true,
+      "memory-and-retrieval.png": true,
+      "conflict-outcome.png": true
+    },
+    "native_dfd_connectors_by_slide": {
+      "3": 8,
+      "4": 9
+    },
+    "native_chart_workbooks": 1,
+    "all_eight_final_slides_rendered_and_visually_reviewed": true,
+    "desktop_powerpoint_execution_verified": false,
+    "package_integrity": "pass",
+    "layout_findings": 0
+  },
+  "local_links_checked": 54,
+  "broken_local_links": [],
+  "prior_protected_files_unchanged": 45,
+  "prior_extracted_app_tested_files_byte_identical": 37,
+  "app_tests": "Existing 124-test final result and extracted-app smoke remain applicable to unchanged application files; no app feature change.",
+  "screenshots": {
+    "assets/screenshots/conflict-outcome.png": "a576b900965e6058e7a76cf16a74f9b3b00674b25fab37adcd61366ee2db7df3",
+    "assets/screenshots/guided-lab.png": "25307bdf8a8126b689f303dbd84e6f5b590cbdadd58a664da8527b8474fe7652",
+    "assets/screenshots/memory-and-retrieval.png": "392414951c8f195ebaebca7e8a7d2cf5b6dcf17200e4c0d39cc71aca418e8707",
+    "assets/screenshots/research-evidence.png": "50165ec03460120b55637199fa815c67faaa8ca1e6ec1c9d9cb456f1c77c6e15"
+  },
+  "zip_verification": "Build from final clean commit; output/submission/MemoryForge_Submission_DRAFT.verification.json records every-entry byte verification and archive checksum."
+}

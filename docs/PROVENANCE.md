@@ -112,3 +112,19 @@ The hosted Linux install and app behavior were checked, but the complete Linux
 wheel notice inventory was not downloaded or claimed equivalent. Community
 Cloud additionally installs logging tools (rich, markdown-it-py, mdurl and
 pygments); these provider-installed packages are not vendored in the ZIP.
+
+2026-09-08 presentation addendum: the user supplied the DataForge hackathon name,
+BitWise team name, both member names and optional email addresses. Codex authored
+the eight-slide presentation and detailed DFD from the implementation and saved
+evidence. Original text and editable diagrams fall within the scoped MIT grant.
+The editable chart uses project measurements, rounded to 0.01 percentage point
+in its embedded workbook. Four actual public-app PNG captures are recorded in
+PRESENTATION.md. They contain original application content plus the supplied
+logo and Streamlit interface elements; third-party and logo rights remain
+separate. The captures are not offered as wholly original MIT graphics.
+
+The PPTX references Arial and embeds no font binaries. It was produced with the
+Codex-provided @oai/artifact-tool runtime and presentation validation tools;
+their proprietary implementation is not copied into the repository or ZIP.
+The project-specific authoring script is included. No external paper figures,
+BDH/CQ weights or stock graphics were added to the presentation.
